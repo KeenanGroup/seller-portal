@@ -138,11 +138,11 @@ export default async function SellerPortalPage({ params }: PageProps) {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
               <div>
                 <span className="text-charcoal/50 block">
-                  {listing.propertyType?.toLowerCase().includes('lease') || listing.propertyType?.toLowerCase().includes('rental') ? 'Rent' : 'List Price'}
+                  {listing.listPrice < 10000 ? 'Rent' : 'List Price'}
                 </span>
                 <span className="font-semibold text-brand">
                   {formatCurrency(listing.listPrice)}
-                  {(listing.propertyType?.toLowerCase().includes('lease') || listing.propertyType?.toLowerCase().includes('rental')) && <span className="text-sm font-normal">/mo</span>}
+                  {listing.listPrice < 10000 && <span className="text-sm font-normal">/mo</span>}
                 </span>
               </div>
               <div>
