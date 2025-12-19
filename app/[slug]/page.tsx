@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { sanityClient } from '@/lib/sanity'
-import { supabase } from '@/lib/supabase'
+import { getSupabase } from '@/lib/supabase'
 import { PortableText } from '@portabletext/react'
 
 interface PageProps {
@@ -48,6 +48,9 @@ async function getSellerPortal(slug: string) {
 
 async function trackView(portalId: string, slug: string) {
   try {
+    const supabase = getSupabase()
+    if (!supabase) return
+
     await supabase.from('seller_portal_views').insert({
       portal_id: portalId,
       slug,
