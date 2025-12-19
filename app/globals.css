@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream text-charcoal;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand text-white px-6 py-3 rounded-lg font-medium
+           hover:bg-brand-light transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-champagne text-brand px-6 py-3 rounded-lg font-medium
+           hover:bg-champagne-light transition-colors duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6;
+  }
+
+  .card-header {
+    @apply text-lg font-serif text-brand mb-4 pb-3 border-b border-champagne;
+  }
+
+  .stat-card {
+    @apply bg-gradient-to-br from-brand to-brand-light text-white
+           rounded-xl p-6 text-center;
+  }
+
+  .stat-value {
+    @apply text-3xl font-bold mb-1;
+  }
+
+  .stat-label {
+    @apply text-champagne text-sm uppercase tracking-wide;
+  }
+
+  .trend-up {
+    @apply text-success font-medium;
+  }
+
+  .trend-down {
+    @apply text-error font-medium;
+  }
+}
