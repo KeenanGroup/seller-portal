@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-8205679-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-8205679-1');
+    </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+  <title>Page Not Found</title>
+
+
+
+  <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css?v=916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG_aiY1w" />
+  <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.css?v=NuCn4IvuZXdBaFKJOAcsU2Q3ZpwbdFisd5dux4jkQ5w" />
+  <link rel="stylesheet" href="/lib/jquery.mmenu/dist/jquery.mmenu.all.css?v=QRCHMCZn_6MiyKf8dDlFk0gyj54d2-lneLsGqcf0DXY" />
+  <link rel="stylesheet" href="/lib/select2/dist/css/select2.min.css?v=xJOZHfpxLR_uhh1BwYFS5fhmOAdIRQaiOul5F_b7v3s" />
+  <link rel="stylesheet" href="/lib/select2-bootstrap-theme/dist/select2-bootstrap.min.css?v=nbyata2PJRjImhByQzik2ot6gSHSU4Cqdz5bNYL2zcU" />
+  <link rel="stylesheet" href="/lib/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css?v=4e0eiRTk64tQnM9hmntNxCg5nuKU5MQG_uuCZ7WgfXc" />
+  <link rel="stylesheet" href="/lib/smartbanner.js/dist/smartbanner.min.css?v=0qo_FIqp67de3ZTJABXh_2cevKKBzppBLGD3qPLjS34" />
+  <link rel="stylesheet" href="/css/site.css?v=rrozSaoRA29In6-C2AjpRyHAwJFMPp59QGqrUHg0dKI" />
+
+  <link rel="stylesheet" href="/home/sitecss" />
+  <script type="text/javascript">
+
+  </script>
+  <!-- Start SmartBanner configuration -->
+  <meta name="smartbanner:title" content="Mortgage News Daily">
+  <meta name="smartbanner:author" content="We now have a native <b>iPhone</b><br/> and <b>Android</b> app. <br/>Download the NEW APP">
+  <meta name="smartbanner:price" content="">
+  <meta name="smartbanner:price-suffix-apple" content="">
+  <meta name="smartbanner:price-suffix-google" content="">
+  <meta name="smartbanner:icon-apple" content="/images/mobile/app-ios-icon.png">
+  <meta name="smartbanner:icon-google" content="/images/mobile/app-android-icon.png">
+  <meta name="smartbanner:button" content="VIEW">
+  <meta name="smartbanner:button-url-apple" content="https://apps.apple.com/us/app/mortgage-news-daily/id1588959473">
+  <meta name="smartbanner:button-url-google" content="https://play.google.com/store/apps/details?id=com.mortgagenewsdaily.rates.app">
+  <meta name="smartbanner:enabled-platforms" content="android,ios">
+  <meta name="smartbanner:close-label" content="Close">
+  <meta name="smartbanner:disable-positioning" content="true">
+  <style type="text/css">
+      .smartbanner{
+      z-index: 9999;
+      position: fixed;
+      bottom: 0;
+      top: auto;
+      height: 120px;
+    }
+    .smartbanner__icon{      
+      top: 25px;
+    }
+    .smartbanner__info {
+      height: auto;
+    }
+    .smartbanner__info__title {
+      font-size: 16px;
+    }
+    .smartbanner__info__author {
+      font-size: 14px;
+
+    }
+    .smartbanner__info__price{
+      display:none;
+    }
+    /*.smartbanner__exit{
+      display:none;
+    }*/
+    .smartbanner__button {
+      top: 50px;
+      padding: 0 10px 0 0;
+    }
+    /* .smartbanner.smartbanner--android .smartbanner__icon {
+      left: 5px;
+    }
+    .smartbanner.smartbanner--android .smartbanner__info {
+      left: 75px;
+    }
+    .smartbanner.smartbanner--android .smartbanner__button {
+      right: 10px;
+      top: 50px;
+    } */
+</style>
+  <!-- End SmartBanner configuration -->
+  
+</head>
+<body class="preload u-u u-anon anon s-e">
+  <div id="pw">
+    
+    <nav class="navbar navbar-static-top navbar-inverse top-nav">
+      <div class="navbar-header-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="#mobile-nav" class="navbar-toggle">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+
+            <a class="pull-left" href="/"><img src="/images/mnd-header.png" style="border: 0; width: 162px; height: 47px;" /></a>
+
+
+
+    <div class="header-charts hidden-xs hidden-sm" style="max-height: 40px; float: right;">
+    <div class="header-chart">
+        <a href="/mortgage-rates">
+            <div class="product-details">
+                <div class="product">30YR Fixed Rate</div>
+                <div class="price">6.22%</div>
+                <div class="rate rate-down">-0.05%</div>
+            </div>
+            <div class="product-chart">
+                <div class="chart"><img style="width: 38px; height: 21px;" src="/charts/ratessvg/30yrfrm?c=rate-down" /></div>
+            </div>
+        </a>
+    </div>
+        <div class="header-chart">
+            <a href="/mortgage-rates">
+                <div class="product-details">
+                    <div class="product">15YR Fixed Rate</div>
+                    <div class="price">5.74%</div>
+                    <div class="rate rate-down">-0.02%</div>
+                </div>
+                <div class="product-chart">
+                    <div class="chart"><img style="width: 38px; height: 21px;" src="/charts/ratessvg/15yrfrm?c=rate-down" /></div>
+                </div>
+            </a>
+        </div>
+    
+   <div class="header-chart">
+        <a href="/mbs">
+            <div class="product-details">
+                <div class="product">UMBS 30YR 5.0</div>
+                <div class="price">99.67</div>
+                <div class="rate  rate-worse rate-last-better">-0.06</div>
+            </div>
+            <div class="product-chart">
+                <div class="chart"><img style="width: 38px; height: 21px;" src="/charts/mbssvg/fnma50?c=%20rate-worse%20rate-last-better" /></div>
+            </div>
+        </a>
+    </div>
+    <div class="header-chart">
+        <a href="/mbs">
+            <div class="product-details">
+                <div class="product">10 Year Treasury</div>
+                <div class="price">4.129</div>
+                <div class="rate  rate-worse rate-last-better">&#x2B;0.007</div>
+            </div>
+            <div class="product-chart">
+                <div class="chart"><img style="width: 38px; height: 21px;" src="/charts/mbssvg/10yeartreas?c=%20rate-worse%20rate-last-better" /></div>
+            </div>
+        </a>
+    </div>
+</div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-header-bottom">
+        <div class="container">
+
+<div class="hidden-xs">
+    <ul class="nav navbar-nav main-nav">
+        <li class="">
+            <a href="/">Home</a>
+        </li>
+            <li class="dropdown ">
+                <a class="dropdown-toggle" href="/news" data-toggle="dropdown">News</a>
+                <div class="dropdown-menu">
+                    <div class="row">
+    <div class="col-md-4 hidden-sm hidden-xs">
+      <div class="news-article-list">
+          <a class="nav-sub-header" href="#">Latest Headlines</a>
+            <div class="article" data-cid="69448680a6791958c5898cf6" data-idt='2025-12-18T21:53:55Z'>
+            	<div class="article-title" style="display:inline-block;line-height:1.2em;">
+            		<a href="/markets/mbs-recap-12182025">Limited Follow-Through After Shockingly Big Miss</a>
+            	</div>
+            	<div class="article-byline" style="display:inline-block;">
+            		Today, 4:53 PM
+            	</div>
+            </div>
+            <div class="article" data-cid="694467cf1b2a55875820448f" data-idt='2025-12-18T20:44:00Z'>
+            	<div class="article-title" style="display:inline-block;line-height:1.2em;">
+            		<a href="/markets/mortgage-rates-12182025">Mortgage Rates Near Lowest Levels Since October</a>
+            	</div>
+            	<div class="article-byline" style="display:inline-block;">
+            		Today, 3:44 PM
+            	</div>
+            </div>
+            <div class="article" data-cid="694403f1ff31ffcf51d698bf" data-idt='2025-12-18T16:51:54Z'>
+            	<div class="article-title" style="display:inline-block;line-height:1.2em;">
+            		<a href="/opinion/pipelinepress-12182025">Jumbo, Hedging, HELOC, Custom Newsletter Products; STRATMOR the UWM/TWO Deal </a>
+            	</div>
+            	<div class="article-byline" style="display:inline-block;">
+            		Today, 11:51 AM
+            	</div>
+            </div>
+            <div class="article" data-cid="694414d4a6791958c588ae9a" data-idt='2025-12-18T13:47:18Z'>
+            	<div class="article-title" style="display:inline-block;line-height:1.2em;">
+            		<a href="/markets/mbs-morning-12182025">Big Drop in Annual CPI, But Only a Cautious Rally So Far</a>
+            	</div>
+            	<div class="article-byline" style="display:inline-block;">
+            		Today, 8:47 AM
+            	</div>
+            </div>
+            <div class="article" data-cid="69432ccca6791958c5871247" data-idt='2025-12-17T21:17:15Z'>
+            	<div class="article-title" style="display:inline-block;line-height:1.2em;">
+            		<a href="/markets/mbs-recap-12172025">Slightly More Focus Than Normal on Thursday's CPI</a>
+            	</div>
+            	<div class="article-byline" style="display:inline-block;">
+            		Wed, 4:17 PM
+            	</div>
+            </div>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-12">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="nav-sub-header" >News Headlines</div>
+                	<ul class="is-hidden">
+                	        <li><a href="/"><b>Home Page</b></a></li>
+                			<li style="display:none;"><a href="/headlines">View All Headlines</a></li>
+
+                	</ul>
+                	
+              
+<div class="nav-sub-header" style="margin-top:28px;">Newsletters</div>
+        		<ul class="is-hidden">
+        			<li><a href="/newsletter">Daily Newsletter</a></li>
+
+        		</ul>
+    
+            </div>
+            <div class="col-lg-4 col-md-6">
+
+                
+                 <div class="nav-sub-header" >Popular News Topics</div>
+        		<ul class="is-hidden">
+        			<li><a href="/news">Housing News</a></li>
+        			<li><a href="/topic/mortgage-rates">Mortgage Rate Watch</a></li>
+        			<li><a href="/topic/mbs">MBS Live Commentary</a></li>
+        			<li><a href="/topic/rob-chrisman">Rob Chrisman</a></li>
+                			<li><a href="/video">Video News</a></li>
+        			        <li><a href="/aroundtheweb">Around the Web</a></li>
+    
+        		</ul>               
+                
+        		
+        		
+        		
+        		
+            </div>
+        </div>
+    </div>
+</div>
+<div class="see-all"><a href="/">View Latest Headlines</a></div>
+                    <div class="hide-nav">
+                        <a href="#">Close Menu&nbsp;&nbsp;<i class="fa fa-times-circle"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown ">
+                <a class="dropdown-toggle" href="/mortgage-rates" data-toggle="dropdown">Mortgage Rates</a>
+                <div class="dropdown-menu">
+                    
+<div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm">
+        <div class="current-rate-section" style="border-radius:3px;padding:10px 16px;">
+            <a class="nav-sub-header" href="#">Current Mortgage Rates</a>
+            <div class="rate-product" style="line-height:1.1em;">30 Year Fixed Rate</div>
+            <div class="current-rate" style="font-size:32px;line-height:1.1em;">
+                6.22%
+                <span class="rate-change rate-down" style="font-size:28px;">
+                    -0.05
+                </span>
+            </div>
+            <div class="rate-graph" style="height:160px">
+    			<iframe data-src="/charts/embed/mnd-mtg-rates-30" scrolling="no" style="height: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 0; width: 100%;"></iframe>
+    		</div>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-12">
+        <div class="row">
+            <div class="col-sm-4">
+            	<div class="nav-sub-header" style="display:none;">Rate Data</div>
+            	<ul class="is-hidden">
+            		
+            			<li style="padding-bottom:4px;"><a href="/mortgage-rates" style="font-size:2rem;font-weight:600;color: #2D648A;">Today's Mortgage Rates</a></li>
+            			<li><a href="/mortgage-rates/compare">Compare Rates from Local Lenders</a></li>
+            			<li><a href="/mortgage-rates/mnd"><b>MND's Daily Rate Index</b></a></li>
+            			<li><a href="/mortgage-rates/about">About MND's Daily Rate Index</a></li>
+        			    <li><a href="/mortgage-rates/freddie-mac">Freddie Mac</a> <span style="padding:0 3px;color: #cac9c9;vertical-align: text-top;">|</span> <a href="/mortgage-rates/mba">MBA</a> </li>            			
+        			    <li style="margin-top:12px;"><a href="/mortgage-rates/30-year-fixed">30 Year</a> <span style="padding:0 3px;color: #cac9c9;vertical-align: text-top;">|</span> <a href="/mortgage-rates/15-year-fixed">15 Year</a></li>            			
+            			<li><a href="/mortgage-rates/30-year-jumbo">Jumbo</a> <span style="padding:0 3px;color: #cac9c9;vertical-align: text-top;">|</span> <a href="/mortgage-rates/30-year-fha">FHA</a> <span style="padding:0 3px;color: #cac9c9;vertical-align: text-top;">|</span> <a href="/mortgage-rates/5-1-arm">7/6 SOFR ARM</a> <span style="padding:0 3px;color: #cac9c9;vertical-align: text-top;">|</span> <a href="/mortgage-rates/30-year-va">VA</a></li>
+
+
+                        <li style="margin-top:12px;display:none;"><a href="/topic/mortgage-rates">Mortgage Rate Watch</a> <span class="menu-pipe">|</span> <a href="/newsletter" style="padding-right:2px;">Subscribe</a></li> 
+            	        <li style="margin-top:12px;display:none;"><a href="/mortgage-rates/report?la=250000" target="_blank">Live Market Report (PDF)</a></li>
+            		    <li style="margin-top:12px;"><a href="/mortgage-rates/volatility">Rate Volatility Index</a></li>
+            			<li><a href="/mortgage-rates/states">Rates by State</a></li>
+            			<li style="display:none;"><a href="/mortgage-rates/30yr-mbs">30YR vs MBS</a>&nbsp;|&nbsp;<a href="/mortgage-rates/30yr-treasuries">30YR vs 10YR</a></li>
+
+        			    <li style="display:none;"><a href="/mortgage-rates/10yr-mbs">10YR vs MBS</a></li>
+            			
+            			
+            	</ul>            	
+            </div>
+            <div class="col-sm-4">
+                
+                <div class="nav-sub-header">Mortgage Calculators</div>
+        		<ul class="is-hidden">
+        			<li><a href="/mortgage-calculator">Payment w/ Amortization <i class="fa fa-calculator" aria-hidden="true" style="color:#ccc;font-size:15px;padding-left:2px;display:none;"></i></a></li>
+        			<li><a href="/mortgage-calculator/compare">Mortgage Loan Comparison <i class="fa fa-calculator" aria-hidden="true" style="color:#ccc;font-size:15px;padding-left:2px;display:none;"></i></a></li>
+        			<li><a href="/mortgage-calculator/early-payoff">Early Payoff <i class="fa fa-calculator" aria-hidden="true" style="color:#ccc;font-size:15px;padding-left:2px;display:none;"></i></a></li>
+        		</ul>
+        		
+
+                <div class="nav-sub-header" style="margin-top:22px;">Rate Commentary</div>
+            	<ul class="is-hidden">
+            		
+            			<li><a href="/topic/mortgage-rates">Mortgage Rate Watch</a></li>
+
+            	</ul>          
+            	
+       		    <div style="display:none;">
+            	<div class="nav-sub-header" style="margin-top:28px;">Additional Rate Data</div>
+        		<ul class="is-hidden">
+        			<li><a href="/mortgage-rates/30-year-fixed" style="padding-right:2px;">30 Year</a> | <a href="/mortgage-rates/15-year-fixed" style="padding-left:2px;">15 Year</a></li>
+        			<li><a href="/mortgage-rates/30-year-jumbo" style="padding-right:2px;">Jumbo</a> | <a href="/mortgage-rates/30-year-fha" style="padding-left:2px;">FHA</a> | <a href="/mortgage-rates/5-1-arm" style="padding-left:2px;">7/6 SOFR ARM</a> | <a href="/mortgage-rates/30-year-va" style="padding-left:2px;">VA</a></li>
+        			<li><a href="/mortgage-rates/freddie-mac" style="padding-right:2px;">Freddie Mac</a> | <a href="/mortgage-rates/mba" style="padding-right:2px;padding-left:2px;">MBA</a> | <a href="/mortgage-rates/fhfa" style="padding-left:2px;">FHFA</a></li>
+        			<li><a href="/mortgage-rates/30yr-mbs">30YR vs MBS</a>&nbsp;|&nbsp;<a href="/mortgage-rates/30yr-treasuries">30YR vs 10YR</a></li>
+
+        			<li><a href="/mortgage-rates/10yr-mbs">10YR vs MBS</a></li>        			
+        		</ul>
+        		</div>
+        		
+        		<div style="display:none;">
+        		<div class="nav-sub-header" style="margin-top:28px;">Additional Charts</div>
+        		<ul class="is-hidden">
+        			<li><a href="/mortgage-rates/30yr-mbs">30 YR vs. MBS</a> | <a href="/mortgage-rates/30yr-treasuries">30YR Fixed vs. 10YR Tres</a></li>
+        			<li><a href="/mortgage-rates/30yr-treasuries">30 Yr Fixed vs. 10 YR Treasury</a></li>
+        			<li><a href="/mortgage-rates/10yr-mbs">10YR Tres vs. MBS</a></li>
+
+        		</ul></div>
+        		
+            </div>
+            <div class="col-sm-4">
+                <div class="nav-sub-header">Learn About Rates</div>
+        		<ul class="is-hidden">
+        			<li><a href="/learn/mortgage-rates/what-is-a-mortgage">What is a Mortgage?</a></li>
+        			<li><a href="/learn/mortgage-rates/defined">Mortgage Rates Defined</a></li>
+        			<li><a href="/learn/mortgage-rates/change">What Makes Rates Change?</a></li>
+        			<li><a href="/learn/mortgage-rates/mbs">Mortgage Rates and MBS</a></li>
+        			<li><a href="/learn/mortgage-rates">More Questions</a></li>
+        		</ul>
+
+        	    <div class="nav-sub-header" style="margin-top:28px;">Rate Widgets</div>
+        		<ul class="is-hidden">
+        			<li><a href="/widgets">Mortgage Rates Widgets</a></li>
+        			<li><a href="/widgets">Mortgage Calculator Widgets</a></li>
+
+        		</ul>
+        		
+        		
+            </div>  
+            <div class="col-sm-3" style="display:none;">
+
+        	<div class="nav-sub-header" >Widgets</div>
+        		<ul class="is-hidden">
+        			<li><a href="/widgets">Mortgage Rates Widgets</a></li>
+        			<li><a href="/widgets">Mortgage Calculator Widgets</a></li>
+
+        		</ul>
+            </div>  
+
+            
+        </div>
+    </div>
+
+</div>
+<div class="see-all"><a href="/mortgage-rates">Current Mortgage Rates</a></div>
+
+                    <div class="hide-nav">
+                        <a href="#">Close Menu&nbsp;&nbsp;<i class="fa fa-times-circle"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown ">
+                <a class="dropdown-toggle" href="/mbs" data-toggle="dropdown">MBS</a>
+                <div class="dropdown-menu">
+                    
+<div class="row">
+    <div class="col-md-3 hidden-sm hidden-xs">
+        <div class="current-rate-section" style="border-radius:3px;padding:10px 16px;">
+            <a class="nav-sub-header" href="/mbs">Today's MBS Prices</a>
+            <div class="rate-product" style="line-height:1.1em;">UMBS 30YR 5.0</div>
+            <div class="current-rate mbs" style="line-height:1.1em;">
+                99.67
+                <span class="rate-change rate-worse">
+                    -0.06
+                </span>
+            </div>
+            <div class="rate-graph" style="height:160px">
+    			<iframe data-src="/charts/embed/fnma-current-one-year" scrolling="no" style="height: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 0; width: 100%;"></iframe>
+    		</div>
+        </div>
+    </div>
+    <div class="col-md-3 hidden-sm hidden-xs" style="display:none;">
+        <div class="current-rate-section">
+            <a class="nav-sub-header" href="/mbs">Current Treasury Prices</a>
+            <div class="rate-product">10 Year US Treasury</div>
+            <div class="current-rate mbs">
+                4.1285
+                <span class="rate-change rate-worse">
+                    +0.0073
+                </span>
+            </div>
+            <div class="rate-graph" style="height:210px">
+    			<iframe data-src="/charts/embed/treas-ten-year-1-year-history" scrolling="no" style="height: 100%; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 0; width: 100%;"></iframe>
+    		</div>
+        </div>
+    </div>
+    <div class="col-md-9 col-sm-12">
+        <div class="row">
+            <div class="col-sm-4">
+                
+            	<div class="nav-sub-header" style="display:none;">MBS Data</div>
+            	<ul class="is-hidden">
+            			<li style="padding-bottom:4px;"><a href="/mbs"  style="font-size:2rem;font-weight:600;color: #2D648A;"><b>MBS & Treasury Prices</b></a></li>
+            			
+
+                        <li style="padding-top:12px;"><a href="/mbs">Current MBS Prices</a></li> 
+            			<li style="padding-top:12px;"><a href="/mbs/umbs/30">UMBS</a><span style="padding:0 3px;color: #cac9c9;vertical-align: text-top;"> | </span><a href="/mbs/gnma/30">GNMA</a><span style="padding:0 3px;color: #cac9c9;vertical-align: text-top;"></li>
+            			<li style="padding-top:12px;"><a href="/treasury">Treasury Prices</a></li>            			
+            			<li><a href="/treasury/10yr">10YR</a><span style="padding:0 3px;color: #cac9c9;vertical-align: text-top;">|</span><a href="/treasury/30yr">30YR</a></li>
+            			<li><a href="/treasury">Yield Curve</a></li> 
+            			<li style="padding-top:12px;"><a href="/mortgage-rates">Current Mortgage Rates</a></li>
+            			
+
+            	</ul>
+
+         	
+            	
+            </div>
+            <div class="col-sm-4">
+            
+            	<div class="nav-sub-header">Market Commentary</div>
+              
+        		<ul class="is-hidden">
+            			<li><a href="/topic/mbs">MBS Market Commentary</a></li>
+
+        		</ul>             
+
+        		
+        		<div class="nav-sub-header" style="margin-top:22px;">More Charts</div>
+        		<ul class="is-hidden">
+
+            			<li><a href="/mortgage-rates/30yr-mbs">MBS vs 30 YR Fixed</a></li>
+            			<li><a href="/mortgage-rates/30yr-treasuries">10YR vs 30 YR Fixed</a></li>
+            			
+        		</ul>        		
+            </div>
+            
+            <div class="col-sm-4">
+                
+        		<div class="nav-sub-header" >Learn About MBS</div>
+        		<ul class="is-hidden">
+
+            			<li><a href="/learn/mbs/basics">MBS Basics</a></li>
+            			<li><a href="/learn/mbs/mortgage-bonds">Mortgage Bonds and Securitization</a></li>
+            			<li><a href="/learn/mbs/mbs-mortgage-rates">MBS and Mortgage Rates</a></li>
+            			<li><a href="/learn/mbs/gut-flop">The GUTFLOP</a></li>
+
+        		</ul>   
+        		
+        
+     		
+         
+            
+
+        		<div class="nav-sub-header" style="margin-top:22px;">MBS Live</div>
+        		<ul class="is-hidden">
+
+            			<li><a href="http://www.mbslive.net/" target="_blank">MBS Live Features</a></li>
+            			<li><a href="http://app.mbslive.net/signup" target="_blank">2 Week Free Trial</a></li>
+
+        		</ul>
+
+            
+        </div>
+        
+        
+    </div>    
+    </div>
+
+</div>
+
+<div class="see-all"><a href="/mbs">Today's MBS Prices</a></div>
+                    <div class="hide-nav">
+                        <a href="#">Close Menu&nbsp;&nbsp;<i class="fa fa-times-circle"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown ">
+                <a class="dropdown-toggle" href="/data" data-toggle="dropdown">Housing Data</a>
+                <div class="dropdown-menu">
+                    <div class="container">
+<div class="row">
+    <div class="col-md-3 col-sm-4">
+        <div class="nav-sub-header">Housing Production</div>
+		<ul class="is-hidden">
+			<li><a href="/data/building-permits">Building Permits</a></li>
+			<li><a href="/data/housing-starts">Housing Starts</a></li>
+			<li><a href="/data/homes-under-construction">Under Construction</a></li>
+			<li><a href="/data/housing-completions">Housing Completions</a></li>
+
+			<li><a href="/data/builder-confidence">NAHB Builder Confidence</a></li>
+		</ul>
+    </div>
+    <div class="col-md-3 col-sm-4">
+        <div class="nav-sub-header">Home Sales</div>
+		<ul class="is-hidden">
+			<li><a href="/data/new-home-sales">New Home Sales</a></li>
+			<li><a href="/data/existing-home-sales">Existing Home Sales</a></li>
+			<li><a href="/data/pending-home-sales">Pending Home Sales</a></li>
+		</ul>
+    </div>
+    <div class="col-md-3 col-sm-4">
+        <div class="nav-sub-header">Home Prices</div>
+		<ul class="is-hidden">
+			<li><a href="/data/fhfa-home-prices">FHFA Home Price Index</a></li>
+			<li><a href="/data/case-shiller-home-prices">S&amp;P Case Shiller Index</a></li>
+			<li><a href="/data/new-home-prices">New Home Prices</a></li>
+			<li><a href="/data/existing-home-prices">Existing Home Prices</a></li>
+		</ul>
+    </div>
+    <div class="col-md-3 col-sm-4">
+        <div class="nav-sub-header">Homeownership</div>
+		<ul class="is-hidden">
+			<li><a href="/data/home-vacancy">Vacancy Rate</a></li>
+			<li><a href="/data/home-ownership">Homeownership Rate</a></li>
+
+		</ul>
+	</div>
+	<div class="col-md-3 col-sm-4">
+		<div class="nav-sub-header" style="margin-top:28px;">Mortgages</div>
+		<ul class="is-hidden">
+			<li><a href="/data/mortgage-applications">Mortgage Applications</a></li>
+
+		</ul>
+    </div>
+</div>
+</div>
+                    <div class="hide-nav">
+                        <a href="#">Close Menu&nbsp;&nbsp;<i class="fa fa-times-circle"></i></a>
+                    </div>
+                </div>
+            </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+            <li class="dark-link tool">
+                <a href="/search"><i class="fa fa-search"></i></a>
+            </li>
+                <li>
+                    <a href="#" class="share-popup">Share</a>
+                </li>
+            <li>
+                <a href="/newsletter">Subscribe</a>
+            </li>
+
+    </ul>
+</div>
+<div>
+    <nav id="mobile-nav" data-title="Mortgage News Daily">
+        <ul>
+            <li class="">
+                <a href="/">Home</a>
+            </li>
+                <li class="">
+                    <span>News</span>
+                    <ul>
+                        <li class="mobile-menu-header"><a href="/"><b>Top News</b></a></li>
+<li><a href="/">Latest Headlines</a></li>
+<li><a href="/topic/mortgage-rates">Mortgage Rate Watch</a></li>
+<li><a href="/topic/mbs">MBS Commentary</a></li>
+<li><a href="/topic/rob-chrisman">Rob Chrisman</a></li>
+<li><a href="/video">Video News</a></li>
+<li><a href="/aroundtheweb">Around the Web</a></li>
+<li class="mobile-menu-header" style="padding:15px 10px 15px 20px;"><b>Other</b></li>
+<li><a href="/newsletter">Daily Newsletter</a></li>
+
+
+                    </ul>
+                </li>
+                <li class="">
+                    <span>Mortgage Rates</span>
+                    <ul>
+                        <li class="mobile-menu-header">
+    <a href="/mortgage-rates"><b>Mortgage Rates</b></a>
+
+
+</li>
+<li>    <a href="/mortgage-rates">Today's Mortgage Rates</a></li>
+
+<li><a href="/topic/mortgage-rates">Mortgage Rate Wach</a></li>
+<li>
+    <span>Mortgage Calculators</span>
+    <ul>
+		<li><a href="/mortgage-calculator">Mortgage Payment w/ Amortization</a></li>
+		<li><a href="/mortgage-calculator/compare">Mortgage Loan Comparison</a></li>
+		<li><a href="/mortgage-calculator/early-payoff">Early Payoff</a></li>
+	</ul>
+</li>
+<li>
+    <span>Learn About Rates</span>
+    <ul>
+		<li><a href="/learn/mortgage-rates/what-is-a-mortgage">What is a Mortgage?</a></li>
+		<li><a href="/learn/mortgage-rates/defined">Mortgage Rates Defined</a></li>
+		<li><a href="/learn/mortgage-rates/change">What Makes Rates Change?</a></li>
+		<li><a href="/learn/mortgage-rates/mbs">Mortgage Rates and MBS</a></li>
+		<li><a href="/learn/mortgage-rates">More Questions</a></li>
+	</ul>
+</li>
+
+<li>
+    <span>More Data</span>
+    <ul>
+
+		<li><a href="/mortgage-rates/volatility">Rate Volatility Index</a></li>
+		<li><a href="/mortgage-rates/30yr-mbs">30 YR Fixed vs. MBS</a></li>
+		<li><a href="/mortgage-rates/30yr-treasuries">30 Yr Fixed vs. 10 YR Treasury</a></li>
+		<li><a href="/mortgage-rates/10yr-mbs">10 YR Treasury vs. MBS</a></li>
+    </ul>
+</li>
+<li>
+    <span>Rate Surveys</span>
+    <ul>
+		<li><a href="/mortgage-rates/mnd">Mortgage News Daily</a></li>
+		<li><a href="/mortgage-rates/freddie-mac">Freddie Mac</a></li>
+		<li><a href="/mortgage-rates/mba">MBA</a></li>
+
+	</ul>
+</li>
+
+<li>
+    <span>Rates by Loan Type</span>
+    	<ul>
+			<li><a href="/mortgage-rates/30-year-fixed">30 YR Fixed</a></li>
+			<li><a href="/mortgage-rates/15-year-fixed">15 YR Fixed </a></li>
+			<li><a href="/mortgage-rates/30-year-jumbo">30 YR Jumbo</a></li>
+			<li><a href="/mortgage-rates/30-year-fha">30 YR FHA </a></li>
+			<li><a href="/mortgage-rates/5-1-arm">7/6 SOFR ARM</a></li>
+			<li><a href="/mortgage-rates/30-year-va">30 YR VA</a></li>
+		</ul>
+</li>
+
+
+
+                    </ul>
+                </li>
+                <li class="">
+                    <span>MBS</span>
+                    <ul>
+                        
+
+<li><a href="/mbs">Today's MBS Prices</a></li>
+
+<li>
+	<span>Treasury Yields</span>
+	<ul>
+		<li><a href="/treasury/10yr">10 Year</a></li>
+		<li><a href="/treasury/30yr">30 Year</a></li>
+		<li><a href="/treasury">All Treasuries</a></li>
+	</ul>   
+</li>
+
+
+<li><a href="/topic/mbs">MBS Commentary</a></li>	
+
+
+<li>
+	<span>Charts</span>
+	<ul>
+		<li><a href="/mortgage-rates/30yr-mbs">MBS vs 30 YR Fixed</a></li>
+		<li><a href="/mortgage-rates/30yr-treasuries">10YR vs 30 YR Fixed</a></li>
+		<li><a href="/treasury">Yield Curve</a></li>
+	</ul>
+</li>
+<li>
+	<span>Learn About MBS</span>
+	<ul>
+		<li><a href="/learn/mbs/basics">MBS Basics</a></li>
+		<li><a href="/learn/mbs/mortgage-bonds">Mortgage Backed Bonds and Securitization</a></li>
+		<li><a href="/learn/mbs/mbs-mortgage-rates">MBS and Mortgage Rates</a></li>
+		<li><a href="/learn/mbs/gut-flop">The GUTFLOP</a></li>
+	</ul> 
+</li>
+<li><a href="http://www.mbslive.net/" target="_blank">MBS Live</a></li>
+
+                    </ul>
+                </li>
+                <li class="">
+                    <span>Housing Data</span>
+                    <ul>
+                        <li>
+	<span>Housing Production</span>
+	<ul>
+		<li><a href="/data/building-permits">Building Permits</a></li>
+		<li><a href="/data/housing-starts">Housing Starts</a></li>
+		<li><a href="/data/homes-under-construction">Under Construction</a></li>
+		<li><a href="/data/housing-completions">Housing Completions</a></li>
+
+		<li><a href="/data/builder-confidence">NAHB Builder Confidence</a></li>
+	</ul>
+</li>
+<li>
+	<span>Home Sales</span>
+	<ul>
+		<li><a href="/data/new-home-sales">New Home Sales</a></li>
+		<li><a href="/data/existing-home-sales">Existing Home Sales</a></li>
+		<li><a href="/data/pending-home-sales">Pending Home Sales</a></li>
+	</ul>
+</li>
+<li>
+	<span>Home Prices</span>
+	<ul>
+		<li><a href="/data/fhfa-home-prices">FHFA Home Price Index</a></li>
+		<li><a href="/data/case-shiller-home-prices">S&amp;P Case Shiller Index</a></li>
+		<li><a href="/data/new-home-prices">New Home Prices</a></li>
+		<li><a href="/data/existing-home-prices">Existing Home Prices</a></li>
+	</ul>
+</li>
+<li>
+	<span>Homeownership</span>
+	<ul>
+		<li><a href="/data/home-vacancy">Vacancy Rate</a></li>
+		<li><a href="/data/home-ownership">Homeownership Rate</a></li>
+
+	</ul>
+</li>
+<li>
+	<span>Mortgages</span>
+	<ul>
+		<li><a href="/data/mortgage-applications">Mortgage Applications</a></li>
+
+	</ul>
+</li>
+                    </ul>
+                </li>
+        </ul>
+    </nav>
+
+</div>
+
+
+        </div>
+      </div>
+
+    </nav>
+<noscript>
+    <input type="checkbox" class="noscript-check" id="noscript-check">
+    <div class="no-script-warning">
+        <div class="container">
+            <label class="pull-right" for="noscript-check"><i class="fa fa-lg fa-close"></i></label>
+            This website requires Javascrip to run properly.
+        </div>
+    </div>
+</noscript>    <div class="container">
+      <div class="body-content">
+        
+          
+
+        
+        
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		
+<div style="margin-top:30px;padding-bottom:100px;">
+<h1><i class="fa fa-exclamation-circle" aria-hidden="true"></i> 
+Page Not Found</h1>
+<div style="font-size:16px;">We can't find the page you requested: <b>/data/historical-mortgage-chart.png</b><br/>
+Our technical support team has been notfied of the error.  
+</div>
+</div>				
+	</div>
+</div>
+
+
+<div class="content-footer" style="margin-top:50px;padding-bottom:32px;">
+    
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="content-footer-header" style="padding-bottom: 12px;">Follow MND on:</div>
+            <div class="content-footer-contnet">
+                <a href="http://www.facebook.com/mortgagenews" border="0" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true" style="font-size:36px;color:#3b5998;"></i></a>&nbsp;&nbsp;&nbsp;
+                <a href="http://twitter.com/mortgagenewsmnd" border="0" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true" style="font-size:36px;color:#4099FF;"></i></a>&nbsp;&nbsp;&nbsp;
+                <span style="display:none;"><a href="http://www.linkedin.com/profile/view?id=23124825" border="0" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true" style="font-size:36px;color:#007bb6;"></i></a>&nbsp;&nbsp;&nbsp;</span>
+                <span style="display:none;"><a href="/rss" border="0" ><i class="fa fa-rss-square" aria-hidden="true" style="font-size:36px;color:#fe9900;"></i></a>&nbsp;&nbsp;&nbsp;</span>
+                <a href="https://www.instagram.com/mortgagenews/" target="_blank"><img src="https://a.mortgagenewsdaily.com/assets/5c535a1a1626001430dded9d/5c535a1a1626001430dded9d.png" border="0" width="32" style="vertical-align: top;padding-top: 2px;" /></a>&nbsp;&nbsp;&nbsp;
+                </div>
+        </div>  
+
+<div class="cobrand-hide">        
+        
+        <div class="bottom-promote">
+            <a href="/mobile">
+        <div class="col-md-4  hidden-xs hidden-sm">
+            <div class="content-footer-header" style="padding-bottom: 12px;">Download our Mobile App</div>
+            
+            <div class="content-footer-contnet">
+                    <div style="width: 100%; overflow: hidden;">
+                    <div style="width: 40px; float: left;color:#23527c;"> <i class="fa fa-apple" aria-hidden="true" style="font-size:32px;"></i> <i class="fa fa-google" aria-hidden="true" style="font-size:32px;"></i></div>
+                    <div style="margin-left: 44px;">Search for Mortgage News Daily in the Apple or Google app store.  Make sure to set up notifications. </div>
+                </div>
+</div>            
+            
+            </div>
+        </div></a>
+        </div>
+        
+        
+        
+        <a href="/newsletter">
+        <div class="bottom-promote">        
+        <div class="col-md-4  hidden-xs hidden-sm">
+            <div class="content-footer-header" style="padding-bottom: 12px;">Sign Up for our Newsletter</div>
+            <div class="content-footer-contnet">
+                
+                <div style="width: 100%; overflow: hidden;">
+                    <div style="width: 40px; float: left;color:#23527c;"> <i class="fa fa-envelope-o" aria-hidden="true" style="font-size:32px;"></i> </div>
+                    <div style="margin-left: 44px;"> Stay informed with our <b>FREE</b> daily newsletter. &nbsp;<a href="/newsletter"><b>Sign Up ></b></a></div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </a>
+
+      
+
+    </div>
+</div>      </div>
+    </div>
+    
+    <footer>
+      <div class="container">
+        <div class="row footer-icon-links" style="display:none;">
+    <div class="col-sm-2 col-xs-4">
+        <a href="/">
+            <i class="fa fa-home fa-3x"></i>
+            <span>HOME</span>
+        </a>
+    </div>
+    <div class="col-sm-2 col-xs-4">
+        <a href="/mortgage-rates">
+            <i class="fa fa-percent fa-3x"></i>
+            <span>MORTGAGE RATES</span>
+        </a>
+    </div>
+    <div class="col-sm-2 col-xs-4">
+        <a href="/mbs">
+            <i class="fa fa-area-chart fa-3x"></i>
+            <span>MARKET DATA</span>
+        </a>
+    </div>
+    <div class="col-sm-2 col-xs-4">
+        <a href="/mortgage-calculator">
+            <i class="fa fa-calculator fa-3x"></i>
+            <span>MORTGAGE CALCULATOR</span>
+        </a>
+    </div>
+    <div class="col-sm-2 col-xs-4">
+        <a href="/newsletter">
+            <i class="fa fa-newspaper-o fa-3x"></i>
+            <span>NEWSLETTERS</span>
+        </a>
+    </div>
+    <div class="col-sm-2 col-xs-4">
+        <a href="http://www.mbslive.net" target="_blank">
+            <i class="fa fa-bar-chart fa-3x"></i>
+            <span>MBS LIVE</span>
+        </a>
+    </div>
+</div>
+<div class="row footer-list-links hidden-xs">
+    
+    
+    <div class="col-sm-3">
+        <div class="headline">
+            <h3>Home</h3>
+        </div>
+        <ul>
+            <li><a href="/">Home Page</a></li>
+
+
+
+        </ul>
+    </div>
+    
+
+    <div class="col-sm-3">
+        <div class="headline">
+            <h3>Popular</h3>
+        </div>
+        <ul>
+            <li><a href="/mortgage-rates">Mortgage Rates</a></li>
+            <li><a href="/mbs">MBS Prices</a></li>
+            <li><a href="/mortgage-calculator">Mortgage Calculators</a></li>
+            <li><a href="/cobranding">Co-branding</a></li>
+
+
+        </ul>
+    </div>
+    <div class="col-sm-3">
+        
+        <div class="link-section">        
+        <div class="headline">
+            <h3>Stay Informed</h3>
+        </div>
+        <ul>
+            <li><a href="/mobile">Download our Mobile App</a></li>
+            <li><a href="/newsletter">Daily Email Newsletter</a></li>
+            
+            <li><a href="http://www.mbslive.net" target="_blank">MBS Live</a></li>
+
+
+        </ul>
+                </div>
+                   
+    </div>
+
+    <div class="col-sm-3">
+        <div class="link-section">
+            <div class="headline">
+                <h3>Support</h3>
+            </div>
+            <ul>
+            <li><a href="/support" class="support-link">Contact Us</a></li>
+            <li><a href="/search">Search</a></li>
+            <li><a href="/support/faqs">FAQs</a></li>
+            <li><a href="/learn">Learn</a></li>
+            </ul>
+        </div>
+        
+
+
+
+
+
+
+
+
+
+        
+        
+        
+    </div>
+
+
+</div>
+<div class="row footer-list-links visible-xs">
+    
+    
+    <div class="col-xs-6">
+        <div class="headline">
+            <h3>Popular</h3>
+        </div>
+        <ul>
+            <li><a href="/">Home Page</a></li>
+            <li><a href="/mortgage-rates">Mortgage Rates</a></li>
+            <li><a href="/mbs">MBS Prices</a></li>
+            <li><a href="/mortgage-calculator">Mortgage Calculators</a></li>
+            <li><a href="/data">Housing Data</a></li>            
+            
+
+        </ul>
+    </div>
+    
+
+
+</div>
+
+      </div>
+      <div class="copyright">
+        <div class="container">
+          
+        <div class="footer-copyright" style="text-align:center;">
+            <a href="/about/copyright">&copy; 2025 - Mortgage News Daily, LLC.</a> 
+            &nbsp;|&nbsp; <a href="/about/termsofuse" style="color:#91aac7;">Terms of Use</a>
+             &nbsp;|&nbsp; <a href="/about/privacy" style="color:#91aac7;">Privacy Policy</a> 
+        </div>
+    
+        </div>
+      </div>
+    </footer>
+    
+    <div id="share-modal-content" class="share-modal-content">
+      <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <div class="share-header">
+            <div class="share-header-content">
+                <div class="row">
+    <div class="col-12">
+      <div style="text-align: left; font-size: 24px; font-weight: 500; padding: 8px 0 7px 7px;">How would you like to share this content?</div>  
+    </div>
+</div>
+                <div class="row share-types">
+                    <div class="col-12">
+                        <ul class="nav nav-pills nav-justified">
+                            <li class="nav-item social active">
+                                <a class="nav-link " href="#" data-target=".modal.share-popup-modal .share-social" data-toggle="pill">Social</a>
+                            </li>
+                            <li class="nav-item email">
+                                <a class="nav-link " href="#" data-target=".modal.share-popup-modal .share-email" data-toggle="pill">Email</a>
+                            </li>
+                            <li class="nav-item download">
+                                <a class="nav-link " href="#" data-target=".modal.share-popup-modal .share-download" data-toggle="pill">Print / Download</a>
+                            </li>
+                            <li class="nav-item web">
+                                <a class="nav-link web" href="#" data-target=".modal.share-popup-modal .share-web" data-toggle="pill">Web</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="tab-content">
+            <div class="tab-pane fade in active share-social" role="tabpanel">
+                
+<div style="font-size:18px;text-align: center;"><a href="/cobranding"><b>Looking for our Co-branded Marketing Tools?</b></a></div>
+<div style="text-align: center;padding-bottom:10px;padding-top:10px;">
+    <div style="font-weight:600;text-align:center;font-size:18px;padding-bottom:4px;">Share via Social Media:</div>
+<div style="margin: 0 auto; color: #333; display: inline-block; text-align: left;">
+    All social media shares will include the image and link to this page.
+</div>
+</div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="share-block share-area cobrand-disabled">
+                            <div class="share-links">
+                                <div class="row no-gutters justify-content-around">
+                                    <div class="col-xs-4 text-center">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.mortgagenewsdaily.com%2Ferrors%2Fhandle%2F404" class="share-link facebook btn btn-share" title="Share this on Facebook" target="_blank" rel="nofollow" onclick="window.open(this.href, '', 'width=626,height=436');return false;">
+                                            <i class="fa fa-facebook-square"></i>
+                                            <span>Facebook</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="https://twitter.com/share?text=Page&#x2B;Not&#x2B;Found&#x2B;https%3A%2F%2Freports.mortgagenewsdaily.com%2Fimage%2Fhomepage&amp;hashtags=&amp;via=mortgagenewsmnd&amp;url=https%3A%2F%2Fwww.mortgagenewsdaily.com%2Ferrors%2Fhandle%2F404" class="share-link twitter btn btn-share" title="Tweet this" target="_blank" rel="nofollow" onclick="window.open(this.href, '', 'width=626,height=436');return false;">
+                                            <i class="fa fa-twitter-square"></i>
+                                            <span>Twitter</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;title=Page&#x2B;Not&#x2B;Found&amp;summary=&amp;url=https%3A%2F%2Fwww.mortgagenewsdaily.com%2Ferrors%2Fhandle%2F404" class="share-link linkedin btn btn-share" title="Share this via LinkedIn" target="_blank" rel="nofollow" onclick="window.open(this.href, '', 'width=626,height=436');return false;">
+                                            <i class="fa fa-linkedin-square"></i>
+                                            <span>LinkedIn</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-share-image">
+                        <div class="article-image">
+                            <img src="https://reports.mortgagenewsdaily.com/image/homepage" class="img-responsive" width="600" height="315" />
+                        </div>
+                    <div class="share-image-bar" style="display:none;">
+                        <div class="share-area">
+                            <div style="display: inline-block;">
+                                
+                            </div>
+                            <div class="share-block share-area cobrand-disabled" style="display: inline-block;">
+                                <ul class="share-list">
+                                    <li class="social">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.mortgagenewsdaily.com%2Ferrors%2Fhandle%2F404" class="hidden-xs hidden-sm share-link facebook btn btn-share" title="Share this on Facebook" target="_blank" rel="nofollow" onclick="window.open(this.href, '', 'width=626,height=436');return false;">
+                                            <i class="fa fa-facebook-square"></i>
+                                            <span>Facebook</span>
+                                        </a>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.mortgagenewsdaily.com%2Ferrors%2Fhandle%2F404" class="visible-xs visible-sm share-link facebook btn btn-share" title="Share this on Facebook" target="_blank" rel="nofollow" onclick="window.open(this.href, '', 'width=626,height=436');return false;">
+                                            <i class="fa fa-facebook"></i>
+                                            <span>Facebook</span>
+                                        </a>
+                                    </li>
+                                    <li class="social">
+                                        <a href="https://twitter.com/share?text=Page&#x2B;Not&#x2B;Found&#x2B;https%3A%2F%2Freports.mortgagenewsdaily.com%2Fimage%2Fhomepage&amp;hashtags=&amp;via=mortgagenewsmnd&amp;url=https%3A%2F%2Fwww.mortgagenewsdaily.com%2Ferrors%2Fhandle%2F404" class="hidden-xs hidden-sm share-link twitter btn btn-share" title="Tweet this" target="_blank" rel="nofollow" onclick="window.open(this.href, '', 'width=626,height=436');return false;">
+                                            <i class="fa fa-twitter-square"></i>
+                                            <span>Twitter</span>
+                                        </a>
+                                        <a href="https://twitter.com/share?text=Page&#x2B;Not&#x2B;Found&#x2B;https%3A%2F%2Freports.mortgagenewsdaily.com%2Fimage%2Fhomepage&amp;hashtags=&amp;via=mortgagenewsmnd&amp;url=https%3A%2F%2Fwww.mortgagenewsdaily.com%2Ferrors%2Fhandle%2F404" class="visible-xs visible-sm share-link twitter btn btn-share" title="Tweet this" target="_blank" rel="nofollow" onclick="window.open(this.href, '', 'width=626,height=436');return false;">
+                                            <i class="fa fa-twitter"></i>
+                                            <span>Twitter</span>
+                                        </a>
+                                    </li>
+                                    <li class="social">
+                                        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;title=Page&#x2B;Not&#x2B;Found&amp;summary=&amp;url=https%3A%2F%2Fwww.mortgagenewsdaily.com%2Ferrors%2Fhandle%2F404" class="hidden-xs hidden-sm share-link linkedin btn btn-share" title="Share this via LinkedIn" target="_blank" rel="nofollow" onclick="window.open(this.href, '', 'width=626,height=436');return false;">
+                                            <i class="fa fa-linkedin-square"></i>
+                                            <span>LinkedIn</span>
+                                        </a>
+                                        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;title=Page&#x2B;Not&#x2B;Found&amp;summary=&amp;url=https%3A%2F%2Fwww.mortgagenewsdaily.com%2Ferrors%2Fhandle%2F404" class="visible-xs visible-sm share-link linkedin btn btn-share" title="Share this via LinkedIn" target="_blank" rel="nofollow" onclick="window.open(this.href, '', 'width=626,height=436');return false;">
+                                            <i class="fa fa-linkedin-square"></i>
+                                            <span>LinkedIn</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="share-link hidden-xs hidden-sm share-type email btn btn-share" data-share-type="email" title="Recommend this Article to a Friend" data-share-target="/share/setupemail/general">
+                                            <i class="fa fa-envelope"></i>
+                                            Email
+                                        </a>
+                                        <a href="#" class="share-link visible-xs visible-sm share-type email btn btn-share" data-share-type="email" title="Recommend this Article to a Friend" data-share-target="/share/setupemail/general">
+                                            <i class="fa fa-envelope"></i>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade share-email" role="tabpanel">
+                <div class="row no-gutter">
+                    <div class="col-md-7">
+                        <h4>Option 1: Copy and send this link </h4>
+
+
+
+                    </div>
+                    <div class="col-md-5">
+                        
+<div style="padding:8px 0; text-align:center;">
+</div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade share-download" role="tabpanel">
+            </div>
+            <div class="tab-pane fade share-web" role="tabpanel">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        
+    </div>
+</div>
+    </div>
+    
+      <div class="visible-xs">
+        <div class="cobrand-mobile">
+          <div class="cobrand-small">
+            
+          </div>
+          <div class="cobrand-full">
+            
+          </div>
+        </div>
+      </div>
+    
+    
+  
+  
+    <script src="/lib/jquery/dist/jquery.min.js?v=ImQvICV38LovIsvla2zykaCTdEh1Z801Y-DSop91wMU"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js?v=U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8"></script>
+    <script src="/lib/underscore/underscore-min.js?v=obZACiHd7gkOk9iIL_pimWMTJ4W_pBsKu-oZnSeBIek"></script>
+    <script src="/lib/handlebars/handlebars.min.js?v=rMOSOM5HDzVEMoVZTv2189-RKSTSgY5ZKfTfap7q2zE"></script>
+    <script src="/lib/momentjs/min/moment-with-locales.min.js?v=cOjhb1i1QhtRZd_URBwT-FhNy-RzyFVkLv09UXV7md4"></script>
+    <script src="/lib/store2/dist/store2.min.js?v=9J7HVzlBokBY_btagV-wAYaZBdGig3A0QK2sOq-24Zw"></script>
+    <script src="/lib/js-cookie/src/js.cookie.js?v=VbCkoqthqE7ves_-1VO4vW2so2L7zhb4uanLPLcrh4k"></script>
+    <script src="/lib/fitvids/jquery.fitvids.js?v=B_efvaNaK_A_KUCXhnCipTzyHkkOzOiHv5L8Lj81kpM"></script>
+    <script src="/lib/clipboard/dist/clipboard.min.js?v=Daf8GuI2eLKHJlOWLRR_zRy9Clqcj4TUSumbxYH9kGI"></script>
+    <script src="/lib/jquery.mmenu/dist/jquery.mmenu.all.js?v=p8ns8N9rp1cicWs0ZeeRIA9qNVOCqESxrshB93OOckY"></script>
+    <script src="/lib/select2/dist/js/select2.min.js?v=FA14tBI8v-_1BtcH9XtJpcNbComBEpdawUZA6BPXRVw"></script>
+    <script src="/lib/bootstrap-switch/dist/js/bootstrap-switch.js?v=ecwfW9Xbfvty4r5TIOAOtN_aMiorvYMpfS2Og6H2HWs"></script>
+    <script src="/lib/smartbanner.js/dist/smartbanner.min.js?v=yRlBeop23y6TGsgKKJNJbTH1oWV5tSc4RWu3PaC2KzM"></script>
+    <script src="/js/utilities.js?v=RSWKUb6kFnoiDjdwegWl5OJCYMN-okHd7RlwQd10m2o"></script>
+    <script src="/js/calc.js?v=bjnlegtL3JOceURNU3ycRHhnuWpxhy0mc5ns0ei6SYM"></script>
+    <script src="/js/site.js?v=keQjbjjRr0XEEMaI1I-OrcDntPzCCvx2EBHR7p8zo60"></script>
+  
+
+    <script type="text/javascript">
+        mnd = window.mnd || {};
+        jQuery.event.special.touchstart = {
+            setup: function( _, ns, handle ) {
+                this.addEventListener("touchstart", handle, { passive: !ns.includes("noPreventDefault") });
+            }
+        };
+        jQuery.event.special.touchmove = {
+            setup: function( _, ns, handle ) {
+                this.addEventListener("touchmove", handle, { passive: !ns.includes("noPreventDefault") });
+            }
+        };
+        jQuery.event.special.wheel = {
+            setup: function( _, ns, handle ){
+                this.addEventListener("wheel", handle, { passive: true });
+            }
+        };
+        jQuery.event.special.mousewheel = {
+            setup: function( _, ns, handle ){
+                this.addEventListener("mousewheel", handle, { passive: true });
+            }
+        };
+    </script>
+    
+<script id="video-template" type="text/template">
+    <div class="video-item" data-cid="{{id}}" data-idt='{{formatDate publishDate "yyyy-MM-ddTHH:mm:ssZ" "true"}}'>
+	<div class="video-thumb">
+		<a href="{{videoUrl}}" target="_blank" data-trackurl="{{trackUrl}}" rel="nofollow">
+			<img src='{{fixQS thumbnailUrl "w|360" "h|189"}}' class="img img-responsive" width="120" height="63"/>
+		</a>
+	</div>
+	<div class="video-title">
+	    <span class="label label-primary label-new">NEW</span>
+		<a href="{{videoUrl}}" target="_blank" data-trackurl="{{trackUrl}}" title="{{title}}" rel="nofollow">
+		    {{truncateText shortTitle 75 "..."}}
+		</a>
+		<i class="fa viewed fa-eye" title="You have viewed this item."></i>
+	</div>
+</div>
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        mnd.utilities.setupVideoPopups('.video-list');
+        var vidTemplate = Handlebars.compile($('#video-template').html());
+        window.mndConnect = window.mndConnect || {};
+        mndConnect.newsHandlers = mndConnect.newsHandlers || [];
+        mndConnect.newsHandlers.push({
+            evt: 'videoUpdate',
+            callback: function (video) {
+                mnd.utilities.addVideoItem(vidTemplate, video, '.row.videos-row .video-list-items');                
+            }
+        });
+    });
+</script>
+    <script id="mbs-row-template" type="text/template">
+  <tr data-product="{{productKey}}" class="{{#if isActive}}active-product{{/if}}">
+    <td class="rate-product">
+        {{name}}
+        {{#if isActive}}<i class="fa fa-bar-chart active-chart"></i>{{/if}}
+    </td>
+    <td class="rate">{{formatPrice close pricingMode "false" 2}}</td>
+    <td class="change {{textClass}}">
+        {{formatPrice change pricingMode "true" 2}}
+        <i class="fa {{arrowDirection}}"></i>
+    </td>
+    <td class="text-center range hidden-xs">{{formatPrice yearlyLow pricingMode "false" 2}}</td>
+    <td class="rate-range text-center hidden-xs">
+        <div class="range-border" title="Current Price: {{formatPrice close pricingMode "false" 2}}">
+            <div class="range-area">
+                <div class="current" style="left: {{lineLocation}}"></div>
+            </div>
+        </div>
+    </td>
+    <td class="text-center hidden-xs">{{formatPrice yearlyHigh pricingMode "false" 2}}</td>
+</tr>
+</script>
+<script id="treas-row-template" type="text/template">
+  <tr data-product="{{productKey}}" class="{{#if isActive}}active-product{{/if}}">
+    <td class="rate-product">
+        {{name}}
+        <i class="fa fa-bar-chart active-chart"></i>
+    </td>
+    <td class="rate">{{formatPrice yield null "false" "3"}}</td>
+    <td class="change {{textClass}}">
+        {{formatPrice yieldChange null "true" "3"}}
+        <i class="fa {{arrowDirection}}"></i>
+    </td>
+</tr>
+</script>
+<script id="libor-row-template" type="text/template">
+  <tr data-product="{{productKey}}" class="{{#if isActive}}active-product{{/if}}">
+    <td class="rate-product">
+        {{name}}
+        <i class="fa fa-bar-chart active-chart"></i>
+    </td>
+    <td class="rate">{{formatPrice close null "false" 5}}</td>
+    <td class="change {{textClass}}">
+        {{formatPrice change null "true" 5}}
+    </td>
+</tr>
+</script>
+<script id="mbs-header-template" type="text/template">
+  <div class="chart-container" data-product="{{productKey}}">
+    <div class="crnt-data">
+      <div class="last-updated pull-right" style="padding-right: 10px;padding-top: 2px;">
+        {{formatDate priceDate "h:mmtt MM/dd/yy"}}
+      </div>
+      <div class="product-name">{{numberYears}}YR {{name}}</div>
+      <div class="rate">{{formatPrice close pricingMode "false" 2}}</div>
+      <div class="change {{textClass}}">
+        {{formatPrice change pricingMode "true" 2}}
+        <i class="fa {{arrowDirection}}"></i>
+      </div>
+    </div>
+    <img class="rate-chart" src="/charts/mbs/fnma?w=300&h=100&fc=&pdt=ticks&d=365&th=mbs-homepage-daily&hl=false&sl=false" />
+  </div>
+</script>
+<script id="treas-header-template" type="text/template">
+  <div class="chart-container" data-product="{{productKey}}">
+    <div class="crnt-data">
+      <div class="last-updated pull-right" style="padding-right: 10px;padding-top: 2px;">
+        {{formatDate priceDate "h:mmtt MM/dd/yy"}}
+      </div>
+      <div class="product-name">{{name}} US Treasury</div>
+      <div class="rate">{{formatDecimal yield "3"}}</div>
+      <div class="change {{textClass}}">
+        {{formatPrice yieldChange null "true" "3"}}
+        <i class="fa {{arrowDirection}}"></i>
+      </div>
+    </div>
+    <img class="rate-chart" src="/charts/treasury/10?w=300&h=100&fc=336699&pdt=bps&d=365&th=treas-homepage-daily&hl=false&sl=false" />
+  </div>
+</script>
+<script id="libor-header-template" type="text/template">
+  <div class="chart-container" data-product="{{productKey}}">
+    <div class="crnt-data">
+      <div class="last-updated pull-right" style="padding-right: 10px;padding-top: 2px;">
+        {{formatDate priceDate "MM/dd/yy"}}
+      </div>
+      <div class="product-name">{{name}} LIBOR</div>
+      <div class="rate">{{formatPrice close null "false" 5}}</div>
+      <div class="change {{textClass}}">
+        {{formatPrice change null "true" 5}}
+      </div>
+    </div>
+    <img class="rate-chart" src="/charts/libor/1y?w=300&h=100&fc=336699&pdt=bps&d=365&th=libor-homepage-daily&hl=False&sl=False" />
+  </div>
+</script>
+<script id="mbs-article-template" type="text/template">
+  <div class="article clearfix" data-cid="{{id}}" data-idt='{{formatDate publishDate "yyyy-MM-ddTHH:mm:ssZ" "true"}}'>
+    <div class="article-content">
+        <div class="article-title">
+    	    <span class="label label-primary label-new">NEW</span>
+    		<a href="{{articleUrl}}" title="{{title}}">{{title}}</a>
+    	</div>
+    	<div class="article-byline">
+    		{{#if isToday}}Today, {{formatDate publishDate "h:mm tt"}}{{else}}{{formatDate publishDate "ddd, h:mm tt"}}{{/if}}
+    	</div>
+    	<i class="fa viewed fa-eye" title="You have viewed this item."></i>
+    	{{#if IsMbs}}
+    	<div class="article-body">
+    	    {{Summary}}
+    	</div>
+    	{{/if}}
+    </div>
+	
+</div>
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var mbsRowTemplate = Handlebars.compile($('#mbs-row-template').html());
+        var treasRowTemplate = Handlebars.compile($('#treas-row-template').html());
+        var liborRowTemplate = Handlebars.compile($('#libor-row-template').html());
+        var mbsHeaderTemplate = Handlebars.compile($('#mbs-header-template').html());
+        var treasHeaderTemplate = Handlebars.compile($('#treas-header-template').html());
+        var liborHeaderTemplate = Handlebars.compile($('#libor-header-template').html());
+        var artTemplate = Handlebars.compile($('#mbs-article-template').html());
+        var lastUpdatedTemplate =
+            Handlebars.compile('Last Updated: {{formatDate lastUpdated "MM/dd/yyyy hh:mm:ssA"}} EST');
+
+        var tableArea = $('.hp-mbs');
+        var removeHighlights = _.debounce(function() {
+                tableArea.find('tr').removeClass('rate-better rate-worse rate-unchanged');
+            },
+            4000);
+
+        var updatePriceOnPage = function(priceSummary, pulse) {
+            var crntRow = tableArea.find('tr[data-product="' + priceSummary.productKey + '"]');
+            if (crntRow.length > 0) {
+                var template = priceSummary.isTreasury ?
+                  treasRowTemplate :
+                  (priceSummary.isLibor ? liborRowTemplate : mbsRowTemplate);
+                priceSummary.isActive =
+                    crntRow.hasClass('active-product'); // priceSummary.productKey == pageData.currentProductKey;
+                priceSummary.pricingMode = 1;
+                var newRow = $(template(priceSummary));
+                crntRow.replaceWith(newRow);
+                if (pulse) {
+                    newRow.addClass(priceSummary.textClass);
+                    removeHighlights();
+                }
+              var lastUpdatedText = lastUpdatedTemplate({ lastUpdated: priceSummary.priceDate });
+              newRow.closest('.div-link').prop('title', lastUpdatedText);
+                if (priceSummary.isTreasury) {
+                    tableArea.find('.last-updated-treas')
+                      .html(lastUpdatedText);
+                } else if (priceSummary.isLibor) {
+                  tableArea.find('.last-updated-libor')
+                    .html(lastUpdatedText);
+                } else {
+                    tableArea.find('.last-updated-mbs')
+                      .html(lastUpdatedText);
+                }
+            }
+            var crntHeader = tableArea.find('div.chart-container[data-product="' + priceSummary.productKey + '"]');
+            if (crntHeader.length) {
+              var headerTemplate = priceSummary.isTreasury ?
+                treasHeaderTemplate :
+                (priceSummary.isLibor ? liborHeaderTemplate : mbsHeaderTemplate);              
+              priceSummary.pricingMode = 1;
+              var newHeader = $(headerTemplate(priceSummary));
+              crntHeader.replaceWith(newHeader);
+              if (pulse) {
+                newHeader.addClass(priceSummary.textClass);
+                removeHighlights();
+              }
+            }
+        }
+
+        window.mndConnect = window.mndConnect || {};
+        mndConnect.newsHandlers = mndConnect.newsHandlers || [];
+        mndConnect.newsHandlers.push({
+            evt: 'pricingUpdate',
+            callback: function(priceSummary) {
+                updatePriceOnPage(priceSummary, true);
+            }
+        });
+        mndConnect.newsHandlers.push({
+            evt: 'articleUpdate',
+            callback: function (article) {
+                if (article.isMbs === true) {
+                    mnd.utilities.addMainArticleItem(artTemplate, article, '.hp-mbs .main-article', '.hp-mbs .secondary-articles');
+                    var imageContainer = $('.hp-mbs').find('.article-image');
+                    imageContainer.find('a').prop('href',article.articleUrl);
+                    imageContainer.find('img').prop('src',article.shareImageUrl);
+                }
+            }
+        });
+    });
+</script>
+    
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.hp-md').on('click', 'tr[data-target]', function (e) {
+      var target = $(e.target);
+      if (target.closest('.chart-external').length > 0) {
+        return true;
+      }
+      var $lnk = $(this);
+      var imgUrl = $lnk.data('target');
+      var direction = $lnk.data('direction');
+      var iconClass = 'fa-minus';
+      var textClass = 'rate-unchanged';
+      if (direction === 'positive') {
+        iconClass = 'fa-arrow-up';
+        textClass = 'rate-better';
+      }
+      if (direction === 'negative') {
+        iconClass = 'fa-arrow-down';
+        textClass = 'rate-worse';
+      }
+      var $title = $lnk.closest('.hp-md').find('.rate-chart-title');
+      var productName = $lnk.find('.product-name').html();
+      $title.find('.title-product').html(productName);
+      $title.find('.title-date').html($lnk.find('.data-date').html());
+      var chg = $lnk.find('.data-chg').html();
+      chg += ' <i class="fa ' + iconClass + '"></i>';
+      $title.find('.title-change').removeClass('rate-unchanged rate-better rate-worse').addClass(textClass).html(chg);
+      $title.find('.title-value').html($lnk.find('.data-val').html());
+      var link = $lnk.find('.chart-external').prop('href');
+      $lnk.closest('.hp-md').find('img.rate-chart').prop('src', imgUrl);
+      var newLink = $('<a />').prop('href', link).html('View ' + productName + ' Data');
+      $lnk.closest('.hp-md').find('.rate-chart-link').empty().append(newLink);
+      $lnk.closest('table').find('.active-product').removeClass('active-product');
+      $lnk.closest('tr').addClass('active-product');
+      return false;
+    });
+  });
+</script>
+    
+<script id="atw-template" type="text/template">
+    <li class="atw-item" data-cid="{{id}}" data-idt='{{formatDate publishDate "yyyy-MM-ddTHH:mm:ssZ" "true"}}'>
+    <span class="label label-primary label-new">NEW</span>
+	<a href="{{sourceUrl}}" target="_blank" data-trackurl="{{trackUrl}}" rel="nofollow">
+	    {{shortTitle}}
+	</a> {{newsSource}} - {{#if isToday}}{{formatDate publishDate "h:mm tt"}}{{else}}{{formatDate publishDate "ddd, h:mm tt"}}{{/if}}
+	<i class="fa viewed fa-eye" title="You have viewed this item."></i>
+</li>
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var atwTemplate = Handlebars.compile($('#atw-template').html());
+        window.mndConnect = window.mndConnect || {};
+        mndConnect.newsHandlers = mndConnect.newsHandlers || [];
+        mndConnect.newsHandlers.push({
+            evt: 'aroundthewebUpdate',
+            callback: function (atw) {				
+                mnd.utilities.addAroundTheWebItem(atwTemplate, atw, '.row.atw-row .atw-list-items');                
+            }
+        });
+    });
+</script>
+    
+<script id="rate-article-template" type="text/template">
+    <div class="article clearfix" data-cid="{{id}}" data-idt='{{formatDate publishDate "yyyy-MM-ddTHH:mm:ssZ" "true"}}'>
+    <div class="article-content">
+        <div class="article-source"><a href="{{articleTopicUrl}}">{{articleSource}}</a> - {{#if isToday}}Today, {{formatDate publishDate "h:mm tt"}}{{else}}{{formatDate publishDate "ddd, h:mm tt"}}{{/if}}</div>
+        <div class="article-title">
+    	    <span class="label label-primary label-new">NEW</span>
+    		<a href="{{articleUrl}}" title="{{title}}">{{title}}</a>
+    		<span class="article-source">&nbsp;-&nbsp;<a href="{{articleTopicUrl}}">{{articleSource}}</a> - {{#if isToday}}Today, {{formatDate publishDate "h:mm tt"}}{{else}}{{formatDate publishDate "ddd, h:mm tt"}}{{/if}}</span> 
+    	</div>
+    	<div class="article-byline">
+    		{{#if isToday}}Today, {{formatDate publishDate "h:mm tt"}}{{else}}{{formatDate publishDate "ddd, h:mm tt"}}{{/if}}
+    	</div>
+    	<i class="fa viewed fa-eye" title="You have viewed this item."></i>
+    	<div class="article-body hidden-xs">
+    		{{truncateText summary 150 "..."}}
+    	</div>    
+    </div>
+	
+</div>
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {        
+        var artTemplate = Handlebars.compile($('#rate-article-template').html());
+        window.mndConnect = window.mndConnect || {};
+        mndConnect.newsHandlers = mndConnect.newsHandlers || [];
+       
+        mndConnect.newsHandlers.push({
+            evt: 'articleUpdate',
+            callback: function (article) {
+                if (article.isRateUpdate === true) {
+                    mnd.utilities.addMainArticleItem(artTemplate, article, '.hp-rates .main-article', '.hp-rates .secondary-articles');
+                    var imageContainer = $('.hp-rates').find('.article-image');
+                    imageContainer.find('a').prop('href',article.articleUrl);
+                    imageContainer.find('img').prop('src',article.shareImageUrl);
+                }
+            }
+        });
+    });
+</script>    
+    
+
+
+	<script src="/lib/signalr/dist/browser/signalr.js?v=lJuchxG-bVodaH5pV7mE8qGOBats_bht9BimN1QCJiM"></script>
+
+<script id="bn-template" type="text/template">
+	<div class="bn bn-{{breakingNewsType}}" data-cid="{{id}}">
+	<div class="container">
+	    <a class="close" href="#">x</a>
+		<div class="bn-header" style="font-size:20px;font-weight:500;padding-top:8px;">
+			{{# if url }}
+			{{titlePrefix}}: <a href="{{url}}" data-trackurl="{{trackUrl}}">{{title}}</a>
+			{{else}}
+			{{titlePrefix}}: {{title}}
+			{{/if}}
+		</div>
+		{{#if summary}}
+		<div class="bn-body" style="font-size:16px;padding-bottom:8px;">
+			{{summary}}
+		</div>
+		{{/if}}
+	</div>
+</div>	
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		var bnTemplate = Handlebars.compile($('#bn-template').html());
+    var mndNews = new signalR.HubConnectionBuilder().withUrl('/mndnews').build();//signalR.HubConnection("/mndnews");// $.connection.mndnews;
+	    window.mndConnect = window.mndConnect || {};
+		mndConnect.newsHandlers = mndConnect.newsHandlers || [];
+		mndConnect.newsHandlers.push({
+			evt: 'newBreakingNews',
+			callback: function(news) {
+				mnd.utilities.showBreakingNewsHeader(bnTemplate, news);
+			}
+		});
+		
+	  //console.log(mndNews);
+	  mndNews.start().then(function() {
+	    //console.log(this);
+	  });		
+	  mndConnect.newsHandlers.forEach(function (handler) {
+	    mndNews.on(handler.evt, handler.callback);
+	  });
+	});
+</script>    <script type="text/javascript">
+        $(document).ready(function() {            
+            window.mnd = window.mnd || (window.mnd = {});
+            window.mnd.share = window.mnd.share || (window.mnd.share = {});
+            window.mnd.share.shareContent = {"CobrandEnabled":false,"title":"Page Not Found","summary":null,"url":"https://www.mortgagenewsdaily.com/errors/handle/404","shareContentId":"/errors/handle/404","imageUrl":"https://reports.mortgagenewsdaily.com/image/homepage","shareUrl":"https://www.mortgagenewsdaily.com/errors/handle/404","linkUrl":"https://www.mortgagenewsdaily.com/errors/handle/404","saveId":"/errors/handle/404","hasShare":true,"downloadUrl":null,"shareDownloadUrl":"","downloadUrlNoRates":null,"shareDownloadUrlNoRates":"","hasDownload":false,"hasSave":true,"saveType":3,"canHideRates":false,"shareSource":0,"socialShareSource":0,"shareModalUrl":"/share/modal"};
+                        
+        });
+        </script>
+  </div>
+</body>
+</html>

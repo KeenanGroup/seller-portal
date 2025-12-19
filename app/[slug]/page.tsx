@@ -374,18 +374,12 @@ export default async function SellerPortalPage({ params }: PageProps) {
             {/* Historical Chart */}
             <div>
               <h5 className="font-medium text-black/80 mb-3">30 YR & 15 YR Fixed Mortgage Rates</h5>
-              <div className="bg-honed-stone-light rounded-lg p-4">
+              <div className="bg-white rounded-lg p-2 border border-honed-stone/30">
                 <img
-                  src="https://www.mortgagenewsdaily.com/images/charts/mortgage-rates-chart-wide.svg"
-                  alt="30 Year and 15 Year Fixed Mortgage Rates Historical Chart"
-                  className="w-full h-auto"
+                  src="/images/mortgage-rates-chart.png"
+                  alt="30 Year and 15 Year Fixed Mortgage Rates Historical Chart - showing rates from 2018 to present"
+                  className="w-full h-auto rounded"
                 />
-                <div className="flex justify-between text-xs text-black/50 mt-2">
-                  <span>2018</span>
-                  <span>2020</span>
-                  <span>2022</span>
-                  <span>2024</span>
-                </div>
               </div>
             </div>
           </div>
