@@ -96,11 +96,11 @@ function Footer() {
           <div>
             <h3 className="font-medium text-white text-lg mb-3">Office</h3>
             <p className="text-sm leading-relaxed">
-              4001 N Lamar Blvd<br />
-              Austin, TX 78756
+              4206 Venado Dr<br />
+              Austin, TX 78731
             </p>
             <a
-              href="https://maps.google.com/?q=4001+N+Lamar+Blvd+Austin+TX+78756"
+              href="https://maps.google.com/?q=4206+Venado+Dr+Austin+TX+78731"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-xs text-honed-stone/70 hover:text-white transition-colors mt-2"
