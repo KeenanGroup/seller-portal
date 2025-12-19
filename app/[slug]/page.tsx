@@ -170,15 +170,15 @@ export default async function SellerPortalPage({ params }: PageProps) {
   // Calculate cumulative showings from all updates
   const totalShowings = updates?.reduce((sum: number, update: any) => sum + (update.showings?.length || 0), 0) || 0
 
-  // Calculate showings in last 30 days
+  // Calculate showings in last 30 days (by individual showing date)
   const thirtyDaysAgo = new Date()
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
   const last30DaysShowings = updates?.reduce((sum: number, update: any) => {
-    const updateDate = new Date(update.weekOf)
-    if (updateDate >= thirtyDaysAgo) {
-      return sum + (update.showings?.length || 0)
-    }
-    return sum
+    if (!update.showings) return sum
+    return sum + update.showings.filter((showing: any) => {
+      const showingDate = new Date(showing.date)
+      return showingDate >= thirtyDaysAgo
+    }).length
   }, 0) || 0
 
   return (
