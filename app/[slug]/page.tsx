@@ -25,6 +25,7 @@ async function getSellerPortal(slug: string) {
       propertyType,
       status,
       listDate,
+      compassUrl,
       "image": images[0].asset->url
     },
     "updates": *[_type == "sellerUpdate" && portal._ref == ^._id && isPublished == true] | order(weekOf desc)[0...12]{
@@ -132,9 +133,23 @@ export default async function SellerPortalPage({ params }: PageProps) {
             <h1 className="text-2xl font-medium text-mulberry mb-2">
               {listing.address?.street}
             </h1>
-            <p className="text-black/70 mb-4">
+            <p className="text-black/70 mb-2">
               {listing.address?.city}, {listing.address?.state} {listing.address?.zip}
             </p>
+            {listing.compassUrl && (
+              <a
+                href={listing.compassUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-mulberry hover:text-mulberry-light transition-colors mb-4"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                View on Compass
+              </a>
+            )}
+            {!listing.compassUrl && <div className="mb-4" />}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
               <div>
                 <span className="text-black/50 block">
