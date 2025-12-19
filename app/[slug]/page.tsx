@@ -35,6 +35,7 @@ async function getSellerPortal(slug: string) {
       showings,
       openHouses,
       webMetrics,
+      oneHomeMetrics,
       neighborhoodActivity,
       agentCommentary,
       priceRecommendation,
@@ -214,6 +215,54 @@ export default async function SellerPortalPage({ params }: PageProps) {
               )}
             </div>
           </div>
+
+          {/* OneHome Agent Activity */}
+          {latestUpdate.oneHomeMetrics && (
+            <div className="card mb-6">
+              <h3 className="card-header">Agent Network Activity</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="text-center p-3 bg-honed-stone-light rounded-lg">
+                  <div className="text-2xl font-bold text-mulberry">{latestUpdate.oneHomeMetrics.agentViews?.toLocaleString()}</div>
+                  <div className="text-xs text-black/60">Agent Views</div>
+                </div>
+                <div className="text-center p-3 bg-honed-stone-light rounded-lg">
+                  <div className="text-2xl font-bold text-mulberry">{latestUpdate.oneHomeMetrics.clientViews?.toLocaleString()}</div>
+                  <div className="text-xs text-black/60">Client Views</div>
+                </div>
+                <div className="text-center p-3 bg-honed-stone-light rounded-lg">
+                  <div className="text-2xl font-bold text-mulberry">{latestUpdate.oneHomeMetrics.distinctClientViews?.toLocaleString()}</div>
+                  <div className="text-xs text-black/60">Unique Clients</div>
+                </div>
+                <div className="text-center p-3 bg-honed-stone-light rounded-lg">
+                  <div className="text-2xl font-bold text-mulberry">{latestUpdate.oneHomeMetrics.favorites?.toLocaleString()}</div>
+                  <div className="text-xs text-black/60">Favorites</div>
+                </div>
+              </div>
+              <div className="mt-4 grid grid-cols-3 gap-3 text-sm">
+                <div className="flex items-center justify-between p-2 border border-honed-stone/30 rounded">
+                  <span className="text-black/60">Auto Emails</span>
+                  <span className="font-semibold">{latestUpdate.oneHomeMetrics.autoEmails?.toLocaleString()}</span>
+                </div>
+                <div className="flex items-center justify-between p-2 border border-honed-stone/30 rounded">
+                  <span className="text-black/60">Client Portals</span>
+                  <span className="font-semibold">{latestUpdate.oneHomeMetrics.clientPortals?.toLocaleString()}</span>
+                </div>
+                <div className="flex items-center justify-between p-2 border border-honed-stone/30 rounded">
+                  <span className="text-black/60">Last 14 Days</span>
+                  <span className="font-semibold">{latestUpdate.oneHomeMetrics.last14DaysViews?.toLocaleString()}</span>
+                </div>
+              </div>
+              {(latestUpdate.oneHomeMetrics.conciergeApproved > 0 || latestUpdate.oneHomeMetrics.conciergeRejected > 0) && (
+                <div className="mt-3 pt-3 border-t border-honed-stone/30 flex items-center gap-4 text-sm">
+                  <span className="text-black/60">Concierge:</span>
+                  <span className="text-green-600 font-medium">{latestUpdate.oneHomeMetrics.conciergeApproved} Approved</span>
+                  {latestUpdate.oneHomeMetrics.conciergeRejected > 0 && (
+                    <span className="text-red-500">{latestUpdate.oneHomeMetrics.conciergeRejected} Rejected</span>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Showings */}
           {latestUpdate.showings && latestUpdate.showings.length > 0 && (
