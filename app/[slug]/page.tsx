@@ -3,6 +3,9 @@ import { notFound } from 'next/navigation'
 import { sanityClient } from '@/lib/sanity'
 import { getSupabase } from '@/lib/supabase'
 import { PortableText } from '@portabletext/react'
+import { PropertyHero } from '../components/property_hero'
+import { ViewsByPublisherChart } from '../components/views_by_publisher_chart'
+import { ViewsByCityMap } from '../components/views_by_city_map'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -180,10 +183,22 @@ export default async function SellerPortalPage({ params }: PageProps) {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-8">
+      {/* Property Hero Image */}
+      {listing.images && listing.images.length > 0 && (
+        <div className="mb-8">
+          <PropertyHero
+            images={listing.images}
+            address={listing.address?.street || 'Property'}
+            neighborhood={listing.neighborhood}
+            status={listing.status}
+          />
+        </div>
+      )}
+
       {/* Property Header */}
       <div className="card mb-8">
         <div className="flex flex-col md:flex-row gap-6">
-          {listing.image && (
+          {!listing.images?.length && listing.image && (
             <div className="w-full md:w-72 h-52 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
               <img
                 src={listing.image}
@@ -493,46 +508,20 @@ export default async function SellerPortalPage({ params }: PageProps) {
                 </div>
               </div>
 
-              {/* Traffic Source Breakdown */}
+              {/* Traffic Source Breakdown - Enhanced Chart */}
               {latestUpdate.webMetrics?.byPlatform && latestUpdate.webMetrics.byPlatform.length > 0 && (
                 <div className="mt-6 pt-6 border-t border-honed-stone/30">
-                  <h4 className="font-medium text-mulberry mb-4">Traffic Sources</h4>
-                  <div className="space-y-3">
-                    {latestUpdate.webMetrics.byPlatform.map((source: any, i: number) => {
-                      const totalViews = latestUpdate.webMetrics.byPlatform.reduce((sum: number, s: any) => sum + (s.views || 0), 0);
-                      const percentage = totalViews > 0 ? Math.round((source.views / totalViews) * 100) : 0;
-                      return (
-                        <div key={i} className="flex items-center gap-3">
-                          <div className="w-24 text-sm text-black/70">{source.platform}</div>
-                          <div className="flex-grow bg-honed-stone-light rounded-full h-4 overflow-hidden">
-                            <div
-                              className="bg-mulberry h-full rounded-full"
-                              style={{ width: `${percentage}%` }}
-                            />
-                          </div>
-                          <div className="w-28 text-right">
-                            <span className="font-semibold">{source.views?.toLocaleString()}</span>
-                            <span className="text-black/50 text-sm ml-1">({percentage}%)</span>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                  <ViewsByPublisherChart
+                    data={latestUpdate.webMetrics.byPlatform}
+                    totalViews={latestUpdate.webMetrics.totalViews}
+                  />
                 </div>
               )}
 
-              {/* Geographic Distribution */}
+              {/* Geographic Distribution - Enhanced Map */}
               {latestUpdate.webMetrics?.topLocations && latestUpdate.webMetrics.topLocations.length > 0 && (
                 <div className="mt-6 pt-6 border-t border-honed-stone/30">
-                  <h4 className="font-medium text-mulberry mb-4">Viewer Locations</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {latestUpdate.webMetrics.topLocations.map((location: any, i: number) => (
-                      <div key={i} className="p-3 bg-honed-stone-light rounded-lg text-center">
-                        <div className="text-xl font-bold text-mulberry">{location.percentage}%</div>
-                        <div className="text-sm text-black/70">{location.city}</div>
-                      </div>
-                    ))}
-                  </div>
+                  <ViewsByCityMap data={latestUpdate.webMetrics.topLocations} />
                 </div>
               )}
 
