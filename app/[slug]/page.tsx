@@ -167,6 +167,17 @@ export default async function SellerPortalPage({ params }: PageProps) {
   // Calculate cumulative showings from all updates
   const totalShowings = updates?.reduce((sum: number, update: any) => sum + (update.showings?.length || 0), 0) || 0
 
+  // Calculate showings in last 30 days
+  const thirtyDaysAgo = new Date()
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
+  const last30DaysShowings = updates?.reduce((sum: number, update: any) => {
+    const updateDate = new Date(update.weekOf)
+    if (updateDate >= thirtyDaysAgo) {
+      return sum + (update.showings?.length || 0)
+    }
+    return sum
+  }, 0) || 0
+
   return (
     <div className="max-w-5xl mx-auto px-6 py-8">
       {/* Property Header */}
@@ -414,8 +425,8 @@ export default async function SellerPortalPage({ params }: PageProps) {
           {/* Key Performance Indicators */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
             <div className="stat-card">
-              <div className="stat-value">{latestUpdate.showings?.length || 0}</div>
-              <div className="stat-label">This Week</div>
+              <div className="stat-value">{last30DaysShowings}</div>
+              <div className="stat-label">Last 30 Days</div>
               <div className="text-xs text-white/70 mt-1">Showings</div>
             </div>
             <div className="stat-card">
