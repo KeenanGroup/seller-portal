@@ -4,37 +4,37 @@
 
 @layer base {
   html {
-    font-family: Inter, system-ui, sans-serif;
+    font-family: 'Compass Sans Medium', 'Helvetica Neue', Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-cream text-charcoal;
+    @apply bg-white text-black;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-brand text-white px-6 py-3 rounded-lg font-medium
-           hover:bg-brand-light transition-colors duration-200;
+    @apply bg-mulberry text-white px-6 py-3 rounded-lg font-medium
+           hover:bg-mulberry-light transition-colors duration-200;
   }
 
   .btn-secondary {
-    @apply bg-champagne text-brand px-6 py-3 rounded-lg font-medium
-           hover:bg-champagne-light transition-colors duration-200;
+    @apply bg-honed-stone text-black px-6 py-3 rounded-lg font-medium
+           hover:bg-honed-stone-light transition-colors duration-200;
   }
 
   .card {
-    @apply bg-white rounded-xl shadow-lg p-6;
+    @apply bg-white rounded-xl shadow-lg p-6 border border-honed-stone/20;
   }
 
   .card-header {
-    @apply text-lg font-serif text-brand mb-4 pb-3 border-b border-champagne;
+    @apply text-lg font-medium text-mulberry mb-4 pb-3 border-b border-honed-stone;
   }
 
   .stat-card {
-    @apply bg-gradient-to-br from-brand to-brand-light text-white
+    @apply bg-gradient-to-br from-mulberry to-mulberry-light text-white
            rounded-xl p-6 text-center;
   }
 
@@ -43,7 +43,7 @@
   }
 
   .stat-label {
-    @apply text-champagne text-sm uppercase tracking-wide;
+    @apply text-honed-stone text-sm uppercase tracking-wide;
   }
 
   .trend-up {

@@ -129,32 +129,32 @@ export default async function SellerPortalPage({ params }: PageProps) {
             </div>
           )}
           <div className="flex-grow">
-            <h1 className="text-2xl font-serif text-brand mb-2">
+            <h1 className="text-2xl font-medium text-mulberry mb-2">
               {listing.address?.street}
             </h1>
-            <p className="text-charcoal/70 mb-4">
+            <p className="text-black/70 mb-4">
               {listing.address?.city}, {listing.address?.state} {listing.address?.zip}
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
               <div>
-                <span className="text-charcoal/50 block">
+                <span className="text-black/50 block">
                   {listing.listPrice < 10000 ? 'Rent' : 'List Price'}
                 </span>
-                <span className="font-semibold text-brand">
+                <span className="font-semibold text-mulberry">
                   {formatCurrency(listing.listPrice)}
                   {listing.listPrice < 10000 && <span className="text-sm font-normal">/mo</span>}
                 </span>
               </div>
               <div>
-                <span className="text-charcoal/50 block">Beds / Baths</span>
+                <span className="text-black/50 block">Beds / Baths</span>
                 <span className="font-semibold">{listing.bedrooms} / {listing.bathrooms}</span>
               </div>
               <div>
-                <span className="text-charcoal/50 block">Sq Ft</span>
+                <span className="text-black/50 block">Sq Ft</span>
                 <span className="font-semibold">{listing.squareFeet?.toLocaleString()}</span>
               </div>
               <div>
-                <span className="text-charcoal/50 block">Year Built</span>
+                <span className="text-black/50 block">Year Built</span>
                 <span className="font-semibold">{listing.yearBuilt}</span>
               </div>
             </div>
@@ -166,7 +166,7 @@ export default async function SellerPortalPage({ params }: PageProps) {
         <>
           {/* Week Summary */}
           <div className="mb-8">
-            <h2 className="text-xl font-serif text-brand mb-4">
+            <h2 className="text-xl font-medium text-mulberry mb-4">
               Week of {formatDate(latestUpdate.weekOf)} - {formatDate(latestUpdate.weekEnding)}
             </h2>
 
@@ -206,17 +206,17 @@ export default async function SellerPortalPage({ params }: PageProps) {
               <h3 className="card-header">Showing Activity</h3>
               <div className="space-y-4">
                 {latestUpdate.showings.map((showing: any, i: number) => (
-                  <div key={i} className="flex items-start gap-4 pb-4 border-b border-gray-100 last:border-0 last:pb-0">
+                  <div key={i} className="flex items-start gap-4 pb-4 border-b border-honed-stone/30 last:border-0 last:pb-0">
                     <div className="w-16 text-center flex-shrink-0">
-                      <div className="text-xs text-charcoal/50 uppercase">{formatDate(showing.date).split(',')[0]}</div>
-                      <div className="font-semibold text-brand">{formatDate(showing.date).split(' ')[1]} {formatDate(showing.date).split(' ')[2]}</div>
-                      <div className="text-xs text-charcoal/50">{formatTime(showing.date)}</div>
+                      <div className="text-xs text-black/50 uppercase">{formatDate(showing.date).split(',')[0]}</div>
+                      <div className="font-semibold text-mulberry">{formatDate(showing.date).split(' ')[1]} {formatDate(showing.date).split(' ')[2]}</div>
+                      <div className="text-xs text-black/50">{formatTime(showing.date)}</div>
                     </div>
                     <div className="flex-grow">
                       <div className="font-medium">{showing.brokerage}</div>
                       {showing.feedback && showing.feedbackReceived && (
-                        <div className="mt-2 bg-champagne-light rounded-lg p-3 text-sm">
-                          <span className="font-medium text-brand">Feedback:</span> {showing.feedback}
+                        <div className="mt-2 bg-honed-stone-light rounded-lg p-3 text-sm">
+                          <span className="font-medium text-mulberry">Feedback:</span> {showing.feedback}
                         </div>
                       )}
                     </div>
@@ -232,21 +232,21 @@ export default async function SellerPortalPage({ params }: PageProps) {
               <h3 className="card-header">Price Strategy Recommendation</h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-4">
-                  <span className="text-charcoal/70">Recommended Adjustment:</span>
-                  <span className="text-xl font-bold text-brand">
+                  <span className="text-black/70">Recommended Adjustment:</span>
+                  <span className="text-xl font-bold text-mulberry">
                     -{formatCurrency(latestUpdate.priceRecommendation.recommendedReduction)}
                   </span>
                 </div>
                 {latestUpdate.priceRecommendation.alternativeReduction && (
                   <div className="flex items-center gap-4">
-                    <span className="text-charcoal/70">Alternative Option:</span>
-                    <span className="text-lg font-semibold text-charcoal">
+                    <span className="text-black/70">Alternative Option:</span>
+                    <span className="text-lg font-semibold text-black">
                       -{formatCurrency(latestUpdate.priceRecommendation.alternativeReduction)}
                     </span>
                   </div>
                 )}
                 {latestUpdate.priceRecommendation.rationale && (
-                  <p className="text-charcoal/70 text-sm mt-3 pt-3 border-t border-champagne">
+                  <p className="text-black/70 text-sm mt-3 pt-3 border-t border-honed-stone">
                     {latestUpdate.priceRecommendation.rationale}
                   </p>
                 )}
@@ -258,7 +258,7 @@ export default async function SellerPortalPage({ params }: PageProps) {
           {latestUpdate.agentCommentary && (
             <div className="card mb-6">
               <h3 className="card-header">Our Take</h3>
-              <div className="prose prose-sm max-w-none text-charcoal/80">
+              <div className="prose prose-sm max-w-none text-black/80">
                 <PortableText value={latestUpdate.agentCommentary} />
               </div>
             </div>
@@ -271,11 +271,11 @@ export default async function SellerPortalPage({ params }: PageProps) {
               <ul className="space-y-2">
                 {latestUpdate.propertyMaintenance.map((item: any, i: number) => (
                   <li key={i} className="flex items-start gap-3">
-                    <svg className="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-mulberry flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <div>
-                      <span className="text-charcoal/50 text-sm">{formatDate(item.date)}:</span>{' '}
+                      <span className="text-black/50 text-sm">{formatDate(item.date)}:</span>{' '}
                       <span>{item.description}</span>
                     </div>
                   </li>
@@ -291,7 +291,7 @@ export default async function SellerPortalPage({ params }: PageProps) {
               <ul className="space-y-2">
                 {latestUpdate.nextSteps.map((step: string, i: number) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-brand text-white rounded-full flex items-center justify-center text-xs flex-shrink-0">
+                    <span className="w-6 h-6 bg-mulberry text-white rounded-full flex items-center justify-center text-xs flex-shrink-0">
                       {i + 1}
                     </span>
                     <span>{step}</span>
@@ -307,8 +307,8 @@ export default async function SellerPortalPage({ params }: PageProps) {
       {(!updates || updates.length === 0) && (
         <div className="card text-center py-12">
           <div className="text-4xl mb-4">📊</div>
-          <h3 className="text-xl font-serif text-brand mb-2">Updates Coming Soon</h3>
-          <p className="text-charcoal/70">
+          <h3 className="text-xl font-medium text-mulberry mb-2">Updates Coming Soon</h3>
+          <p className="text-black/70">
             Your first weekly update will be published shortly. Check back soon!
           </p>
         </div>
@@ -317,12 +317,12 @@ export default async function SellerPortalPage({ params }: PageProps) {
       {/* Update History */}
       {updates && updates.length > 1 && (
         <div className="mt-8">
-          <h3 className="text-lg font-serif text-brand mb-4">Previous Updates</h3>
+          <h3 className="text-lg font-medium text-mulberry mb-4">Previous Updates</h3>
           <div className="flex flex-wrap gap-2">
             {updates.slice(1).map((update: any) => (
               <div
                 key={update._id}
-                className="bg-white px-4 py-2 rounded-lg text-sm border border-champagne"
+                className="bg-white px-4 py-2 rounded-lg text-sm border border-honed-stone"
               >
                 Week of {formatDate(update.weekOf)}
               </div>

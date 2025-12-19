@@ -8,22 +8,36 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: '#1B3A4B',
-        'brand-light': '#2D5A6E',
-        champagne: '#F7E7CE',
-        'champagne-light': '#FBF3E4',
-        cream: '#FFFDF7',
-        charcoal: '#2C3E50',
-        'evening-plum': '#4A3728',
+        // Primary Brand Colors
+        mulberry: '#4C2230',
+        'mulberry-light': '#5D3A4A',
+        'honed-stone': '#D5CBBF',
+        'honed-stone-light': '#E5DED4',
+
+        // Supporting Colors
+        black: '#000000',
+        white: '#FFFFFF',
+
+        // Legacy aliases for compatibility
+        brand: '#4C2230',
+        'brand-light': '#5D3A4A',
+        champagne: '#D5CBBF',
+        'champagne-light': '#E5DED4',
+        cream: '#FAFAF8',
+        charcoal: '#1A1A1A',
+
+        // Accent
         gold: '#C9A962',
         'gold-light': '#D4BC7D',
+
+        // Status
         success: '#10B981',
         warning: '#F59E0B',
         error: '#EF4444',
       },
       fontFamily: {
+        sans: ['Compass Sans Medium', 'Helvetica Neue', 'Arial', 'sans-serif'],
         serif: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
     },
   },
