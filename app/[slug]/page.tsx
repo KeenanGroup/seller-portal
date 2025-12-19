@@ -483,23 +483,42 @@ export default async function SellerPortalPage({ params }: PageProps) {
               </div>
 
               {/* Traffic Source Breakdown */}
-              {latestUpdate.compassMetrics?.trafficSources && (
+              {latestUpdate.webMetrics?.byPlatform && latestUpdate.webMetrics.byPlatform.length > 0 && (
                 <div className="mt-6 pt-6 border-t border-honed-stone/30">
                   <h4 className="font-medium text-mulberry mb-4">Traffic Sources</h4>
                   <div className="space-y-3">
-                    {latestUpdate.compassMetrics.trafficSources.map((source: any, i: number) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <div className="w-24 text-sm text-black/70">{source.name}</div>
-                        <div className="flex-grow bg-honed-stone-light rounded-full h-4 overflow-hidden">
-                          <div
-                            className="bg-mulberry h-full rounded-full"
-                            style={{ width: `${source.percentage}%` }}
-                          />
+                    {latestUpdate.webMetrics.byPlatform.map((source: any, i: number) => {
+                      const totalViews = latestUpdate.webMetrics.byPlatform.reduce((sum: number, s: any) => sum + (s.views || 0), 0);
+                      const percentage = totalViews > 0 ? Math.round((source.views / totalViews) * 100) : 0;
+                      return (
+                        <div key={i} className="flex items-center gap-3">
+                          <div className="w-24 text-sm text-black/70">{source.platform}</div>
+                          <div className="flex-grow bg-honed-stone-light rounded-full h-4 overflow-hidden">
+                            <div
+                              className="bg-mulberry h-full rounded-full"
+                              style={{ width: `${percentage}%` }}
+                            />
+                          </div>
+                          <div className="w-28 text-right">
+                            <span className="font-semibold">{source.views?.toLocaleString()}</span>
+                            <span className="text-black/50 text-sm ml-1">({percentage}%)</span>
+                          </div>
                         </div>
-                        <div className="w-20 text-right">
-                          <span className="font-semibold">{source.views?.toLocaleString()}</span>
-                          <span className="text-black/50 text-sm ml-1">({source.percentage}%)</span>
-                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* Geographic Distribution */}
+              {latestUpdate.webMetrics?.topLocations && latestUpdate.webMetrics.topLocations.length > 0 && (
+                <div className="mt-6 pt-6 border-t border-honed-stone/30">
+                  <h4 className="font-medium text-mulberry mb-4">Viewer Locations</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {latestUpdate.webMetrics.topLocations.map((location: any, i: number) => (
+                      <div key={i} className="p-3 bg-honed-stone-light rounded-lg text-center">
+                        <div className="text-xl font-bold text-mulberry">{location.percentage}%</div>
+                        <div className="text-sm text-black/70">{location.city}</div>
                       </div>
                     ))}
                   </div>
