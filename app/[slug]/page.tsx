@@ -376,7 +376,7 @@ export default async function SellerPortalPage({ params }: PageProps) {
               <h5 className="font-medium text-black/80 mb-3">30 YR & 15 YR Fixed Mortgage Rates</h5>
               <div className="bg-white rounded-lg p-2 border border-honed-stone/30">
                 <img
-                  src="/images/mortgage-rates-chart.png"
+                  src="https://pub-c251132e338c43a78dd6e48d0d8d1204.r2.dev/sellers/mortgage-rates-chart.png"
                   alt="30 Year and 15 Year Fixed Mortgage Rates Historical Chart - showing rates from 2018 to present"
                   className="w-full h-auto rounded"
                 />
