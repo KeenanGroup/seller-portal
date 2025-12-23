@@ -572,26 +572,26 @@ export default async function SellerPortalPage({ params }: PageProps) {
                 </div>
               </div>
 
-              {/* Concierge Status */}
+              {/* Unlock MLS Concierge Status */}
               {(latestUpdate.oneHomeMetrics.conciergeApproved > 0 || latestUpdate.oneHomeMetrics.conciergeRejected > 0) && (
                 <div className="mt-4 p-4 bg-honed-stone-light rounded-lg">
-                  <h4 className="font-medium text-mulberry mb-2">Compass Concierge Inquiries</h4>
+                  <h4 className="font-medium text-mulberry mb-2">Unlock MLS Concierge</h4>
                   <div className="flex items-center gap-6">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                       <span className="font-semibold text-green-700">{latestUpdate.oneHomeMetrics.conciergeApproved}</span>
-                      <span className="text-sm text-black/60">Approved Buyers</span>
+                      <span className="text-sm text-black/60">Approved for Delivery</span>
                     </div>
                     {latestUpdate.oneHomeMetrics.conciergeRejected > 0 && (
                       <div className="flex items-center gap-2">
                         <div className="w-3 h-3 bg-red-400 rounded-full"></div>
                         <span className="font-semibold text-red-600">{latestUpdate.oneHomeMetrics.conciergeRejected}</span>
-                        <span className="text-sm text-black/60">Did Not Qualify</span>
+                        <span className="text-sm text-black/60">Not Delivered</span>
                       </div>
                     )}
                   </div>
                   <p className="text-xs text-black/50 mt-2">
-                    Concierge pre-qualifies buyers before they can request showings, ensuring only serious, qualified buyers tour your home.
+                    Agents review listings before delivering to their buyer clients. Approved means an agent selected your listing to share with their buyer.
                   </p>
                 </div>
               )}

@@ -9,127 +9,123 @@ interface ViewsByCityMapProps {
   data: LocationData[]
 }
 
-const TEXAS_CITIES: Record<string, { x: number; y: number }> = {
-  'Austin': { x: 45, y: 62 },
-  'Round Rock': { x: 46, y: 58 },
-  'Cedar Park': { x: 44, y: 56 },
-  'Pflugerville': { x: 48, y: 58 },
-  'Georgetown': { x: 46, y: 52 },
-  'Lakeway': { x: 42, y: 63 },
-  'Bee Cave': { x: 41, y: 64 },
-  'Dripping Springs': { x: 38, y: 66 },
-  'San Antonio': { x: 40, y: 78 },
-  'Houston': { x: 70, y: 68 },
-  'Dallas': { x: 55, y: 28 },
-  'Fort Worth': { x: 50, y: 28 },
-  'San Marcos': { x: 43, y: 70 },
-  'New Braunfels': { x: 42, y: 72 },
-  'Kyle': { x: 44, y: 68 },
-  'Buda': { x: 44, y: 66 },
-  'Leander': { x: 43, y: 54 },
-  'Westlake': { x: 43, y: 62 },
-  'Rollingwood': { x: 44, y: 63 },
-  'West Lake Hills': { x: 43, y: 63 },
-}
-
-const COLORS = ['#5B4B6F', '#7C6A8E', '#9D8AAF', '#BEA9D0', '#DFC9F1']
-
 export function ViewsByCityMap({ data }: ViewsByCityMapProps) {
   if (!data || data.length === 0) return null
 
   const sortedData = [...data].sort((a, b) => b.percentage - a.percentage)
-  const maxPercentage = Math.max(...data.map(d => d.percentage))
+  const total = sortedData.reduce((sum, d) => sum + d.percentage, 0)
+
+  const colors = [
+    { bg: 'bg-mulberry', text: 'text-mulberry', fill: '#4C2230' },
+    { bg: 'bg-mulberry/70', text: 'text-mulberry/70', fill: '#6B3A4A' },
+    { bg: 'bg-gold', text: 'text-gold', fill: '#B8860B' },
+    { bg: 'bg-gold/70', text: 'text-gold/70', fill: '#D4A84B' },
+    { bg: 'bg-honed-stone', text: 'text-honed-stone', fill: '#9CA3AF' },
+  ]
+
+  let cumulativePercentage = 0
+  const donutSegments = sortedData.map((location, index) => {
+    const startAngle = (cumulativePercentage / 100) * 360
+    const sweepAngle = (location.percentage / 100) * 360
+    cumulativePercentage += location.percentage
+
+    const startRad = (startAngle - 90) * (Math.PI / 180)
+    const endRad = (startAngle + sweepAngle - 90) * (Math.PI / 180)
+
+    const x1 = 50 + 40 * Math.cos(startRad)
+    const y1 = 50 + 40 * Math.sin(startRad)
+    const x2 = 50 + 40 * Math.cos(endRad)
+    const y2 = 50 + 40 * Math.sin(endRad)
+
+    const largeArc = sweepAngle > 180 ? 1 : 0
+
+    return {
+      path: `M 50 50 L ${x1} ${y1} A 40 40 0 ${largeArc} 1 ${x2} ${y2} Z`,
+      color: colors[Math.min(index, colors.length - 1)].fill,
+      city: location.city,
+      percentage: location.percentage,
+    }
+  })
 
   return (
     <div className="space-y-4">
       <h4 className="font-medium text-mulberry">Viewer Locations</h4>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="relative bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-4 min-h-[220px]">
-          <svg viewBox="0 0 100 100" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
-            <path
-              d="M10,15 L35,10 L55,5 L75,8 L90,20 L95,35 L92,50 L88,65 L80,80 L65,90 L45,95 L25,92 L15,80 L8,60 L5,40 L10,15"
-              fill="#E8F4E8"
-              stroke="#9CA3AF"
-              strokeWidth="0.5"
-              className="drop-shadow-sm"
-            />
-
-            {sortedData.map((location, index) => {
-              const coords = TEXAS_CITIES[location.city]
-              if (!coords) return null
-
-              const size = Math.max(4, (location.percentage / maxPercentage) * 12)
-              const color = COLORS[Math.min(index, COLORS.length - 1)]
-
-              return (
-                <g key={index}>
-                  <circle
-                    cx={coords.x}
-                    cy={coords.y}
-                    r={size}
-                    fill={color}
-                    fillOpacity="0.7"
-                    stroke={color}
-                    strokeWidth="1"
-                    className="drop-shadow"
-                  />
-                  <circle
-                    cx={coords.x}
-                    cy={coords.y}
-                    r={size + 2}
-                    fill="none"
-                    stroke={color}
-                    strokeWidth="0.5"
-                    strokeOpacity="0.4"
-                  />
-                  {location.percentage > 15 && (
-                    <text
-                      x={coords.x}
-                      y={coords.y - size - 3}
-                      textAnchor="middle"
-                      className="text-[4px] font-medium fill-black/70"
-                    >
-                      {location.percentage}%
-                    </text>
-                  )}
-                </g>
-              )
-            })}
-
-            <circle cx="45" cy="62" r="1.5" fill="#DC2626" />
-            <text x="45" y="67" textAnchor="middle" className="text-[3px] fill-red-600 font-medium">
-              AUSTIN
-            </text>
-          </svg>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-1 flex items-center justify-center">
+          <div className="relative w-48 h-48">
+            <svg viewBox="0 0 100 100" className="w-full h-full transform -rotate-90">
+              {donutSegments.map((segment, index) => (
+                <path
+                  key={index}
+                  d={segment.path}
+                  fill={segment.color}
+                  className="transition-opacity hover:opacity-80"
+                />
+              ))}
+              <circle cx="50" cy="50" r="24" fill="white" />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-mulberry">{sortedData.length}</div>
+                <div className="text-xs text-black/60">Markets</div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="space-y-2">
+        <div className="lg:col-span-2 space-y-3">
           {sortedData.map((location, index) => {
-            const color = COLORS[Math.min(index, COLORS.length - 1)]
-            const widthPercent = (location.percentage / maxPercentage) * 100
+            const color = colors[Math.min(index, colors.length - 1)]
+            const isTopLocation = index === 0
 
             return (
-              <div key={index} className="flex items-center gap-3">
-                <div
-                  className="w-3 h-3 rounded-full flex-shrink-0"
-                  style={{ backgroundColor: color }}
-                />
-                <div className="flex-grow">
-                  <div className="flex items-center justify-between mb-0.5">
-                    <span className="text-sm text-black/80">{location.city}</span>
-                    <span className="text-sm font-semibold text-mulberry">{location.percentage}%</span>
-                  </div>
-                  <div className="h-2 bg-honed-stone-light rounded-full overflow-hidden">
+              <div key={index} className="group">
+                <div className="flex items-center justify-between mb-1">
+                  <div className="flex items-center gap-2">
                     <div
-                      className="h-full rounded-full transition-all duration-500"
-                      style={{ width: `${widthPercent}%`, backgroundColor: color }}
+                      className="w-3 h-3 rounded-sm flex-shrink-0"
+                      style={{ backgroundColor: color.fill }}
                     />
+                    <span className={`text-sm ${isTopLocation ? 'font-semibold text-mulberry' : 'text-black/80'}`}>
+                      {location.city}
+                    </span>
+                    {isTopLocation && (
+                      <span className="text-xs bg-mulberry/10 text-mulberry px-2 py-0.5 rounded-full">
+                        Primary Market
+                      </span>
+                    )}
                   </div>
+                  <span className={`text-sm font-semibold ${isTopLocation ? 'text-mulberry' : 'text-black/70'}`}>
+                    {location.percentage}%
+                  </span>
+                </div>
+                <div className="h-2.5 bg-honed-stone-light/50 rounded-full overflow-hidden">
+                  <div
+                    className="h-full rounded-full transition-all duration-700 ease-out"
+                    style={{
+                      width: `${location.percentage}%`,
+                      backgroundColor: color.fill,
+                    }}
+                  />
                 </div>
               </div>
             )
           })}
+        </div>
+      </div>
+
+      <div className="pt-4 border-t border-honed-stone/20">
+        <div className="flex items-start gap-2 text-xs text-black/50">
+          <svg className="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>
+            Geographic distribution based on IP address analysis of listing page visitors.
+            {sortedData[0] && sortedData[0].percentage > 50 && (
+              <> Strong local interest suggests buyers are familiar with the area.</>
+            )}
+          </span>
         </div>
       </div>
     </div>
