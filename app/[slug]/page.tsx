@@ -6,6 +6,12 @@ import { PortableText } from '@portabletext/react'
 import { PropertyHero } from '../components/property_hero'
 import { ViewsByPublisherChart } from '../components/views_by_publisher_chart'
 import { ViewsByCityMap } from '../components/views_by_city_map'
+import { ProtectedContent } from '../components/protected_content'
+
+function extractStreetNumber(address: string): string {
+  const match = address?.match(/^(\d+)/)
+  return match ? match[1] : ''
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -156,6 +162,8 @@ export default async function SellerPortalPage({ params }: PageProps) {
   const latestUpdate = updates?.[0]
   const isRental = listing.listPrice < 10000
   const daysOnMarket = listing.listDate ? calculateDaysOnMarket(listing.listDate) : null
+  const streetNumber = extractStreetNumber(listing.address?.street || '')
+  const propertyAddress = listing.address?.street || 'Your Property'
 
   // Calculate cumulative showings from all updates
   const totalShowings = updates?.reduce((sum: number, update: any) => sum + (update.showings?.length || 0), 0) || 0
@@ -172,6 +180,7 @@ export default async function SellerPortalPage({ params }: PageProps) {
   }, 0) || 0
 
   return (
+    <ProtectedContent streetNumber={streetNumber} propertyAddress={propertyAddress}>
     <div className="max-w-5xl mx-auto px-6 py-8">
       {/* Property Hero Image */}
       {listing.images && listing.images.length > 0 && (
@@ -803,5 +812,6 @@ export default async function SellerPortalPage({ params }: PageProps) {
         </div>
       </div>
     </div>
+    </ProtectedContent>
   )
 }
