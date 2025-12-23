@@ -62,7 +62,15 @@ async function getSellerPortal(slug: string) {
       propertyMaintenance,
       nextSteps,
       cumulativeStats,
-      publishedAt
+      publishedAt,
+      "mortgageUpdate": mortgageUpdate->{
+        _id,
+        title,
+        headline,
+        content,
+        keyStats,
+        validFrom
+      }
     }
   }`
 
@@ -309,8 +317,39 @@ export default async function SellerPortalPage({ params }: PageProps) {
         <div className="card mb-8">
           <div className="flex items-center justify-between mb-4">
             <h3 className="card-header mb-0">Mortgage Rate Update</h3>
-            <span className="text-xs text-black/50">Live rates updated daily</span>
+            <span className="text-xs text-black/50">
+              {latestUpdate?.mortgageUpdate?.validFrom
+                ? `Updated ${formatDate(latestUpdate.mortgageUpdate.validFrom)}`
+                : 'Live rates updated daily'}
+            </span>
           </div>
+
+          {/* Full Article Content from Sanity */}
+          {latestUpdate?.mortgageUpdate && (
+            <div className="mb-6">
+              <h4 className="text-lg font-semibold text-mulberry mb-3">
+                {latestUpdate.mortgageUpdate.headline}
+              </h4>
+              <div className="prose prose-sm max-w-none text-black/80 mb-4">
+                <PortableText value={latestUpdate.mortgageUpdate.content} />
+              </div>
+
+              {/* Key Rate Stats */}
+              {latestUpdate.mortgageUpdate.keyStats && latestUpdate.mortgageUpdate.keyStats.length > 0 && (
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                  {latestUpdate.mortgageUpdate.keyStats.map((stat: any) => (
+                    <div key={stat._key} className="text-center p-3 bg-honed-stone-light rounded-lg">
+                      <div className="text-2xl font-bold text-mulberry">{stat.value}</div>
+                      <div className="text-sm text-black/70">{stat.label}</div>
+                      {stat.trend && (
+                        <div className="text-xs text-black/50 mt-1">{stat.trend}</div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
 
           <div className="flex flex-col lg:flex-row gap-6">
             {/* Live MND Widget */}
