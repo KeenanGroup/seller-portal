@@ -6,6 +6,13 @@ export const metadata: Metadata = {
   title: 'Seller Portal | Keenan Group',
   description: 'Your personalized property dashboard with weekly updates on showings, market activity, and agent insights.',
   robots: { index: false, follow: false },
+  icons: {
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 }
 
 function Header() {
