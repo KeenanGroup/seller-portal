@@ -566,9 +566,6 @@ export default async function SellerPortalPage({ params }: PageProps) {
                         </div>
                         <div>
                           <div className="font-medium text-mulberry">{showing.brokerage}</div>
-                          {showing.agentName && (
-                            <div className="text-sm text-black/70">Agent: {showing.agentName}</div>
-                          )}
                           {showing.duration && (
                             <div className="text-sm text-black/50">Duration: {formatDuration(showing.duration)}</div>
                           )}
