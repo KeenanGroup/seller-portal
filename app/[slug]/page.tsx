@@ -134,13 +134,6 @@ function calculateDaysOnMarket(listDate: string) {
   return Math.ceil(diffTime / (1000 * 60 * 60 * 24))
 }
 
-// MortgageNewsDaily live widget configuration
-const MND_WIDGET_CONFIG = {
-  widgetUrl: 'https://widgets.mortgagenewsdaily.com/widget/f/rates',
-  params: 't=expanded&sc=true&sn=false',
-  width: 380,
-  height: 520,
-}
 
 function formatDuration(minutes: number) {
   if (minutes < 60) return `${minutes} min`
@@ -307,25 +300,31 @@ export default async function SellerPortalPage({ params }: PageProps) {
         <div className="card mb-8">
           <div className="flex items-center justify-between mb-4">
             <h3 className="card-header mb-0">Mortgage Rate Update</h3>
-            <span className="text-xs text-black/50">Live rates from MortgageNewsDaily</span>
+            <span className="text-xs text-black/50">Live rates updated daily</span>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-6">
             {/* Live MND Widget */}
-            <div className="flex-1">
+            <div className="mnd-rates-widget" style={{ width: 250, height: 330, fontSize: 12 }}>
+              <div style={{ textAlign: 'center', padding: '4px 0', backgroundColor: '#4C2230', color: '#FFFFFF' }}>
+                <a href="https://www.mortgagenewsdaily.com/mortgage-rates" target="_blank" rel="noopener noreferrer" style={{ color: '#FFFFFF', textDecoration: 'none' }}>Current Interest Rates</a>
+              </div>
               <iframe
-                src={`${MND_WIDGET_CONFIG.widgetUrl}?${MND_WIDGET_CONFIG.params}`}
-                width={MND_WIDGET_CONFIG.width}
-                height={MND_WIDGET_CONFIG.height}
-                frameBorder="0"
+                src="//widgets.mortgagenewsdaily.com/widget/f/rates?t=small&sc=true&c=4C2230&u=&cbu=&w=248&h=280"
+                width={250}
+                height={280}
+                frameBorder={0}
                 scrolling="no"
-                className="border border-honed-stone/30 rounded-lg mx-auto block"
-                title="Mortgage News Daily Live Rates"
+                style={{ border: 'solid 1px #4C2230', borderWidth: '0 1px', boxSizing: 'border-box', width: 250, height: 280, display: 'block' }}
+                title="MortgageNewsDaily Live Rates"
               />
+              <div style={{ textAlign: 'center', padding: '4px 0', backgroundColor: '#4C2230', color: '#FFFFFF' }}>
+                View More <a href="https://www.mortgagenewsdaily.com/mortgage-rates" target="_blank" rel="noopener noreferrer" style={{ color: '#FFFFFF', textDecoration: 'none' }}>Interest Rates</a>
+              </div>
             </div>
 
             {/* Context for Buyers */}
-            <div className="lg:w-80 space-y-4">
+            <div className="flex-1 space-y-4">
               <div className="p-4 bg-green-50 rounded-lg">
                 <h5 className="font-medium text-green-800 mb-2">What This Means for Buyers</h5>
                 <p className="text-sm text-green-700">
@@ -334,29 +333,13 @@ export default async function SellerPortalPage({ params }: PageProps) {
               </div>
 
               <div className="p-4 bg-blue-50 rounded-lg">
-                <h5 className="font-medium text-blue-800 mb-2">Market Context</h5>
+                <h5 className="font-medium text-blue-800 mb-2">Why This Matters for Your Sale</h5>
                 <p className="text-sm text-blue-700">
-                  Today's rates are updated in real-time from actual lender rate sheets. This data drives buyer activity and showing volume in the luxury market.
+                  Rates updated in real-time from actual lender rate sheets. Lower rates typically increase buyer activity and showing volume.
                 </p>
               </div>
-
-              <a
-                href="https://www.mortgagenewsdaily.com/mortgage-rates"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-mulberry hover:text-mulberry-light"
-              >
-                View full rate analysis
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
             </div>
           </div>
-
-          <p className="text-xs text-black/50 mt-4">
-            Source: <a href="https://www.mortgagenewsdaily.com" target="_blank" rel="noopener noreferrer" className="text-mulberry hover:underline">MortgageNewsDaily.com</a> - National average rates updated daily from multiple lenders.
-          </p>
         </div>
       )}
 
