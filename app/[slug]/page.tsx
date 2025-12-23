@@ -134,15 +134,12 @@ function calculateDaysOnMarket(listDate: string) {
   return Math.ceil(diffTime / (1000 * 60 * 60 * 24))
 }
 
-// Current mortgage rates from Mortgage News Daily - Updated 12/18/2025
-const MORTGAGE_RATES = {
-  thirtyYearFixed: { rate: 6.22, change: -0.05 },
-  fifteenYearFixed: { rate: 5.74, change: -0.02 },
-  thirtyYearJumbo: { rate: 6.40, change: -0.02 },
-  sevenSixARM: { rate: 5.80, change: -0.10 },
-  thirtyYearFHA: { rate: 5.86, change: -0.01 },
-  thirtyYearVA: { rate: 5.87, change: -0.02 },
-  lastUpdated: '12/18/2025',
+// MortgageNewsDaily live widget configuration
+const MND_WIDGET_CONFIG = {
+  widgetUrl: 'https://widgets.mortgagenewsdaily.com/widget/f/rates',
+  params: 't=expanded&sc=true&sn=false',
+  width: 380,
+  height: 520,
 }
 
 function formatDuration(minutes: number) {
@@ -310,113 +307,55 @@ export default async function SellerPortalPage({ params }: PageProps) {
         <div className="card mb-8">
           <div className="flex items-center justify-between mb-4">
             <h3 className="card-header mb-0">Mortgage Rate Update</h3>
-            <span className="text-xs text-black/50">Updated Daily - Last Updated: {MORTGAGE_RATES.lastUpdated}</span>
+            <span className="text-xs text-black/50">Live rates from MortgageNewsDaily</span>
           </div>
 
-          {/* Headline and Article */}
-          <div className="mb-6">
-            <h4 className="text-lg font-semibold text-mulberry mb-2">Mortgage Rates Near Lowest Levels Since October</h4>
-            <p className="text-xs text-black/50 mb-3">By: Matthew Graham | Thu, Dec 18 2025, 3:44 PM</p>
-            <div className="text-sm text-black/70 space-y-3">
-              <p>
-                Officially, there were 2 days at the end of November where the average lender's 30yr fixed rates were just a hair lower (0.02% difference). Otherwise, today's rates would be the lowest since late October.
-              </p>
-              <p>
-                The improvement follows this morning's release of November's Consumer Price Index (CPI). Inflation was so far below expectations that it raised new questions about just how much the government shutdown impacted data collection. The market still treated it as good news for rates, but most of the improvement was already in place before the data came out.
-              </p>
-              <p>
-                CPI marked the last of 2025's top tier economic reports when it comes to potential impacts on rates. This doesn't mean rates won't move between now and January - only that they're far less likely to make any big changes based on economic reports.
-              </p>
+          <div className="flex flex-col lg:flex-row gap-6">
+            {/* Live MND Widget */}
+            <div className="flex-1">
+              <iframe
+                src={`${MND_WIDGET_CONFIG.widgetUrl}?${MND_WIDGET_CONFIG.params}`}
+                width={MND_WIDGET_CONFIG.width}
+                height={MND_WIDGET_CONFIG.height}
+                frameBorder="0"
+                scrolling="no"
+                className="border border-honed-stone/30 rounded-lg mx-auto block"
+                title="Mortgage News Daily Live Rates"
+              />
             </div>
-            <a
-              href="https://www.mortgagenewsdaily.com/markets/mortgage-rates-12182025"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm text-mulberry hover:text-mulberry-light mt-3"
-            >
-              Read full article
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-          </div>
 
-          {/* Rate Table and Chart */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Daily Rate Survey */}
-            <div>
-              <h5 className="font-medium text-black/80 mb-3">MND's Daily Rate Survey</h5>
-              <div className="space-y-2">
-                <div className="flex items-center justify-between p-3 bg-mulberry/10 rounded-lg border-l-4 border-mulberry">
-                  <span className="font-semibold">30 Yr. Fixed</span>
-                  <div className="flex items-center gap-3">
-                    <span className="font-bold text-mulberry">{MORTGAGE_RATES.thirtyYearFixed.rate}%</span>
-                    <span className="text-green-600 text-sm flex items-center gap-1">
-                      {MORTGAGE_RATES.thirtyYearFixed.change}%
-                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd" transform="rotate(180 10 10)" />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between p-2 border-b border-honed-stone/30">
-                  <span className="text-black/70">15 Yr. Fixed</span>
-                  <div className="flex items-center gap-3">
-                    <span className="font-semibold">{MORTGAGE_RATES.fifteenYearFixed.rate}%</span>
-                    <span className="text-green-600 text-sm">{MORTGAGE_RATES.fifteenYearFixed.change}%</span>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between p-2 border-b border-honed-stone/30">
-                  <span className="text-black/70">30 Yr. Jumbo</span>
-                  <div className="flex items-center gap-3">
-                    <span className="font-semibold">{MORTGAGE_RATES.thirtyYearJumbo.rate}%</span>
-                    <span className="text-green-600 text-sm">{MORTGAGE_RATES.thirtyYearJumbo.change}%</span>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between p-2 border-b border-honed-stone/30">
-                  <span className="text-black/70">7/6 SOFR ARM</span>
-                  <div className="flex items-center gap-3">
-                    <span className="font-semibold">{MORTGAGE_RATES.sevenSixARM.rate}%</span>
-                    <span className="text-green-600 text-sm">{MORTGAGE_RATES.sevenSixARM.change}%</span>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between p-2 border-b border-honed-stone/30">
-                  <span className="text-black/70">30 Yr. FHA</span>
-                  <div className="flex items-center gap-3">
-                    <span className="font-semibold">{MORTGAGE_RATES.thirtyYearFHA.rate}%</span>
-                    <span className="text-green-600 text-sm">{MORTGAGE_RATES.thirtyYearFHA.change}%</span>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between p-2">
-                  <span className="text-black/70">30 Yr. VA</span>
-                  <div className="flex items-center gap-3">
-                    <span className="font-semibold">{MORTGAGE_RATES.thirtyYearVA.rate}%</span>
-                    <span className="text-green-600 text-sm">{MORTGAGE_RATES.thirtyYearVA.change}%</span>
-                  </div>
-                </div>
+            {/* Context for Buyers */}
+            <div className="lg:w-80 space-y-4">
+              <div className="p-4 bg-green-50 rounded-lg">
+                <h5 className="font-medium text-green-800 mb-2">What This Means for Buyers</h5>
+                <p className="text-sm text-green-700">
+                  Current rates directly impact buyer purchasing power. Every 0.5% rate change can shift affordability by ~5% on monthly payments.
+                </p>
               </div>
-            </div>
 
-            {/* Historical Chart */}
-            <div>
-              <h5 className="font-medium text-black/80 mb-3">30 YR & 15 YR Fixed Mortgage Rates</h5>
-              <div className="bg-white rounded-lg p-2 border border-honed-stone/30">
-                <img
-                  src="https://pub-c251132e338c43a78dd6e48d0d8d1204.r2.dev/sellers/mortgage-rates-chart.png"
-                  alt="30 Year and 15 Year Fixed Mortgage Rates Historical Chart - showing rates from 2018 to present"
-                  className="w-full h-auto rounded"
-                />
+              <div className="p-4 bg-blue-50 rounded-lg">
+                <h5 className="font-medium text-blue-800 mb-2">Market Context</h5>
+                <p className="text-sm text-blue-700">
+                  Today's rates are updated in real-time from actual lender rate sheets. This data drives buyer activity and showing volume in the luxury market.
+                </p>
               </div>
+
+              <a
+                href="https://www.mortgagenewsdaily.com/mortgage-rates"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-mulberry hover:text-mulberry-light"
+              >
+                View full rate analysis
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
             </div>
           </div>
 
-          <div className="mt-4 p-3 bg-green-50 rounded-lg text-sm">
-            <span className="font-medium text-green-800">What this means for buyers:</span>
-            <span className="text-green-700"> Rates trending down means improved affordability and potentially more buyer activity. Current rates at 6.22% are significantly better than the 7%+ peaks seen in late 2023.</span>
-          </div>
-
-          <p className="text-xs text-black/50 mt-3">
-            Source: <a href="https://www.mortgagenewsdaily.com" target="_blank" rel="noopener noreferrer" className="text-mulberry hover:underline">MortgageNewsDaily.com</a> - Data aggregated from multiple lenders daily.
+          <p className="text-xs text-black/50 mt-4">
+            Source: <a href="https://www.mortgagenewsdaily.com" target="_blank" rel="noopener noreferrer" className="text-mulberry hover:underline">MortgageNewsDaily.com</a> - National average rates updated daily from multiple lenders.
           </p>
         </div>
       )}
