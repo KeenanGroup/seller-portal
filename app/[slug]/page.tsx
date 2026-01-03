@@ -173,19 +173,17 @@ export default async function SellerPortalPage({ params }: PageProps) {
   const streetNumber = extractStreetNumber(listing.address?.street || '')
   const propertyAddress = listing.address?.street || 'Your Property'
 
-  // Calculate cumulative showings from all updates
-  const totalShowings = updates?.reduce((sum: number, update: any) => sum + (update.showings?.length || 0), 0) || 0
+  // Get total showings from most recent update (it contains all cumulative showings)
+  const totalShowings = updates?.[0]?.showings?.length || 0
 
-  // Calculate showings in last 30 days (by individual showing date)
+  // Calculate showings in last 30 days (from most recent update only to avoid duplicates)
   const thirtyDaysAgo = new Date()
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
-  const last30DaysShowings = updates?.reduce((sum: number, update: any) => {
-    if (!update.showings) return sum
-    return sum + update.showings.filter((showing: any) => {
-      const showingDate = new Date(showing.date)
-      return showingDate >= thirtyDaysAgo
-    }).length
-  }, 0) || 0
+  const latestUpdate = updates?.[0]
+  const last30DaysShowings = latestUpdate?.showings?.filter((showing: any) => {
+    const showingDate = new Date(showing.date)
+    return showingDate >= thirtyDaysAgo
+  }).length || 0
 
   return (
     <ProtectedContent streetNumber={streetNumber} propertyAddress={propertyAddress}>
