@@ -9,11 +9,6 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'media-production.lp-cdn.com' },
     ],
   },
-  experimental: {
-    turbo: {
-      enabled: false,
-    },
-  },
 }
 
 export default nextConfig

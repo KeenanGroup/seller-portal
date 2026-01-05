@@ -179,7 +179,6 @@ export default async function SellerPortalPage({ params }: PageProps) {
   // Calculate showings in last 30 days (from most recent update only to avoid duplicates)
   const thirtyDaysAgo = new Date()
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
-  const latestUpdate = updates?.[0]
   const last30DaysShowings = latestUpdate?.showings?.filter((showing: any) => {
     const showingDate = new Date(showing.date)
     return showingDate >= thirtyDaysAgo
