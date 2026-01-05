@@ -107,7 +107,7 @@ function Footer() {
               Austin, TX 78731
             </p>
             <a
-              href="https://maps.google.com/?q=4206+Venado+Dr+Austin+TX+78731"
+              href="https://maps.app.goo.gl/sK343AqCsVf7ELkh9"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-xs text-honed-stone/70 hover:text-white transition-colors mt-2"

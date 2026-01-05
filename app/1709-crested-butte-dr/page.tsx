@@ -116,18 +116,18 @@ const propertyData = {
       { _key: 's28', date: '2025-10-13T16:06:00', agentName: 'Ben Goudy', brokerage: 'Texas Crossway Realty LLC', duration: 60, isTeamShowing: false }
     ],
     webMetrics: {
-      totalViews: 1226,
-      viewsTrend: '↑ Agent Network Reach',
-      uniqueVisitors: 283,
-      visitorsTrend: '↑ Direct Client Interest',
-      avgTimeOnPage: null,
-      timeTrend: null,
+      totalViews: 3839,
+      viewsTrend: '↑ 36.7% over 30 days',
+      uniqueVisitors: 77,
+      visitorsTrend: '↑ 4.1% over 30 days',
+      avgTimeOnPage: 25,
+      timeTrend: '↓ 11.8% over 30 days',
       byPlatform: [
-        { _key: 'p1', platform: 'Agent Views', views: 1226 },
-        { _key: 'p2', platform: 'Client Portal Shares', views: 530 },
-        { _key: 'p3', platform: 'Auto Emails Sent', views: 579 },
-        { _key: 'p4', platform: 'Direct Client Views', views: 283 },
-        { _key: 'p5', platform: 'Distinct Viewers', views: 129 }
+        { _key: 'p1', platform: 'Zillow', views: 2650 },
+        { _key: 'p2', platform: 'Realtor.com', views: 324 },
+        { _key: 'p3', platform: 'Compass', views: 161 },
+        { _key: 'p4', platform: 'Trulia', views: 74 },
+        { _key: 'p5', platform: 'Other Platforms', views: 630 }
       ],
       topLocations: [
         { _key: 'l1', city: 'Concierge Approved', percentage: 12 },
@@ -492,7 +492,6 @@ export default async function CresstedButtePage() {
               <tr className="border-b border-honed-stone">
                 <th className="text-left py-2 px-3 font-medium text-black/70">Date</th>
                 <th className="text-left py-2 px-3 font-medium text-black/70">Time</th>
-                <th className="text-left py-2 px-3 font-medium text-black/70">Agent</th>
                 <th className="text-left py-2 px-3 font-medium text-black/70">Brokerage</th>
                 <th className="text-right py-2 px-3 font-medium text-black/70">Duration</th>
               </tr>
@@ -502,10 +501,6 @@ export default async function CresstedButtePage() {
                 <tr key={showing._key} className={`border-b border-honed-stone/30 ${showing.isTeamShowing ? 'bg-yellow-50' : ''}`}>
                   <td className="py-2 px-3">{formatDate(showing.date)}</td>
                   <td className="py-2 px-3">{formatTime(showing.date)}</td>
-                  <td className="py-2 px-3">
-                    {showing.agentName}
-                    {showing.isTeamShowing && <span className="ml-2 text-xs text-yellow-700 font-medium">TEAM</span>}
-                  </td>
                   <td className="py-2 px-3 text-black/70">{showing.brokerage}</td>
                   <td className="py-2 px-3 text-right">{formatDuration(showing.duration)}</td>
                 </tr>
