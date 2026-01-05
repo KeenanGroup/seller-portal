@@ -120,7 +120,8 @@ const propertyData = {
       { _key: 'f2', date: '2026-01-02T12:04:00', feedback: 'thank you for letting us see it -has potential for sure! We noticed the sloping in the foundation throughout the home and the sunroom so great you have quotes for this as well as the roof and associated plumbing. Will stay in touch after the holidays when my clients return from being out of state. Happy Holidays!' },
       { _key: 'f3', date: '2026-01-02T12:06:00', feedback: 'The road noise was a no go for my client.' },
       { _key: 'f4', date: '2026-01-02T12:20:00', feedback: 'The noise from the freeway was the big issue' },
-      { _key: 'f5', date: '2026-01-02T12:11:00', feedback: 'The home showed beautifully! It was the proximity to Mopac and the sound of the highway that made my buyers lose interest!' }
+      { _key: 'f5', date: '2026-01-02T12:11:00', feedback: 'The home showed beautifully! It was the proximity to Mopac and the sound of the highway that made my buyers lose interest!' },
+      { _key: 'f6', date: '2026-01-02T12:12:00', feedback: 'Client went in knowing there would be a little work needed down the road. Unfortunately, he feels there\'s a little too much he would need to do nd this is top of his budget.' }
     ],
     webMetrics: {
       totalViews: 3839,
@@ -533,11 +534,6 @@ export default async function CresstedButtePage() {
           <div className="space-y-4">
             {latestUpdate.buyerFeedback.map((feedback: any) => (
               <div key={feedback._key} className="p-4 bg-honed-stone-light rounded-lg">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-medium text-mulberry">
-                    {formatDate(feedback.date)} at {formatTime(feedback.date)}
-                  </span>
-                </div>
                 <p className="text-sm text-black/80 leading-relaxed">
                   {feedback.feedback}
                 </p>
