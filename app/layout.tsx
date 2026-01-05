@@ -107,7 +107,7 @@ function Footer() {
               Austin, TX 78731
             </p>
             <a
-              href="https://maps.app.goo.gl/sK343AqCsVf7ELkh9"
+              href="https://maps.app.goo.gl/jyA8XjwQZpmx9o9t5"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-xs text-honed-stone/70 hover:text-white transition-colors mt-2"

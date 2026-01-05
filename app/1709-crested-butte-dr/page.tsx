@@ -115,6 +115,13 @@ const propertyData = {
       { _key: 's27', date: '2025-10-17T17:15:00', agentName: 'Brittney Montgomery', brokerage: 'Keller Williams Realty', duration: 60, isTeamShowing: false },
       { _key: 's28', date: '2025-10-13T16:06:00', agentName: 'Ben Goudy', brokerage: 'Texas Crossway Realty LLC', duration: 60, isTeamShowing: false }
     ],
+    buyerFeedback: [
+      { _key: 'f1', date: '2026-01-02T11:56:00', feedback: 'Buyers liked the layout of the home and the private backyard. They know it still needs some updating and are going to look over the SD. They have a few more homes to look tour. Thank you for letting me show' },
+      { _key: 'f2', date: '2026-01-02T12:04:00', feedback: 'thank you for letting us see it -has potential for sure! We noticed the sloping in the foundation throughout the home and the sunroom so great you have quotes for this as well as the roof and associated plumbing. Will stay in touch after the holidays when my clients return from being out of state. Happy Holidays!' },
+      { _key: 'f3', date: '2026-01-02T12:06:00', feedback: 'The road noise was a no go for my client.' },
+      { _key: 'f4', date: '2026-01-02T12:20:00', feedback: 'The noise from the freeway was the big issue' },
+      { _key: 'f5', date: '2026-01-02T12:11:00', feedback: 'The home showed beautifully! It was the proximity to Mopac and the sound of the highway that made my buyers lose interest!' }
+    ],
     webMetrics: {
       totalViews: 3839,
       viewsTrend: '↑ 36.7% over 30 days',
@@ -443,6 +450,11 @@ export default async function CresstedButtePage() {
         <div className="stat-card">
           <div className="stat-value">{latestUpdate.webMetrics.avgTimeOnPage || 0}s</div>
           <div className="stat-label">Avg Time on Page</div>
+          {latestUpdate.webMetrics.timeTrend && (
+            <div className="text-xs text-white/70 mt-1">
+              {latestUpdate.webMetrics.timeTrend}
+            </div>
+          )}
         </div>
       </div>
 
@@ -509,6 +521,31 @@ export default async function CresstedButtePage() {
           </table>
         </div>
       </div>
+
+      {/* Seller Feedback */}
+      {latestUpdate.buyerFeedback && latestUpdate.buyerFeedback.length > 0 && (
+        <div className="card mb-6">
+          <h3 className="card-header">Seller Feedback</h3>
+          <p className="text-sm text-black/60 mb-4">
+            Recent buyer feedback from showing agents
+          </p>
+
+          <div className="space-y-4">
+            {latestUpdate.buyerFeedback.map((feedback: any) => (
+              <div key={feedback._key} className="p-4 bg-honed-stone-light rounded-lg">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-medium text-mulberry">
+                    {formatDate(feedback.date)} at {formatTime(feedback.date)}
+                  </span>
+                </div>
+                <p className="text-sm text-black/80 leading-relaxed">
+                  {feedback.feedback}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Agent Commentary */}
       {latestUpdate.agentCommentary && (
