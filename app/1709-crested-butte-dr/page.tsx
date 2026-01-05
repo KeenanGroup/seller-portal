@@ -116,12 +116,12 @@ const propertyData = {
       { _key: 's28', date: '2025-10-13T16:06:00', agentName: 'Ben Goudy', brokerage: 'Texas Crossway Realty LLC', duration: 60, isTeamShowing: false }
     ],
     buyerFeedback: [
-      { _key: 'f1', date: '2026-01-02T11:56:00', feedback: 'Buyers liked the layout of the home and the private backyard. They know it still needs some updating and are going to look over the SD. They have a few more homes to look tour. Thank you for letting me show' },
-      { _key: 'f2', date: '2026-01-02T12:04:00', feedback: 'thank you for letting us see it - has potential for sure! We noticed the sloping in the foundation throughout the home and the sunroom so great you have quotes for this as well as the roof and associated plumbing. Will stay in touch after the holidays when my clients return from being out of state. Happy Holidays!' },
-      { _key: 'f3', date: '2026-01-02T12:06:00', feedback: 'The road noise was a no go for my client.' },
-      { _key: 'f4', date: '2026-01-02T12:20:00', feedback: 'The noise from the freeway was the big issue' },
-      { _key: 'f5', date: '2026-01-02T12:11:00', feedback: 'The home showed beautifully! It was the proximity to Mopac and the sound of the highway that made my buyers lose interest!' },
-      { _key: 'f6', date: '2026-01-02T12:12:00', feedback: 'Client went in knowing there would be a little work needed down the road. Unfortunately, he feels there\'s a little too much he would need to do and this is top of his budget.' }
+      { _key: 'f1', feedback: 'Buyers liked the layout of the home and the private backyard. They know it still needs some updating and are going to look over the SD. They have a few more homes to look tour. Thank you for letting me show' },
+      { _key: 'f2', feedback: 'thank you for letting us see it - has potential for sure! We noticed the sloping in the foundation throughout the home and the sunroom so great you have quotes for this as well as the roof and associated plumbing. Will stay in touch after the holidays when my clients return from being out of state. Happy Holidays!' },
+      { _key: 'f3', feedback: 'The road noise was a no go for my client.' },
+      { _key: 'f4', feedback: 'The noise from the freeway was the big issue' },
+      { _key: 'f5', feedback: 'The home showed beautifully! It was the proximity to Mopac and the sound of the highway that made my buyers lose interest!' },
+      { _key: 'f6', feedback: 'Client went in knowing there would be a little work needed down the road. Unfortunately, he feels there\'s a little too much he would need to do and this is top of his budget.' }
     ],
     webMetrics: {
       totalViews: 3839,
