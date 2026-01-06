@@ -204,7 +204,6 @@ const propertyData = {
       }
     ],
     nextSteps: [
-      'Monitor feedback trends regarding road noise - consider noise mitigation options or market positioning',
       'Leverage improved mortgage rates (6.20%) in follow-up communications with interested buyers',
       'Capitalize on strong UnLock MLS engagement with targeted outreach to high-interest agents',
       'Prepare for increased spring market activity with updated showing availability'
@@ -543,10 +542,10 @@ export default async function CresstedButtePage() {
         </div>
       )}
 
-      {/* Agent Commentary */}
+      {/* Keenan Group Analysis */}
       {latestUpdate.agentCommentary && (
         <div className="card mb-6">
-          <h3 className="card-header">Agent Commentary</h3>
+          <h3 className="card-header">Keenan Group Analysis</h3>
           <div className="prose prose-sm max-w-none text-black/80">
             <PortableText value={latestUpdate.agentCommentary} />
           </div>
