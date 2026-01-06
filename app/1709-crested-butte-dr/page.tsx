@@ -146,14 +146,14 @@ const propertyData = {
       ]
     },
     mortgageUpdate: {
-      _id: 'mortgage-2026-01-02',
-      headline: 'Mortgage Rates Stay Flat to End The Week',
-      validFrom: '2026-01-02',
+      _id: 'mortgage-2026-01-05',
+      headline: 'Mortgage Rates Holding at 2-Month Lows',
+      validFrom: '2026-01-05',
       keyStats: [
-        { _key: 'k1', label: '30-Year Fixed', value: '6.20%', trend: 'Unchanged' },
-        { _key: 'k2', label: '15-Year Fixed', value: '5.75%', trend: '↓ Down 0.01%' },
-        { _key: 'k3', label: 'Weekly Trend', value: 'Flat', trend: 'Minimal movement' },
-        { _key: 'k4', label: 'Outlook', value: 'Volatility Expected', trend: 'January jobs report key' }
+        { _key: 'k1', label: '30-Year Fixed', value: '6.19%', trend: '↓ Down 0.01%' },
+        { _key: 'k2', label: '15-Year Fixed', value: '5.74%', trend: '↓ Down 0.01%' },
+        { _key: 'k3', label: 'Market Status', value: '2-Month Lows', trend: 'Favorable conditions' },
+        { _key: 'k4', label: 'Trading', value: 'Stable', trend: 'Post-holiday normalization' }
       ],
       content: [
         {
@@ -162,7 +162,7 @@ const propertyData = {
           children: [{
             _key: 'c1a',
             _type: 'span',
-            text: 'Mortgage rates remained largely flat to end the week, with MBS prices increasing slightly. Bond yields and mortgage rates have been locked in a narrow, sideways range since September, creating a stable environment for potential buyers.'
+            text: 'Mortgage rates remain near their lowest levels in roughly two months. Both 30-year and 15-year fixed rates declined slightly today, with the 30-year at 6.19% and 15-year at 5.74%. The two days of 2025 with the lowest rates were September 16th and October 28th, both preceding Fed rate cuts.'
           }]
         },
         {
@@ -171,7 +171,7 @@ const propertyData = {
           children: [{
             _key: 'c2a',
             _type: 'span',
-            text: 'The market anticipates more volatility once major economic reports resume in January. The 30-year fixed rate remains at 6.20%, while the 15-year dropped slightly to 5.75%.'
+            text: 'Bond markets showed improvement with trading volume back at pre-holiday levels. Despite economic data releases, market movement remained subdued, keeping rates stable in the narrow trading range characteristic of early January. This creates a favorable window for buyers considering financing options.'
           }]
         }
       ]
@@ -207,7 +207,7 @@ const propertyData = {
     ],
     nextSteps: [
       'Recommendation of $50,000 price reduction to compete with 1407 Spring Garden and as a comparison to 2943 Thousand Oaks: https://portal.onehome.com/en-US/share/1268697B81949',
-      'Leverage improved mortgage rates (6.20%) in follow-up communications with interested buyers',
+      'Leverage improved mortgage rates (6.19% - at 2-month lows) in follow-up communications with interested buyers',
       'Capitalize on strong UnLock MLS engagement with targeted outreach to high-interest agents',
       'Prepare for increased spring market activity with updated showing availability'
     ]
