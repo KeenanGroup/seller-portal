@@ -204,6 +204,7 @@ const propertyData = {
       }
     ],
     nextSteps: [
+      'Recommendation of $50,000 price reduction to compete with 1407 Spring Garden and as a comparison to 2943 Thousand Oaks: https://portal.onehome.com/en-US/share/1268697B81949',
       'Leverage improved mortgage rates (6.20%) in follow-up communications with interested buyers',
       'Capitalize on strong UnLock MLS engagement with targeted outreach to high-interest agents',
       'Prepare for increased spring market activity with updated showing availability'
