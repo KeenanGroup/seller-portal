@@ -558,12 +558,34 @@ export default async function CresstedButtePage() {
         <div className="card">
           <h3 className="card-header">Recommended Next Steps</h3>
           <ul className="space-y-2">
-            {latestUpdate.nextSteps.map((step: string, index: number) => (
-              <li key={index} className="flex items-start gap-3 text-sm">
-                <span className="text-mulberry mt-1">→</span>
-                <span>{step}</span>
-              </li>
-            ))}
+            {latestUpdate.nextSteps.map((step: string, index: number) => {
+              const urlRegex = /(https?:\/\/[^\s]+)/g
+              const parts = step.split(urlRegex)
+
+              return (
+                <li key={index} className="flex items-start gap-3 text-sm">
+                  <span className="text-mulberry mt-1">→</span>
+                  <span>
+                    {parts.map((part, i) => {
+                      if (part.match(urlRegex)) {
+                        return (
+                          <a
+                            key={i}
+                            href={part}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-mulberry underline hover:opacity-80 transition-opacity"
+                          >
+                            {part}
+                          </a>
+                        )
+                      }
+                      return <span key={i}>{part}</span>
+                    })}
+                  </span>
+                </li>
+              )
+            })}
           </ul>
         </div>
       )}
