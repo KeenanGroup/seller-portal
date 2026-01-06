@@ -73,10 +73,15 @@ const propertyData = {
     propertyType: 'Single Family',
     status: 'active',
     listDate: '2026-01-05',
-    compassUrl: 'https://www.compass.com/listing/9112-balcones-club-drive-austin-tx-78750/',
+    compassUrl: 'https://thekeenangroup.com/properties/9112-balcones-club-dr-austin-tx-78750-1117625',
     neighborhood: 'Balcones Club Estates',
     images: [
-      'https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/placeholder'
+      'https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/01f68727-4827-41ee-9554-8321fbf8558a',
+      'https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/045d3a4c-a386-4dc4-8dd2-b6cd0b10a480',
+      'https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/04b6a2e8-f104-4daf-8c97-804835eb031b',
+      'https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/09d5a98f-9aa6-48fe-a907-4443593866d7',
+      'https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/0aee203a-6eef-4fca-a9b5-3bdf46253f6d',
+      'https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/1484a5dc-639e-4f23-9221-980affb401c6'
     ]
   },
   updates: [{
@@ -210,7 +215,7 @@ export default async function BalconesClubPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-mulberry text-white rounded hover:bg-mulberry/90 transition-colors"
             >
-              View on Compass
+              View Full Listing
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
