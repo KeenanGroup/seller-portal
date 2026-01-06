@@ -77,7 +77,9 @@ const propertyData = {
     neighborhood: 'Barton Hills',
     images: [
       'https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/4d47e0f5-4415-4ef4-a92f-46699c118ab2',
-      'https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/4d47e0f5-4415-4ef4-a92f-46699c118ab2'
+      'https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/d21c792c-7725-433c-bfe4-3208292bcdd7',
+      'https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/310325ad-6281-473b-aaf7-6dcf9607f8fe',
+      'https://media-production.lp-cdn.com/cdn-cgi/image/format=auto,quality=85/https://media-production.lp-cdn.com/media/344dc60a-c74f-4cb4-b7d1-146c9a533490'
     ]
   },
   updates: [{
