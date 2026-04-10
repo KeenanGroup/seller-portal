@@ -1,17 +1,36 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  html {
-    font-family: 'Compass Sans Medium', 'Helvetica Neue', Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+@theme {
+  --color-mulberry: #4C2230;
+  --color-mulberry-light: #5D3A4A;
+  --color-honed-stone: #D5CBBF;
+  --color-honed-stone-light: #E5DED4;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-brand: #4C2230;
+  --color-brand-light: #5D3A4A;
+  --color-champagne: #D5CBBF;
+  --color-champagne-light: #E5DED4;
+  --color-cream: #FAFAF8;
+  --color-charcoal: #1A1A1A;
+  --color-gold: #C9A962;
+  --color-gold-light: #D4BC7D;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
 
-  body {
-    @apply bg-white text-black;
-  }
+  --font-sans: 'Compass Sans Medium', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: Georgia, Cambria, 'Times New Roman', serif;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-white text-black;
 }
 
 @layer components {
