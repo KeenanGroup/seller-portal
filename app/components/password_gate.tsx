@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
 interface PasswordGateProps {
@@ -97,11 +98,12 @@ export function PasswordGate({ streetNumber, propertyAddress, children }: Passwo
         </div>
 
         <div className="text-center mt-6">
-          <img
+          <Image
             src="/images/keenan-group-logo.png"
             alt="The Keenan Group"
-            className="h-8 mx-auto opacity-60"
-            onError={(e) => { e.currentTarget.style.display = 'none' }}
+            width={160}
+            height={32}
+            className="h-8 w-auto mx-auto opacity-60"
           />
         </div>
       </div>

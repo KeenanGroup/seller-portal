@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { sanityClient } from '@/lib/sanity'
 import { getSupabase } from '@/lib/supabase'
@@ -204,10 +205,12 @@ export default async function SellerPortalPage({ params }: PageProps) {
         <div className="flex flex-col md:flex-row gap-6">
           {!listing.images?.length && listing.image && (
             <div className="w-full md:w-72 h-52 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
-              <img
+              <Image
                 src={listing.image}
                 alt={listing.address?.street}
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 18rem"
+                className="object-cover"
               />
             </div>
           )}
