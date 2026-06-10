@@ -13,6 +13,7 @@ export function ViewsByCityMap({ data }: ViewsByCityMapProps) {
   if (!data || data.length === 0) return null
 
   const sortedData = [...data].sort((a, b) => b.percentage - a.percentage)
+  const total = sortedData.reduce((sum, d) => sum + d.percentage, 0)
 
   const colors = [
     { bg: 'bg-mulberry', text: 'text-mulberry', fill: '#4C2230' },

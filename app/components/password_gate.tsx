@@ -1,36 +1,33 @@
 'use client'
 
-import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
 interface PasswordGateProps {
   streetNumber: string
   propertyAddress: string
+  storageKey?: string
   children: React.ReactNode
 }
 
-export function PasswordGate({ streetNumber, propertyAddress, children }: PasswordGateProps) {
+export function PasswordGate({ streetNumber, propertyAddress, storageKey, children }: PasswordGateProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
 
-  const storageKey = `seller_portal_auth_${streetNumber}`
+  const localKey = `seller_portal_auth_${storageKey || streetNumber}`
 
   useEffect(() => {
-    const stored = localStorage.getItem(storageKey)
-    if (stored === streetNumber) {
-      setIsAuthenticated(true)
-    }
+    const stored = localStorage.getItem(localKey)
+    if (stored === streetNumber) setIsAuthenticated(true)
     setIsLoading(false)
-  }, [storageKey, streetNumber])
+  }, [localKey, streetNumber])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
-
     if (password === streetNumber) {
-      localStorage.setItem(storageKey, streetNumber)
+      localStorage.setItem(localKey, streetNumber)
       setIsAuthenticated(true)
     } else {
       setError('Incorrect password. Please try again.')
@@ -46,9 +43,7 @@ export function PasswordGate({ streetNumber, propertyAddress, children }: Passwo
     )
   }
 
-  if (isAuthenticated) {
-    return <>{children}</>
-  }
+  if (isAuthenticated) return <>{children}</>
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-cream px-4">
@@ -63,48 +58,21 @@ export function PasswordGate({ streetNumber, propertyAddress, children }: Passwo
             <h1 className="text-2xl font-medium text-mulberry mb-2">Seller Portal Access</h1>
             <p className="text-black/60 text-sm">{propertyAddress}</p>
           </div>
-
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-black/70 mb-2">
-                Enter your access code
-              </label>
-              <input
-                type="password"
-                id="password"
-                value={password}
+              <label htmlFor="password" className="block text-sm font-medium text-black/70 mb-2">Enter your access code</label>
+              <input type="password" id="password" value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-mulberry/50 focus:border-mulberry text-center text-2xl tracking-widest"
-                placeholder="••••"
-                autoFocus
-              />
+                placeholder="----" autoFocus />
             </div>
-
-            {error && (
-              <p className="text-red-600 text-sm text-center">{error}</p>
-            )}
-
-            <button
-              type="submit"
-              className="w-full bg-mulberry text-white py-3 px-4 rounded-lg font-medium hover:bg-mulberry-light transition-colors"
-            >
+            {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+            <button type="submit"
+              className="w-full bg-mulberry text-white py-3 px-4 rounded-lg font-medium hover:bg-mulberry-light transition-colors">
               Access Report
             </button>
           </form>
-
-          <p className="text-xs text-black/40 text-center mt-6">
-            Your access code was provided by The Keenan Group
-          </p>
-        </div>
-
-        <div className="text-center mt-6">
-          <Image
-            src="/images/keenan-group-logo.png"
-            alt="The Keenan Group"
-            width={160}
-            height={32}
-            className="h-8 w-auto mx-auto opacity-60"
-          />
+          <p className="text-xs text-black/40 text-center mt-6">Your access code was provided by The Keenan Group</p>
         </div>
       </div>
     </div>

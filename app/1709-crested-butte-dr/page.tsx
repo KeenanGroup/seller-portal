@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
 import { PortableText } from '@portabletext/react'
 import { PropertyHero } from '../components/property_hero'
+import { ViewsByPublisherChart } from '../components/views_by_publisher_chart'
+import { ViewsByCityMap } from '../components/views_by_city_map'
 import { ProtectedContent } from '../components/protected_content'
 
 function formatCurrency(amount: number) {

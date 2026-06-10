@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
 import { PortableText } from '@portabletext/react'
 import { PropertyHero } from '../components/property_hero'
+import { ViewsByPublisherChart } from '../components/views_by_publisher_chart'
+import { ViewsByCityMap } from '../components/views_by_city_map'
 import { ProtectedContent } from '../components/protected_content'
 
 function formatCurrency(amount: number) {
@@ -10,6 +12,37 @@ function formatCurrency(amount: number) {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(amount)
+}
+
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+  })
+}
+
+function formatLongDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  })
+}
+
+function formatTime(dateString: string) {
+  return new Date(dateString).toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+  })
+}
+
+function formatDuration(minutes: number) {
+  if (minutes < 60) return `${minutes} min`
+  const hours = Math.floor(minutes / 60)
+  const mins = minutes % 60
+  return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`
 }
 
 export async function generateMetadata(): Promise<Metadata> {

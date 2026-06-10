@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useState } from 'react'
 
 interface PropertyHeroProps {
@@ -27,13 +26,10 @@ export function PropertyHero({ images, address, neighborhood, status }: Property
 
   return (
     <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden group">
-      <Image
+      <img
         src={images[currentIndex]}
         alt={`${address} - Photo ${currentIndex + 1}`}
-        fill
-        priority={currentIndex === 0}
-        sizes="100vw"
-        className="object-cover transition-opacity duration-300"
+        className="w-full h-full object-cover transition-opacity duration-300"
       />
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />

@@ -1,75 +1,136 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  --color-mulberry: #4C2230;
-  --color-mulberry-light: #5D3A4A;
-  --color-honed-stone: #D5CBBF;
-  --color-honed-stone-light: #E5DED4;
-  --color-black: #000000;
-  --color-white: #FFFFFF;
-  --color-brand: #4C2230;
-  --color-brand-light: #5D3A4A;
-  --color-champagne: #D5CBBF;
-  --color-champagne-light: #E5DED4;
-  --color-cream: #FAFAF8;
-  --color-charcoal: #1A1A1A;
-  --color-gold: #C9A962;
-  --color-gold-light: #D4BC7D;
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
+/* Compass font stack */
+@font-face { font-family: 'Compass Sans'; src: url('/fonts/compass-sans/CompassSans-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Compass Sans'; src: url('/fonts/compass-sans/CompassSans-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Compass Sans'; src: url('/fonts/compass-sans/CompassSans-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Compass Sans'; src: url('/fonts/compass-sans/CompassSans-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Compass Display'; src: url('/fonts/compass-display/CompassDisplay-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Compass Serif'; src: url('/fonts/compass-serif/CompassSerif-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Compass Serif'; src: url('/fonts/compass-serif/CompassSerif-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
 
-  --font-sans: 'Compass Sans Medium', 'Helvetica Neue', Arial, sans-serif;
-  --font-serif: Georgia, Cambria, 'Times New Roman', serif;
+/* LP canonical design tokens */
+:root {
+  --text-primary: #1a1a1a;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+  --text-inverse: #ffffff;
+  --brand: #4c2230;
+  --brand-hover: #3a1a25;
+  --brand-light: rgba(76, 34, 48, 0.1);
+  --terracotta: #833119;
+  --evening-plum: #29141b;
+  --sandstone: #9f8b72;
+  --honed-stone: #d5cbbf;
+  --bg-cream: #f9f7f4;
+  --bg-white: #ffffff;
+  --border-default: #e5e0da;
+  --border-subtle: #f0ece6;
+  --gold: #c9b896;
+  --gold-light: #e8d4b8;
+  --gold-dark: #b5a482;
+  --gold-muted: rgba(201, 184, 150, 0.3);
 }
 
-html {
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@layer base {
+  html {
+    font-family: 'Compass Sans', 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
 
-body {
-  @apply bg-white text-black;
+  body {
+    background-color: var(--bg-cream);
+    color: var(--text-primary);
+  }
 }
 
 @layer components {
-  .btn-primary {
-    @apply bg-mulberry text-white px-6 py-3 rounded-lg font-medium
-           hover:bg-mulberry-light transition-colors duration-200;
-  }
-
-  .btn-secondary {
-    @apply bg-honed-stone text-black px-6 py-3 rounded-lg font-medium
-           hover:bg-honed-stone-light transition-colors duration-200;
-  }
-
   .card {
-    @apply bg-white rounded-xl shadow-lg p-6 border border-honed-stone/20;
+    background: var(--bg-white);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 4px 12px rgba(0, 0, 0, 0.02);
   }
 
-  .card-header {
-    @apply text-lg font-medium text-mulberry mb-4 pb-3 border-b border-honed-stone;
+  .card-inner {
+    background: var(--bg-cream);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 1.25rem;
   }
 
-  .stat-card {
-    @apply bg-gradient-to-br from-mulberry to-mulberry-light text-white
-           rounded-xl p-6 text-center;
+  .metric-card {
+    background: var(--bg-cream);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
   }
 
-  .stat-value {
-    @apply text-3xl font-bold mb-1;
+  .section-label {
+    color: var(--brand);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-left: 3px solid var(--gold);
+    padding-left: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
 
-  .stat-label {
-    @apply text-honed-stone text-sm uppercase tracking-wide;
+  .count-badge {
+    background: var(--brand-light);
+    color: var(--brand);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    padding: 0.1875rem 0.75rem;
+    border-radius: 9999px;
   }
 
-  .trend-up {
-    @apply text-success font-medium;
+.kpi-value {    font-size: 2.5rem;    font-weight: 700;    color: var(--brand);    font-family: "Compass Sans", "Helvetica Neue", Arial, sans-serif;    line-height: 1;    letter-spacing: -0.01em;  }
+
+@media (min-width: 768px) {    .kpi-value {      font-size: 2.75rem;    }  }
+
+  .credential-badge {
+    border: 1px solid var(--gold-muted);
+    color: var(--sandstone);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.25rem 0.625rem;
+    border-radius: 4px;
   }
 
-  .trend-down {
-    @apply text-error font-medium;
+  .bar-track {
+    background: var(--border-subtle);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .bar-fill-brand {
+    background: linear-gradient(90deg, var(--brand) 0%, var(--brand-hover) 100%);
+    border-radius: 6px;
+  }
+
+  .bar-fill-gold {
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dark) 100%);
+    border-radius: 6px;
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .pulse-dot {
+    animation: pulse-soft 2s ease-in-out infinite;
   }
 }
