@@ -62,10 +62,6 @@ function RichText({ value }: { value?: any[] | null }) {
   )
 }
 
-function Linkify({ text }: { text: string }) {
-  const parts = text.split(/(https?:\/\/[^\s)]+)/g)
-  return <>{parts.map((p, i) => /^https?:\/\//.test(p) ? <a key={i} href={p} target="_blank" rel="noopener noreferrer" className="underline text-mulberry hover:text-mulberry-light">{p}</a> : <span key={i}>{p}</span>)}</>
-}
 
 function Section({ label, badge, children, right }: { label: string; badge?: string | number; children: ReactNode; right?: ReactNode }) {
   return (
@@ -179,7 +175,6 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
   const tourOvr = String(data.portal?.slug ?? '') === '1810-w-35th-st' ? { total: 13, last30: 3 } : null
   const showings = noShow ? [] : upd?.showings || []
   const hasSh = showings.length > 0
-  const sh30 = showings.filter(s => within(s.date, 30, anchor)).length
 
   const wm = upd?.webMetrics || {}, coStar = wm?.coStarOneHome || null
   const views = typeof wm?.totalViews === 'number' ? wm.totalViews : null
@@ -273,8 +268,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
 
             {/* SHOWINGS */}
             {!noShow && (
-              <Section label="Showing Activity" badge={hasSh ? showings.length : undefined}
-                right={hasSh ? <span className="text-sm text-black/50">Last 30 days: <span className="text-mulberry font-semibold">{sh30}</span></span> : null}>
+              <Section label="Showing Activity" badge={hasSh ? showings.length : undefined}>
                 {!hasSh && !tourOvr ? <p className="text-sm text-black/60">No showings scheduled this period.</p>
                 : tourOvr && !hasSh ? (
                   <div className="metric-card py-8"><div className="text-4xl font-semibold text-mulberry">{tourOvr.total}</div><div className="text-sm text-black/60 mt-2">Total Tours</div></div>
@@ -656,18 +650,8 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
 
           {/* SIDEBAR */}
           <div className="space-y-8">
-            {(() => {
-              const ph = new Set(['Continue monitoring showing feedback and online engagement metrics','Review pricing strategy based on current market activity and comparable sales','Ensure property is show-ready with all maintenance items addressed','Consider scheduling professional photography refresh if current images are over 60 days old'])
-              const steps = (upd?.nextSteps || []).map((s: any) => String(s?.step ?? '').trim()).filter(Boolean).filter(s => !ph.has(s))
-              if (!steps.length) return null
-              return (
-                <Section label="Recommended Next Steps">
-                  <ul className="space-y-3">
-                    {steps.map((step, i) => <li key={i} className="flex gap-3 text-sm text-black/80"><span className="text-mulberry font-semibold">→</span><Linkify text={step} /></li>)}
-                  </ul>
-                </Section>
-              )
-            })()}
+            {/* Recommended Next Steps removed (Joe 2026-06-10): created
+                follow-up work for the team on every report. */}
 
             {Array.isArray(upd?.propertyMaintenance) && upd!.propertyMaintenance.length > 0 && (
               <Section label="Property Care">
@@ -717,22 +701,8 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
           </div>
         </div>
 
-        {updates.length > 1 && (
-          <Section label="Weekly Updates" badge={updates.length}>
-            <div className="space-y-3">
-              {updates.map(u => (
-                <button key={u.id} type="button" onClick={() => setSelectedUpdateId(u.id)}
-                  className={`w-full text-left border rounded-xl p-4 transition-colors ${String(u.id) === String(upd?.id) ? 'border-mulberry bg-cream' : 'border-gray-100 bg-white hover:bg-cream/50'}`}>
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="font-medium text-mulberry">{u.weekOf && u.weekEnding ? `${fmtDate(u.weekOf)} - ${fmtDate(u.weekEnding)}` : 'Weekly Update'}</div>
-                    <div className="text-xs text-black/50">{u.publishedAt ? `Published ${fmtDate(u.publishedAt)}` : ''}</div>
-                  </div>
-                  {!noShow && hasSh && <div className="text-sm text-black/70 mt-2">Showings: {u.showings?.length ?? 0}</div>}
-                </button>
-              ))}
-            </div>
-          </Section>
-        )}
+        {/* Weekly Updates history removed (Joe 2026-06-10): sellers see the
+            latest realtime update only — no prior-update list. */}
 
         {dispName && <div className="text-center py-6"><p className="text-xs text-black/40">This portal is exclusively for {dispName}. Please do not share this link.</p></div>}
       </div>
