@@ -247,6 +247,7 @@ export async function GET(
               'description_public',
               'photos',
               'virtual_tour_url',
+              'updated_at',
             ].join(',')
           )
           .eq('mls_number', mls)
@@ -274,8 +275,12 @@ export async function GET(
           status: (data as any).status ?? null,
           list_date: (data as any).date_listed ?? null,
           days_on_market: (data as any).days_on_market ?? null,
-          list_price: toNumber((data as any).price_list) ?? toNumber((data as any).price_current),
-          original_list_price: toNumber((data as any).price_original),
+          // Client-facing price must ALWAYS reflect the current MLS price:
+          // price_current first; price_list only as fallback (price_list can be
+          // the stale pre-reduction figure — the 2702-lakehurst $1,495,000 bug).
+          list_price: toNumber((data as any).price_current) ?? toNumber((data as any).price_list),
+          original_list_price: toNumber((data as any).price_original) ?? toNumber((data as any).price_list),
+          price_updated_at: (data as any).updated_at ?? null,
           bedrooms: (data as any).bedrooms ?? null,
           bathrooms: bathroomsFull + bathroomsHalf * 0.5,
           sqft: (data as any).sqft_total ?? null,

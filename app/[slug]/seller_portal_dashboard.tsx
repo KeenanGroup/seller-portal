@@ -168,6 +168,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
   const city = listing?.city || '', state = listing?.state || '', zip = listing?.zip_code || ''
   const neighborhood = listing?.neighborhood || listing?.subdivision || ''
   const price = listing?.list_price ?? listing?.listPrice
+  const priceUpdatedAt = listing?.price_updated_at ? new Date(listing.price_updated_at) : null
   const beds = listing?.bedrooms, baths = listing?.bathrooms, sf = listing?.sqft ?? listing?.squareFeet
 
   const listDate = listing?.list_date ? new Date(listing.list_date) : null
@@ -236,6 +237,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
             {baths != null && <><span>{baths} BA</span><span className="text-white/40">|</span></>}
             {sf != null && <span>{Number(sf).toLocaleString()} SF</span>}
             {data.portal?.mlsNumber && <><span className="text-white/40">|</span><span className="text-white/60 text-sm">MLS {data.portal.mlsNumber}</span></>}
+            {priceUpdatedAt && <><span className="text-white/40">|</span><span className="text-white/60 text-sm">Updated on {priceUpdatedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span></>}
           </div>
           <div className="flex flex-wrap items-center gap-3 mt-4">
             {upd?.weekOf && upd?.weekEnding && (
