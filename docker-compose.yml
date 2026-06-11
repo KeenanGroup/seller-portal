@@ -7,6 +7,12 @@ services:
     restart: unless-stopped
     ports:
       - "3001:3001"
+    # Server-side env (SUPABASE_URL=http://supabase-kong:8000 + SUPABASE_SERVICE_ROLE_KEY) lives in
+    # the appdata .env (never rsynced) -- required for the live-listing block
+    # (list_price/price_updated_at) in /api/portal/[slug]. Explicit environment: entries below
+    # still take precedence over env_file.
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
       - SANITY_PROJECT_ID=d4ajfiyc
@@ -15,7 +21,11 @@ services:
       - NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0
     networks:
       - keenan-network
+      # kong DNS (supabase-kong:8000) is only resolvable on the supabase stack network
+      - supabase-stack_default
 
 networks:
   keenan-network:
+    external: true
+  supabase-stack_default:
     external: true
