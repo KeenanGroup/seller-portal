@@ -1,6 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Tailwind v4: custom design tokens (replaces the old tailwind.config theme).
+   The v3 @tailwind directives emitted NOTHING under the v4 toolchain — this
+   import + @theme is what generates the utility CSS (2026-06-11 unstyled-portal fix). */
+@theme {
+  --color-mulberry: #4b2030;
+  --color-cream: #f9f7f4;
+}
 
 /* Compass font stack */
 @font-face { font-family: 'Compass Sans'; src: url('/fonts/compass-sans/CompassSans-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
