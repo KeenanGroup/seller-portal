@@ -201,6 +201,21 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
   const convRate = coStar && typeof coStar.distinctClientViews === 'number' && typeof coStar.clientPortals === 'number' && coStar.clientPortals > 0
     ? (coStar.distinctClientViews / coStar.clientPortals) * 100 : typeof coStar?.conversionRate === 'number' ? coStar.conversionRate : null
 
+  // Narrative dividers (computed defensively from live data; omit when numbers missing)
+  const onlineDivider = (views != null && typeof price === 'number')
+    ? `${views.toLocaleString()} ${views === 1 ? 'view' : 'views'} across Compass, Homes.com and thekeenangroup.com — strong discovery for a ${fmt$(price)} listing${neighborhood ? ` in ${neighborhood}` : ''}.`
+    : null
+  const positionDivider = (comp.length > 0 && dom != null)
+    ? `${comp.length} comparable ${comp.length === 1 ? 'home is' : 'homes are'} on the market right now — your listing has been live ${dom} ${dom === 1 ? 'day' : 'days'}.`
+    : null
+
+  // Which online-exposure sections actually render (drives chapter 02 visibility)
+  const hasHomesCom = Boolean(syndHC)
+  const hasListingWebsite = Boolean(lw && (typeof lw.uniqueVisitors === 'number' || typeof lw.totalRequests === 'number'))
+  const hasPageViews = Boolean(sa && (typeof sa.pageViews === 'number' || typeof sa.users === 'number'))
+  const hasCompactRow = hasHomesCom || hasListingWebsite || hasPageViews
+  const compactCount = [hasHomesCom, hasListingWebsite, hasPageViews].filter(Boolean).length
+
   return (
     <div className="bg-cream">
       {/* HERO */}
@@ -261,10 +276,15 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
         </div>
       </div>
 
-      {/* CONTENT */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 space-y-10">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-8">
+      {/* ===== CHAPTER 01 — SHOWING ACTIVITY (cream band) ===== */}
+      {(!noShow || (Array.isArray(upd?.openHouses) && upd!.openHouses.length > 0)) && (
+      <div className="band band-cream">
+        <div className="band-inner space-y-8">
+          <div>
+            <div className="chapter-eyebrow">Chapter 01</div>
+            <h2 className="chapter-title">Showing Activity</h2>
+            <div className="chapter-rule" />
+          </div>
 
             {/* SHOWINGS */}
             {!noShow && (
@@ -309,8 +329,20 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
                 )}
               </Section>
             )}
+        </div>
+      </div>
+      )}
 
-            {/* COMPASS LISTING INSIGHTS */}
+      {/* ===== CHAPTER 02 — ONLINE EXPOSURE (white band) ===== */}
+      <div className="band band-white">
+        <div className="band-inner space-y-8">
+          <div>
+            <div className="chapter-eyebrow">Chapter 02</div>
+            <h2 className="chapter-title">Online Exposure</h2>
+            <div className="chapter-rule" />
+          </div>
+
+            {/* COMPASS LISTING INSIGHTS — anchor card */}
             <Section label="Compass Listing Insights">
               <p className="text-sm text-black/60 mb-6">Aggregated data from Compass.com, Zillow, Realtor.com, Trulia, and syndicated listing sites showing how buyers are discovering and engaging with your property online.</p>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
@@ -425,80 +457,50 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
               <Callout title="What this means" variant="blue">Higher view counts indicate strong market exposure. Average time spent over 15 seconds suggests genuine buyer interest rather than casual browsing.</Callout>
             </Section>
 
-            {syndHC && (
-              <Section label="Homes.com Analytics">
-                <p className="text-sm text-black/60 mb-6">Performance on Homes.com, one of the largest consumer real estate search portals. Detail page views indicate buyers who clicked through to see your full listing.</p>
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                  {[
-                    { v: syndHC.totalViews, l: 'Total Views' },
-                    { v: syndHC.detailPageViews, l: 'Detail Page Views' },
-                    { v: syndHC.favorites, l: 'Favorites' },
-                    { v: syndHC.agentViews, l: 'Agent Views' },
-                  ].map(({ v, l }) => (
-                    <div key={l} className="metric-card">
-                      <div className="text-lg font-semibold text-mulberry">{v?.toLocaleString?.() ?? '—'}</div>
-                      <div className="text-xs text-black/50 mt-1">{l}</div>
+            {/* Compact 3-up exposure row — varied silhouette vs the anchor card above */}
+            {hasCompactRow && (
+              <div className={`grid grid-cols-1 sm:grid-cols-2 gap-5 ${compactCount >= 3 ? 'lg:grid-cols-3' : ''}`}>
+                {hasHomesCom && (
+                  <div className="stat-card">
+                    <div className="section-label mb-4">Homes.com</div>
+                    <div className="stat-card-headline">{syndHC.totalViews?.toLocaleString?.() ?? syndHC.detailPageViews?.toLocaleString?.() ?? '—'}</div>
+                    <div className="text-xs text-black/50 mt-1.5">{syndHC.totalViews != null ? 'Total Views' : 'Detail Page Views'}</div>
+                    <div className="text-sm text-black/60 mt-3 leading-relaxed">
+                      {syndHC.detailPageViews != null && <span>{syndHC.detailPageViews.toLocaleString()} detail-page views</span>}
+                      {syndHC.detailPageViews != null && syndHC.favorites != null && <span> · </span>}
+                      {syndHC.favorites != null && <span>{syndHC.favorites.toLocaleString()} favorites</span>}
                     </div>
-                  ))}
-                </div>
-              </Section>
-            )}
-
-            {lw && (typeof lw.uniqueVisitors === 'number' || typeof lw.totalRequests === 'number') && (
-              <Section label="Listing Website Analytics">
-                <p className="text-sm text-black/60 mb-6">Traffic to your dedicated listing website ({lw.url || 'custom domain'}), tracked via {lw.provider || 'Cloudflare'}.</p>
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  {lw.uniqueVisitors != null && (
-                    <div className="metric-card">
-                      <div className="text-lg font-semibold text-mulberry">{lw.uniqueVisitors.toLocaleString()}</div>
-                      <div className="text-xs text-black/50 mt-1">Unique Visitors</div>
-                    </div>
-                  )}
-                  {lw.totalRequests != null && (
-                    <div className="metric-card">
-                      <div className="text-lg font-semibold text-mulberry">{lw.totalRequests.toLocaleString()}</div>
-                      <div className="text-xs text-black/50 mt-1">Total Requests</div>
-                    </div>
-                  )}
-                </div>
-                {lw.periodStart && lw.periodEnd && (
-                  <div className="text-xs text-black/40">Period: {fmtDateChi(lw.periodStart)} — {fmtDateChi(lw.periodEnd)}</div>
-                )}
-              </Section>
-            )}
-
-            {sa && (typeof sa.pageViews === 'number' || typeof sa.users === 'number') && (
-              <Section label="Website Page Views (thekeenangroup.com)">
-                <p className="text-sm text-black/60 mb-6">Visits to your listing page on thekeenangroup.com over the last 30 days, measured by Google Analytics.</p>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
-                  {sa.pageViews != null && (
-                    <div className="metric-card">
-                      <div className="text-lg font-semibold text-mulberry">{sa.pageViews.toLocaleString()}</div>
-                      <div className="text-xs text-black/50 mt-1">Page Views</div>
-                    </div>
-                  )}
-                  {sa.users != null && (
-                    <div className="metric-card">
-                      <div className="text-lg font-semibold text-mulberry">{sa.users.toLocaleString()}</div>
-                      <div className="text-xs text-black/50 mt-1">Unique Visitors</div>
-                    </div>
-                  )}
-                  {sa.avgEngagementSec != null && (
-                    <div className="metric-card">
-                      <div className="text-lg font-semibold text-mulberry">{sa.avgEngagementSec}s</div>
-                      <div className="text-xs text-black/50 mt-1">Avg Engagement</div>
-                    </div>
-                  )}
-                </div>
-                {Array.isArray(sa.topCities) && sa.topCities.length > 0 && (
-                  <div className="text-xs text-black/50">
-                    Top cities: {sa.topCities.slice(0, 5).map((c: any) => `${c.city} ${c.percentage}%`).join(' · ')}
                   </div>
                 )}
-              </Section>
+                {hasListingWebsite && (
+                  <div className="stat-card">
+                    <div className="section-label mb-4">Listing Website</div>
+                    <div className="stat-card-headline">{lw.uniqueVisitors != null ? lw.uniqueVisitors.toLocaleString() : lw.totalRequests.toLocaleString()}</div>
+                    <div className="text-xs text-black/50 mt-1.5">{lw.uniqueVisitors != null ? 'Unique Visitors' : 'Total Requests'}</div>
+                    <div className="text-sm text-black/60 mt-3 leading-relaxed">
+                      {lw.uniqueVisitors != null && lw.totalRequests != null && <span>{lw.totalRequests.toLocaleString()} total requests</span>}
+                      {(lw.uniqueVisitors == null || lw.totalRequests == null) && <span>via {lw.provider || 'Cloudflare'}</span>}
+                    </div>
+                    {lw.periodStart && lw.periodEnd && (
+                      <div className="text-xs text-black/40 mt-2">{fmtDateChi(lw.periodStart)} — {fmtDateChi(lw.periodEnd)}</div>
+                    )}
+                  </div>
+                )}
+                {hasPageViews && (
+                  <div className="stat-card">
+                    <div className="section-label mb-4">thekeenangroup.com</div>
+                    <div className="stat-card-headline">{sa.pageViews != null ? sa.pageViews.toLocaleString() : sa.users.toLocaleString()}</div>
+                    <div className="text-xs text-black/50 mt-1.5">{sa.pageViews != null ? 'Page Views (30 days)' : 'Unique Visitors (30 days)'}</div>
+                    <div className="text-sm text-black/60 mt-3 leading-relaxed">
+                      {sa.pageViews != null && sa.users != null && <span>{sa.users.toLocaleString()} unique visitors</span>}
+                      {sa.avgEngagementSec != null && <span>{sa.pageViews != null && sa.users != null ? ' · ' : ''}{sa.avgEngagementSec}s avg engagement</span>}
+                    </div>
+                  </div>
+                )}
+              </div>
             )}
 
-            {/* COSTAR */}
+            {/* COSTAR — full-width below the compact row */}
             {coStar && (
               <Section label="CoStar OneHome Agent Network">
                 <p className="text-sm text-black/60 mb-6">Activity from the agent-to-agent network where real estate professionals share and view listings for their buyer clients. High agent activity often precedes showing requests.</p>
@@ -530,34 +532,80 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
                 <Callout title="Why this matters" variant="green">Agent network activity is a leading indicator. When agents save your listing or share it with clients, showings typically follow within 1-2 weeks.</Callout>
               </Section>
             )}
+        </div>
+      </div>
 
-            {/* COMPETITION */}
-            {comp.length > 0 && (
-              <Section label="Active Competition" badge={comp.length}>
-                <div className="space-y-3 mb-4">
-                  {comp.map((c: any, i: number) => {
-                    const d2 = c.daysOnMarket || 0
-                    return (
-                      <div key={i} className="card-inner">
-                        <div className="flex items-start justify-between gap-3 mb-2">
-                          <div><div className="font-medium">{c.address || 'Unlisted'}</div><div className="text-black/50 text-sm">{typeof c.listPrice === 'number' ? fmt$(c.listPrice) : ''}</div></div>
-                          <div className="text-red-600 font-semibold">{d2} DOM</div>
-                        </div>
-                        <div className="bar-track h-2"><div className="bg-red-400/60 rounded-md h-2" style={{ width: `${Math.min(100, (d2 / maxDom) * 100)}%` }} /></div>
-                        {c.slug && <a href={`https://thekeenangroup.com/properties/${c.slug}`} target="_blank" rel="noopener noreferrer" className="text-mulberry text-sm hover:text-mulberry-light mt-2 inline-flex items-center gap-1">View on TheKeenanGroup.com <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" /></svg></a>}
+      {/* Narrative divider after Chapter 02 */}
+      {onlineDivider && (
+        <div className="band band-white">
+          <p className="chapter-divider">{onlineDivider}</p>
+        </div>
+      )}
+
+      {/* ===== CHAPTER 03 — MARKET POSITION (mulberry feature band) ===== */}
+      {comp.length > 0 && (
+      <div className="band band-dark">
+        <div className="band-inner space-y-8">
+          <div>
+            <div className="chapter-eyebrow-dark">Chapter 03</div>
+            <h2 className="chapter-title-dark">Market Position</h2>
+            <div className="chapter-rule-dark" />
+          </div>
+
+            {/* COMPETITION — light-on-dark */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-xs uppercase tracking-[0.1em] font-semibold text-white/90" style={{ borderLeft: '3px solid rgb(197,162,88)', paddingLeft: '0.875rem' }}>Active Competition</span>
+                <span className="text-[0.6875rem] font-semibold px-3 py-0.5 rounded-full" style={{ background: 'rgba(197,162,88,0.2)', color: 'rgb(197,162,88)' }}>{comp.length}</span>
+              </div>
+              <div className="space-y-3 mb-3">
+                {comp.map((c: any, i: number) => {
+                  const d2 = c.daysOnMarket || 0
+                  return (
+                    <div key={i} className="comp-card-dark">
+                      <div className="flex items-start justify-between gap-3 mb-2">
+                        <div><div className="font-medium text-white">{c.address || 'Unlisted'}</div><div className="text-white/50 text-sm">{typeof c.listPrice === 'number' ? fmt$(c.listPrice) : ''}</div></div>
+                        <div className="font-semibold" style={{ color: 'rgb(197,162,88)' }}>{d2} DOM</div>
                       </div>
-                    )
-                  })}
+                      <div className="h-2 rounded-md overflow-hidden" style={{ background: 'rgba(255,255,255,0.1)' }}><div className="h-2 rounded-md" style={{ width: `${Math.min(100, (d2 / maxDom) * 100)}%`, background: 'rgba(255,255,255,0.35)' }} /></div>
+                      {c.slug && <a href={`https://thekeenangroup.com/properties/${c.slug}`} target="_blank" rel="noopener noreferrer" className="text-sm mt-2 inline-flex items-center gap-1" style={{ color: 'rgb(197,162,88)' }}>View on TheKeenanGroup.com <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" /></svg></a>}
+                    </div>
+                  )
+                })}
+              </div>
+              {/* YOUR LISTING — gold-bordered highlight */}
+              <div className="comp-card-you">
+                <div className="flex items-start justify-between gap-3 mb-2">
+                  <div className="flex items-center gap-3"><span className="text-white font-medium">{street}</span><span className="your-listing-chip">Your Listing</span></div>
+                  <div className="font-semibold" style={{ color: 'rgb(197,162,88)' }}>{dom ?? '—'} DOM</div>
                 </div>
-                <div className="bg-mulberry/5 border-2 border-mulberry/20 rounded-xl p-4">
-                  <div className="flex items-start justify-between gap-3 mb-2">
-                    <div className="flex items-center gap-3"><span className="text-mulberry font-medium">{street}</span><span className="bg-mulberry/10 text-mulberry text-[10px] uppercase tracking-widest px-2 py-0.5 rounded font-bold border border-mulberry/20">Your Listing</span></div>
-                    <div className="text-mulberry font-semibold">{dom ?? '—'} DOM</div>
-                  </div>
-                  <div className="bar-track h-2"><div className="bar-fill-brand h-2" style={{ width: `${dom ? Math.min(100, (dom / maxDom) * 100) : 0}%` }} /></div>
-                </div>
-              </Section>
-            )}
+                <div className="h-2 rounded-md overflow-hidden" style={{ background: 'rgba(197,162,88,0.2)' }}><div className="h-2 rounded-md" style={{ width: `${dom ? Math.min(100, (dom / maxDom) * 100) : 0}%`, background: 'rgb(197,162,88)' }} /></div>
+              </div>
+            </div>
+        </div>
+      </div>
+      )}
+
+      {/* Narrative divider after Chapter 03 */}
+      {positionDivider && comp.length > 0 && (
+        <div className="band band-cream">
+          <p className="chapter-divider">{positionDivider}</p>
+        </div>
+      )}
+
+      {/* ===== CHAPTER 04 — RATE OUTLOOK (cream band) ===== */}
+      {(upd?.mortgageUpdate || Array.isArray(upd?.agentCommentary) && upd!.agentCommentary.length > 0 || upd?.priceRecommendation?.hasRecommendation || (upd?.sellerFeedback?.length || showings.some(s => s.feedback)) || (Array.isArray(upd?.propertyMaintenance) && upd!.propertyMaintenance.length > 0) || upd?.marketConditions) && (
+      <div className="band band-cream">
+        <div className="band-inner space-y-8">
+          {upd?.mortgageUpdate && (
+          <div>
+            <div className="chapter-eyebrow">Chapter 04</div>
+            <h2 className="chapter-title">Rate Outlook</h2>
+            <div className="chapter-rule" />
+          </div>
+          )}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 space-y-8">
 
             {/* MORTGAGE */}
             {upd?.mortgageUpdate && (
@@ -699,13 +747,19 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
               </div>
             </div>
           </div>
+          </div>
+
+          {/* Weekly Updates history removed (Joe 2026-06-10): sellers see the
+              latest realtime update only — no prior-update list. */}
         </div>
-
-        {/* Weekly Updates history removed (Joe 2026-06-10): sellers see the
-            latest realtime update only — no prior-update list. */}
-
-        {dispName && <div className="text-center py-6"><p className="text-xs text-black/40">This portal is exclusively for {dispName}. Please do not share this link.</p></div>}
       </div>
+      )}
+
+      {dispName && (
+        <div className="band band-cream">
+          <div className="text-center px-6 pb-10"><p className="text-xs text-black/40">This portal is exclusively for {dispName}. Please do not share this link.</p></div>
+        </div>
+      )}
     </div>
   )
 }
