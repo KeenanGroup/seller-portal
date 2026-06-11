@@ -161,7 +161,10 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
   const photos = (upd as any)?.propertyPhotos?.map((p: any) => p.url).filter(Boolean) || listing?.photos?.slice?.(0, 10) || []
   const street = listing?.street_address || listing?.address || headerAddr
   const city = listing?.city || '', state = listing?.state || '', zip = listing?.zip_code || ''
-  const neighborhood = listing?.neighborhood || listing?.subdivision || ''
+  // Prefer the portal's curated label (settings.neighborhoodLabel) — MLS
+  // subdivision is the legal name (e.g. "Ward & Treadwell"), not what a
+  // seller calls their neighborhood ("Tarrytown").
+  const neighborhood = (data.portal as any)?.settings?.neighborhoodLabel || listing?.neighborhood || listing?.subdivision || ''
   const price = listing?.list_price ?? listing?.listPrice
   const priceUpdatedAt = listing?.price_updated_at ? new Date(listing.price_updated_at) : null
   const beds = listing?.bedrooms, baths = listing?.bathrooms, sf = listing?.sqft ?? listing?.squareFeet
@@ -201,10 +204,10 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
 
   // Narrative dividers (computed defensively from live data; omit when numbers missing)
   const onlineDivider = (views != null && typeof price === 'number')
-    ? `${views.toLocaleString()} ${views === 1 ? 'view' : 'views'} across Compass, Homes.com and thekeenangroup.com — strong discovery for a ${fmt$(price)} listing${neighborhood ? ` in ${neighborhood}` : ''}.`
+    ? `${views.toLocaleString()} ${views === 1 ? 'view' : 'views'} across Compass, Homes.com and thekeenangroup.com - strong discovery for a ${fmt$(price)} listing${neighborhood ? ` in ${neighborhood}` : ''}.`
     : null
   const positionDivider = (comp.length > 0 && dom != null)
-    ? `${comp.length} comparable ${comp.length === 1 ? 'home is' : 'homes are'} on the market right now — your listing has been live ${dom} ${dom === 1 ? 'day' : 'days'}.`
+    ? `${comp.length} comparable ${comp.length === 1 ? 'home is' : 'homes are'} on the market right now - your listing has been live ${dom} ${dom === 1 ? 'day' : 'days'}.`
     : null
 
   // Which online-exposure sections actually render (drives chapter 02 visibility)
@@ -480,7 +483,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
                       {(lw.uniqueVisitors == null || lw.totalRequests == null) && <span>via {lw.provider || 'Cloudflare'}</span>}
                     </div>
                     {lw.periodStart && lw.periodEnd && (
-                      <div className="text-xs text-black/40 mt-2">{fmtDateChi(lw.periodStart)} — {fmtDateChi(lw.periodEnd)}</div>
+                      <div className="text-xs text-black/40 mt-2">{fmtDateChi(lw.periodStart)} - {fmtDateChi(lw.periodEnd)}</div>
                     )}
                   </div>
                 )}
