@@ -35,7 +35,6 @@ function fmtDate(d: string) { return new Date(d).toLocaleDateString('en-US', { w
 function fmtDateLong(d: string) { return new Date(d).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) }
 function fmtDateChi(d: string) { return new Date(d).toLocaleDateString('en-US', { timeZone: 'America/Chicago', weekday: 'short', month: 'short', day: 'numeric' }) }
 function daysBetween(a: Date, b: Date) { return Math.max(0, Math.floor((b.getTime() - a.getTime()) / 86400000)) }
-function within(d: string, n: number, anchor: Date) { const x = new Date(d), c = new Date(anchor); c.setDate(anchor.getDate() - n); return x >= c && x <= anchor }
 function parseTrend(t?: string | null): number | null { const s = String(t ?? '').trim(); if (!s) return null; const n = Number(s.replace(/[%↑↓+\s]/g, '')); return Number.isFinite(n) ? n : null }
 
 function RichText({ value }: { value?: any[] | null }) {
@@ -169,7 +168,6 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
 
   const listDate = listing?.list_date ? new Date(listing.list_date) : null
   const dom = listDate ? daysBetween(listDate, new Date()) : null
-  const anchor = upd?.weekEnding ? new Date(upd.weekEnding) : new Date()
 
   const noShow = String(data.portal?.slug ?? '') === '1810-w-35th-st' || Boolean((data.portal as any)?.settings?.hideShowings) || Boolean((data.portal as any)?.settings?.disableShowings)
   const tourOvr = String(data.portal?.slug ?? '') === '1810-w-35th-st' ? { total: 13, last30: 3 } : null
