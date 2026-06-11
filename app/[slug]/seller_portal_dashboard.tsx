@@ -235,9 +235,9 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
             {priceUpdatedAt && <><span className="text-white/40">|</span><span className="text-white/60 text-sm">Updated on {priceUpdatedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span></>}
           </div>
           <div className="flex flex-wrap items-center gap-3 mt-4">
-            {upd?.weekOf && upd?.weekEnding && (
+            {(upd?.publishedAt || upd?.weekOf) && (
               <span className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 text-white/90 text-sm">
-                Week of {fmtDate(upd.weekOf)} - {fmtDate(upd.weekEnding)}
+                Updated {new Date((upd.publishedAt || upd.weekOf) as string).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
               </span>
             )}
             {dom != null && (
