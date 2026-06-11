@@ -195,7 +195,9 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
   const comp = upd?.neighborhoodActivity?.activeCompetition || []
   const maxDom = Math.max(...[...comp.map((c: any) => c.daysOnMarket || 0), dom || 0, 1])
 
-  const vtUrl = listing?.virtualTourUrl || null
+  // Portal-level tour URL (curated, e.g. lakehavengeorgetown.com) beats the
+  // MLS-synced tour link.
+  const vtUrl = (data.portal as any)?.virtualTourUrl || listing?.virtualTourUrl || null
   const listUrl = listing?.slug && data.portal?.mlsNumber ? `https://thekeenangroup.com/properties/${encodeURIComponent(String(listing.slug))}-${encodeURIComponent(String(data.portal.mlsNumber))}` : null
   const ctaUrl = vtUrl || listUrl, ctaLabel = vtUrl ? 'View Virtual Tour' : listUrl ? 'View Full Listing' : null
 
