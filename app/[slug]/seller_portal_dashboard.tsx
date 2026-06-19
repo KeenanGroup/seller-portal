@@ -173,7 +173,11 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
   const dom = listDate ? daysBetween(listDate, new Date()) : null
 
   const noShow = String(data.portal?.slug ?? '') === '1810-w-35th-st' || Boolean((data.portal as any)?.settings?.hideShowings) || Boolean((data.portal as any)?.settings?.disableShowings)
-  const tourOvr = String(data.portal?.slug ?? '') === '1810-w-35th-st' ? { total: 13, last30: 3 } : null
+  const TOUR_OVERRIDES: Record<string, { total: number; last30: number }> = {
+    '1810-w-35th-st': { total: 13, last30: 3 },
+    '750-s-mays': { total: 12, last30: 0 },
+  }
+  const tourOvr = TOUR_OVERRIDES[String(data.portal?.slug ?? '')] ?? null
   const showings = noShow ? [] : upd?.showings || []
   const hasSh = showings.length > 0
 
