@@ -179,6 +179,15 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
     '750-s-mays': { total: 12, last30: 0 },
   }
   const tourOvr = TOUR_OVERRIDES[String(data.portal?.slug ?? '')] ?? null
+  // Per-listing CoStar/LoopNet identified prospects (reverse-IP, ~30% of viewers).
+  // Manually maintained like TOUR_OVERRIDES; CoStar has no feed to automate.
+  const COMMERCIAL_VISITORS: Record<string, Array<{ company: string; location: string; views: number; lastView: string }>> = {
+    '750-s-mays': [
+      { company: 'KW Commercial Northwest', location: 'Austin, TX', views: 1, lastView: '6/12/2026' },
+      { company: 'Asterra', location: 'Austin, TX', views: 1, lastView: '5/26/2026' },
+    ],
+  }
+  const commercialVisitors = isCommercial ? (COMMERCIAL_VISITORS[String(data.portal?.slug ?? '')] ?? []) : []
   const showings = noShow ? [] : upd?.showings || []
   const hasSh = showings.length > 0
 
@@ -356,12 +365,19 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
                 ? 'Activity from CoStar and LoopNet, the commercial networks where buyers, investors and tenant reps search for space.'
                 : 'Aggregated data from Compass.com, Zillow, Realtor.com, Trulia, and syndicated listing sites showing how buyers are discovering and engaging with your property online.'}</p>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                {([
-                  { v: views, l: 'Total Page Views', t: wm?.viewsTrend },
-                  { v: visitors, l: isCommercial ? 'Unique Prospects' : 'Unique Visitors', t: wm?.visitorsTrend },
-                  { v: avgTime, l: 'Avg Time Spent', t: wm?.timeTrend, suf: 's' },
-                  { v: vpv, l: 'Views per Visitor', f: true },
-                ] as const).map(({ v, l, t, suf, f }: any) => (
+                {((isCommercial
+                  ? [
+                      { v: views, l: 'Total Page Views', t: wm?.viewsTrend },
+                      { v: visitors, l: 'Unique Prospects', t: wm?.visitorsTrend },
+                      { v: vpv, l: 'Views per Prospect', f: true },
+                      { v: commercialVisitors.length || null, l: 'Identified Firms' },
+                    ]
+                  : [
+                      { v: views, l: 'Total Page Views', t: wm?.viewsTrend },
+                      { v: visitors, l: 'Unique Visitors', t: wm?.visitorsTrend },
+                      { v: avgTime, l: 'Avg Time Spent', t: wm?.timeTrend, suf: 's' },
+                      { v: vpv, l: 'Views per Visitor', f: true },
+                    ]) as any[]).map(({ v, l, t, suf, f }: any) => (
                   <div key={l} className="metric-card">
                     <div className="text-lg font-semibold text-mulberry">{v == null ? '—' : f ? (v as number).toFixed(1) : `${(v as number).toLocaleString()}${suf || ''}`}</div>
                     <div className="text-xs text-black/50 mt-1">{l}</div>
@@ -406,6 +422,39 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
                   </div>
                 )
               })()}
+
+              {/* Identified prospects (commercial: CoStar reverse-IP) */}
+              {isCommercial && commercialVisitors.length > 0 && (
+                <div className="card-inner p-5 mb-6">
+                  <div className="flex items-baseline justify-between mb-1">
+                    <div className="font-medium text-mulberry">Identified Prospects</div>
+                    <div className="text-sm text-black/50">Last 30 days</div>
+                  </div>
+                  <p className="text-xs text-black/50 mb-4">CoStar identifies about 30% of viewers by company; the rest browse anonymously.</p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="text-left text-black/50 border-b border-honed-stone/40">
+                          <th className="py-2 pr-4 font-medium">Company</th>
+                          <th className="py-2 pr-4 font-medium">Location</th>
+                          <th className="py-2 pr-4 font-medium text-right">Views</th>
+                          <th className="py-2 font-medium text-right">Last Viewed</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {commercialVisitors.map((v, i) => (
+                          <tr key={i} className="border-b border-honed-stone/20 last:border-0">
+                            <td className="py-3 pr-4 font-medium text-black/80">{v.company}</td>
+                            <td className="py-3 pr-4 text-black/60">{v.location}</td>
+                            <td className="py-3 pr-4 text-right text-mulberry font-semibold">{v.views}</td>
+                            <td className="py-3 text-right text-black/60">{v.lastView}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
 
               {/* Locations with donut */}
               {Array.isArray(wm?.topLocations) && wm.topLocations.length > 0 && (() => {
