@@ -4,9 +4,23 @@
    The v3 @tailwind directives emitted NOTHING under the v4 toolchain — this
    import + @theme is what generates the utility CSS (2026-06-11 unstyled-portal fix). */
 @theme {
-  --color-mulberry: #4b2030;
+  /* Brand plum (aligned to LP canonical --brand #4c2230) */
+  --color-mulberry: #4c2230;
+  --color-mulberry-light: #6b3142;
+  --color-evening-plum: #29141b;
+  /* Warm neutrals */
   --color-cream: #f9f7f4;
+  --color-honed-stone: #d5cbbf;
+  --color-honed-stone-light: #e9e3da;
+  --color-sandstone: #9f8b72;
+  /* Gold accent */
   --color-gold: #c5a258;
+  --color-gold-light: #d8c08a;
+  --color-gold-dark: #a8863f;
+  /* Compass type scale */
+  --font-sans: 'Compass Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Compass Display', 'Compass Serif', Georgia, serif;
+  --font-serif: 'Compass Serif', Georgia, serif;
 }
 
 /* Compass font stack */
