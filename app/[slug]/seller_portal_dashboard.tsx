@@ -157,6 +157,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
 
   const listing = data.listing, updates = data.updates || []
   const upd = (selectedUpdateId != null ? updates.find(u => String(u.id) === String(selectedUpdateId)) : null) || updates[0]
+  const isCommercial = /commercial/i.test(String((listing as any)?.property_type ?? ''))
 
   const photos = (upd as any)?.propertyPhotos?.map((p: any) => p.url).filter(Boolean) || listing?.photos?.slice?.(0, 10) || []
   const street = listing?.street_address || listing?.address || headerAddr
@@ -210,7 +211,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
 
   // Narrative dividers (computed defensively from live data; omit when numbers missing)
   const onlineDivider = (views != null && typeof price === 'number')
-    ? `${views.toLocaleString()} ${views === 1 ? 'view' : 'views'} across Compass, Homes.com and thekeenangroup.com - strong discovery for a ${fmt$(price)} listing${neighborhood ? ` in ${neighborhood}` : ''}.`
+    ? `${views.toLocaleString()} ${views === 1 ? 'view' : 'views'} across ${isCommercial ? 'CoStar, LoopNet and thekeenangroup.com' : 'Compass, Homes.com and thekeenangroup.com'} - strong discovery for a ${fmt$(price)} listing${neighborhood ? ` in ${neighborhood}` : ''}.`
     : null
   const positionDivider = (comp.length > 0 && dom != null)
     ? `${comp.length} comparable ${comp.length === 1 ? 'home is' : 'homes are'} on the market right now - your listing has been live ${dom} ${dom === 1 ? 'day' : 'days'}.`
@@ -276,7 +277,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-5">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <Kpi value={views == null ? '—' : views.toLocaleString()} label="Total Views" trend={wm?.viewsTrend} />
-            <Kpi value={visitors == null ? '—' : visitors.toLocaleString()} label="Unique Visitors" trend={wm?.visitorsTrend} />
+            <Kpi value={visitors == null ? '—' : visitors.toLocaleString()} label={isCommercial ? 'Unique Prospects' : 'Unique Visitors'} trend={wm?.visitorsTrend} />
             <Kpi value={totalSh == null ? '—' : String(totalSh)} label={hasSh ? 'Total Showings' : tourOvr ? 'Total Tours' : 'Showings'} />
             <Kpi value={dom == null ? '—' : dom <= 1 ? 'NEW' : String(dom)} label="Days on Market" />
           </div>
@@ -349,13 +350,15 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
             <div className="chapter-rule" />
           </div>
 
-            {/* COMPASS LISTING INSIGHTS — anchor card */}
-            <Section label="Compass Listing Insights">
-              <p className="text-sm text-black/60 mb-6">Aggregated data from Compass.com, Zillow, Realtor.com, Trulia, and syndicated listing sites showing how buyers are discovering and engaging with your property online.</p>
+            {/* PRIMARY LISTING INSIGHTS — anchor card (CoStar/LoopNet for commercial, Compass for residential) */}
+            <Section label={isCommercial ? 'CoStar / LoopNet Insights' : 'Compass Listing Insights'}>
+              <p className="text-sm text-black/60 mb-6">{isCommercial
+                ? 'Activity from CoStar and LoopNet, the commercial networks where buyers, investors and tenant reps search for space.'
+                : 'Aggregated data from Compass.com, Zillow, Realtor.com, Trulia, and syndicated listing sites showing how buyers are discovering and engaging with your property online.'}</p>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 {([
                   { v: views, l: 'Total Page Views', t: wm?.viewsTrend },
-                  { v: visitors, l: 'Unique Visitors', t: wm?.visitorsTrend },
+                  { v: visitors, l: isCommercial ? 'Unique Prospects' : 'Unique Visitors', t: wm?.visitorsTrend },
                   { v: avgTime, l: 'Avg Time Spent', t: wm?.timeTrend, suf: 's' },
                   { v: vpv, l: 'Views per Visitor', f: true },
                 ] as const).map(({ v, l, t, suf, f }: any) => (
