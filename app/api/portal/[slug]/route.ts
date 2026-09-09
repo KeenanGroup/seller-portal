@@ -208,7 +208,9 @@ export async function GET(
 
     let listing: any = null
     if (supabaseUrl && supabaseKey && portal.mlsNumber) {
-      const supabase = createClient(supabaseUrl, supabaseKey)
+      const supabase = createClient(supabaseUrl, supabaseKey, {
+        auth: { autoRefreshToken: false, persistSession: false, detectSessionInUrl: false },
+      })
 
       const rawMls = String(portal.mlsNumber ?? '').trim()
       const candidates = new Set<string>()

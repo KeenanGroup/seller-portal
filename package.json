@@ -6,7 +6,8 @@
     "dev": "next dev -p 3334",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test:server-clients": "node scripts/test_server_client_lifecycle.mjs"
   },
   "dependencies": {
     "@portabletext/react": "^6.0.3",
