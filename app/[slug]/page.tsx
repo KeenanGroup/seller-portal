@@ -46,7 +46,7 @@ export default async function SellerPortalPage({ params }: PageProps) {
   }
 
   return (
-    <ProtectedContent streetNumber={streetNumber} propertyAddress={propertyAddress} storageKey={slug}>
+    <ProtectedContent streetNumber={streetNumber} propertyAddress={propertyAddress} storageKey={slug} portalSlug={slug}>
       <SellerPortalDashboard slug={slug} streetNumber={streetNumber} />
     </ProtectedContent>
   )
