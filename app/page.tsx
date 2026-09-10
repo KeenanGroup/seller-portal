@@ -54,7 +54,9 @@ async function getListings(): Promise<Listing[]> {
   const mlsMap: Record<string, any> = {}
   if (supabaseUrl && supabaseKey) {
     try {
-      const supabase = createClient(supabaseUrl, supabaseKey)
+      const supabase = createClient(supabaseUrl, supabaseKey, {
+        auth: { autoRefreshToken: false, persistSession: false, detectSessionInUrl: false },
+      })
       const mlsList = Array.from(
         new Set(
           portals
