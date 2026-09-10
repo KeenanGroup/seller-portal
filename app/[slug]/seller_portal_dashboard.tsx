@@ -22,7 +22,7 @@ type SellerUpdate = {
   showings?: Array<{ date: string; agentName?: string | null; brokerage: string; duration: number; feedback?: string | null; sentiment?: 'very_positive' | 'positive' | 'neutral' | 'negative' | null; isTeamShowing?: boolean }>
   openHouses?: any[]; webMetrics?: any | null
   sellerFeedback?: Array<{ message: string; sourceName?: string | null; showSourceName?: boolean | null; date?: string | null; channel?: string | null; sentiment?: string | null }>
-  agentCommentary?: any[] | null
+  agentCommentary?: unknown
   priceRecommendation?: { hasRecommendation?: boolean | null; recommendedReduction?: number | null; alternativeReduction?: number | null; rationale?: string | null } | null
   neighborhoodActivity?: { soldProperties?: Array<{ address?: string; price?: number; daysOnMarket?: number }>; pendingProperties?: Array<{ address?: string; listPrice?: number }>; activeCompetition?: Array<{ address?: string; listPrice?: number; daysOnMarket?: number; slug?: string }> } | null
   propertyMaintenance?: Array<{ description?: string; date?: string; completed?: boolean }>
@@ -37,11 +37,27 @@ function fmtDateChi(d: string) { return new Date(d).toLocaleDateString('en-US', 
 function daysBetween(a: Date, b: Date) { return Math.max(0, Math.floor((b.getTime() - a.getTime()) / 86400000)) }
 function parseTrend(t?: string | null): number | null { const s = String(t ?? '').trim(); if (!s) return null; const n = Number(s.replace(/[%↑↓+\s]/g, '')); return Number.isFinite(n) ? n : null }
 
-function RichText({ value }: { value?: any[] | null }) {
-  if (!Array.isArray(value) || !value.length) return null
+function richTextNodes(value: unknown): any[] {
+  if (Array.isArray(value)) return value
+  const root = (value as { root?: { children?: unknown } } | null)?.root
+  return Array.isArray(root?.children) ? root.children : []
+}
+
+function reportingNote(value: unknown): string | null {
+  const textOf = (node: any): string => typeof node?.text === 'string'
+    ? node.text
+    : Array.isArray(node?.children) ? node.children.map(textOf).join('') : ''
+  const firstParagraph = richTextNodes(value)[0]
+  const text = textOf(firstParagraph).trim()
+  return /^(Metrics (?:refreshed|updated)|Reporting reviewed) /.test(text) ? text : null
+}
+
+function RichText({ value }: { value?: unknown }) {
+  const nodes = richTextNodes(value)
+  if (!nodes.length) return null
   return (
     <div>
-      {value.map((node: any, idx: number) => {
+      {nodes.map((node: any, idx: number) => {
         const children = Array.isArray(node?.children) ? node.children : []
         const text = children.map((c: any, ci: number) => {
           const t = String(c?.text ?? ''); if (!t) return null
@@ -132,7 +148,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
     ;(async () => {
       try {
         setLoading(true); setError(null)
-        const res = await fetch(`/api/portal/${encodeURIComponent(slug)}`, { cache: 'no-store', headers: { 'x-portal-passcode': streetNumber } })
+        const res = await fetch(`/api/portal/${encodeURIComponent(slug)}`, { cache: 'no-store', headers: { 'x-portal-passcode': localStorage.getItem(`seller_portal_auth_${slug}`) || '' } })
         if (!res.ok) throw new Error(res.status === 401 ? 'Unauthorized' : res.status === 404 ? 'Portal not found' : `Error ${res.status}`)
         const json = (await res.json()) as ApiResponse
         if (!cancel) { setData(json); if (json?.updates?.[0]?.id != null) setSelectedUpdateId(p => p == null ? json.updates[0].id : p) }
@@ -220,7 +236,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
 
   // Narrative dividers (computed defensively from live data; omit when numbers missing)
   const onlineDivider = (views != null && typeof price === 'number')
-    ? `${views.toLocaleString()} ${views === 1 ? 'view' : 'views'} across ${isCommercial ? 'CoStar, LoopNet and thekeenangroup.com' : 'Compass, Homes.com and thekeenangroup.com'} - strong discovery for a ${fmt$(price)} listing${neighborhood ? ` in ${neighborhood}` : ''}.`
+    ? `${views.toLocaleString()} ${views === 1 ? 'view' : 'views'} reported in listing insights. Website and other provider activity are shown separately above.`
     : null
   const positionDivider = (comp.length > 0 && dom != null)
     ? `${comp.length} comparable ${comp.length === 1 ? 'home is' : 'homes are'} on the market right now - your listing has been live ${dom} ${dom === 1 ? 'day' : 'days'}.`
@@ -356,6 +372,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
           <div>
             <div className="chapter-eyebrow">Chapter 02</div>
             <h2 className="chapter-title">Online Exposure</h2>
+            {reportingNote(upd?.agentCommentary) && <p className="mt-3 text-sm text-black/70 leading-relaxed">{reportingNote(upd?.agentCommentary)}</p>}
             <div className="chapter-rule" />
           </div>
 
@@ -653,7 +670,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
       )}
 
       {/* ===== CHAPTER 04 — RATE OUTLOOK (cream band) ===== */}
-      {(upd?.mortgageUpdate || Array.isArray(upd?.agentCommentary) && upd!.agentCommentary.length > 0 || upd?.priceRecommendation?.hasRecommendation || (upd?.sellerFeedback?.length || showings.some(s => s.feedback)) || (Array.isArray(upd?.propertyMaintenance) && upd!.propertyMaintenance.length > 0) || upd?.marketConditions) && (
+      {(upd?.mortgageUpdate || richTextNodes(upd?.agentCommentary).length > 0 || upd?.priceRecommendation?.hasRecommendation || (upd?.sellerFeedback?.length || showings.some(s => s.feedback)) || (Array.isArray(upd?.propertyMaintenance) && upd!.propertyMaintenance.length > 0) || upd?.marketConditions) && (
       <div className="band band-cream">
         <div className="band-inner space-y-8">
           {upd?.mortgageUpdate && (
@@ -719,7 +736,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
 
 
             {/* AGENT COMMENTARY */}
-            {Array.isArray(upd?.agentCommentary) && upd!.agentCommentary.length > 0 && (
+            {richTextNodes(upd?.agentCommentary).length > 0 && (
               <div className="card border-l-4 border-l-gold">
                 <h2 className="section-label mb-4" style={{ borderLeft: 'none', paddingLeft: 0 }}>Keenan Group Analysis</h2>
                 <RichText value={upd!.agentCommentary} />

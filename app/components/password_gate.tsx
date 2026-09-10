@@ -1,15 +1,17 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { validatePortalAccess } from './portal_access'
 
 interface PasswordGateProps {
   streetNumber: string
   propertyAddress: string
   storageKey?: string
+  portalSlug?: string
   children: React.ReactNode
 }
 
-export function PasswordGate({ streetNumber, propertyAddress, storageKey, children }: PasswordGateProps) {
+export function PasswordGate({ streetNumber, propertyAddress, storageKey, portalSlug, children }: PasswordGateProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -18,21 +20,39 @@ export function PasswordGate({ streetNumber, propertyAddress, storageKey, childr
   const localKey = `seller_portal_auth_${storageKey || streetNumber}`
 
   useEffect(() => {
+    let active = true
+    setIsLoading(true)
+    setIsAuthenticated(false)
     const stored = localStorage.getItem(localKey)
-    if (stored === streetNumber) setIsAuthenticated(true)
-    setIsLoading(false)
-  }, [localKey, streetNumber])
+    if (portalSlug && stored) {
+      validatePortalAccess(portalSlug, stored).then(result => {
+        if (!active) return
+        setIsAuthenticated(result.ok)
+        if (!result.ok) setError(result.error || 'Unable to open this portal.')
+        setIsLoading(false)
+      })
+    } else {
+      if (!portalSlug && stored === streetNumber) setIsAuthenticated(true)
+      setIsLoading(false)
+    }
+    return () => { active = false }
+  }, [localKey, streetNumber, portalSlug])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
-    if (password === streetNumber) {
-      localStorage.setItem(localKey, streetNumber)
+    setIsLoading(true)
+    const result = portalSlug
+      ? await validatePortalAccess(portalSlug, password)
+      : { ok: password === streetNumber, error: 'Incorrect password. Please try again.' }
+    if (result.ok) {
+      localStorage.setItem(localKey, password)
       setIsAuthenticated(true)
     } else {
-      setError('Incorrect password. Please try again.')
+      setError(result.error || 'Unable to open this portal.')
       setPassword('')
     }
+    setIsLoading(false)
   }
 
   if (isLoading) {
