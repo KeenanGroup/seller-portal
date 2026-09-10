@@ -380,7 +380,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
             <Section label={isCommercial ? 'CoStar / LoopNet Insights' : 'Compass Listing Insights'}>
               <p className="text-sm text-black/60 mb-6">{isCommercial
                 ? 'Activity from CoStar and LoopNet, the commercial networks where buyers, investors and tenant reps search for space.'
-                : 'Aggregated data from Compass.com, Zillow, Realtor.com, Trulia, and syndicated listing sites showing how buyers are discovering and engaging with your property online.'}</p>
+                : 'Activity from the Compass Listing Insights report for the reporting period noted above. Website and other provider reports are shown separately.'}</p>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 {((isCommercial
                   ? [
@@ -530,7 +530,7 @@ export function SellerPortalDashboard({ slug, streetNumber }: { slug: string; st
                 </div>
               )}
 
-              <Callout title="What this means" variant="blue">Higher view counts indicate strong market exposure. Average time spent over 15 seconds suggests genuine buyer interest rather than casual browsing.</Callout>
+              <Callout title="What this means" variant="blue">Views and time spent describe reported engagement. They do not identify individual buyers, confirm purchase intent, or represent offers.</Callout>
             </Section>
 
             {/* Compact 3-up exposure row — varied silhouette vs the anchor card above */}
