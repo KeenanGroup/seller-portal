@@ -39,6 +39,16 @@ function num(v: unknown): number | null {
   return Number.isFinite(n) ? n : null
 }
 
+// Match the authenticated portal lookup: prefer the stored identifier, then
+// its numeric/ACT equivalent. Other MLS prefixes remain exact-match only.
+function mlsCandidates(value: unknown): string[] {
+  const raw = String(value ?? '').trim()
+  if (!raw) return []
+  if (/^\d+$/.test(raw)) return [raw, `ACT${raw}`]
+  if (/^ACT\d+$/.test(raw)) return [raw, raw.slice(3)]
+  return [raw]
+}
+
 async function getListings(): Promise<Listing[]> {
   const data = await payloadFetch(
     '/seller-portals?where[isActive][equals]=true&sort=displayName&limit=60&depth=0'
@@ -59,13 +69,7 @@ async function getListings(): Promise<Listing[]> {
       })
       const mlsList = Array.from(
         new Set(
-          portals
-            .flatMap((p) => {
-              const raw = String(p.mlsNumber ?? '').trim()
-              const alt = raw.replace(/^ACT/, '')
-              return [raw, alt]
-            })
-            .filter(Boolean)
+          portals.flatMap((p) => mlsCandidates(p.mlsNumber))
         )
       )
       const { data: rows } = await supabase
@@ -82,8 +86,7 @@ async function getListings(): Promise<Listing[]> {
 
   return portals.map((p): Listing => {
     const snap = p.listingSnapshot || {}
-    const raw = String(p.mlsNumber ?? '').trim()
-    const row = mlsMap[raw] || mlsMap[raw.replace(/^ACT/, '')]
+    const row = mlsCandidates(p.mlsNumber).map((mls) => mlsMap[mls]).find(Boolean)
     const bathsFull = num(row?.bathrooms_full)
     const bathsHalf = num(row?.bathrooms_half)
     const baths =
